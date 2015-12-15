@@ -36,12 +36,12 @@
 }
 
 % for possible option values see README.md
-\DeclareStringOption[title not set]{title} % Title of the work
-\DeclareStringOption[author not set]{author}
-\DeclareStringOption[bachelor]{type}
+\DeclareStringOption[Modeling of Resource Centric Process]{title} % Title of the work
+\DeclareStringOption[Archana Kalidoss]{author}
+\DeclareStringOption[master]{type}
 \DeclareStringOption[fac]{institute}
 \DeclareStringOption[not set]{number} % running number
-\DeclareStringOption[cs]{course}
+\DeclareStringOption[cse]{course}
 \DeclareStringOption[examiner not set]{examiner}
 \DeclareStringOption[supervisor not set]{supervisor} 
 \DeclareStringOption[startdate not set]{startdate} 
@@ -84,6 +84,7 @@
 	\gdef\@labelTypeProzessanalyse{Prozessanalyse}%
 	
 	\gdef\@labelCourseCS{Informatik}%
+	\gdef\@labelCourseCSE{Computer Science}%
 	\gdef\@labelCourseSE{Softwaretechnik}%
 	\gdef\@labelCourseMCL{Computerlinguistik}%
 	\gdef\@labelCourseTK{Technische Kybernetik}%
@@ -130,6 +131,7 @@
 	\gdef\@labelTypeProzessanalyse{Prozessanalyse}%
 	
 	\gdef\@labelCourseCS{Informatik}%
+	\gdef\@labelCourseCSE{Computer Science}%
 	\gdef\@labelCourseSE{Softwaretechnik}%
 	\gdef\@labelCourseMCL{Computerlinguistik}%
 	\gdef\@labelCourseTK{Technische Kybernetik}%
@@ -211,6 +213,7 @@
 	\def\1{\MCS@course}
 	% dont remove last two braces / empty else clause
 	\def\0{cs}\ifthenelse{\equal{\0}{\1}}{\gdef\@labelCourseValue{\@labelCourseCS}}{}
+	 \def\0{cse}\ifthenelse{\equal{\0}{\1}}{\gdef\@labelCourseValue{\@labelCourseCSE}}{}
 	\def\0{se}\ifthenelse{\equal{\0}{\1}}{\gdef\@labelCourseValue{\@labelCourseSE}}{}
 	\def\0{mcl}\ifthenelse{\equal{\0}{\1}}{\gdef\@labelCourseValue{\@labelCourseMCL}}{}
 	\def\0{msv}\ifthenelse{\equal{\0}{\1}}{\gdef\@labelCourseValue{\@labelCourseMSV}}{}
