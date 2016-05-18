@@ -1,9 +1,35 @@
 \chapter{Introduction}
 \label{chap:introduction}
-This work is structured in the following way:
 
 
-\section*{Outline}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Motivation}
+\label{sec:motivation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Problem Statement}
+\label{sec:problemstatement}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hspace{4ex} Every organization contains multiple entities like resources e.g humans, tools etc., intentions e.g revenue based intentions,quarterly intentions etc., strategies e.g the process to achieve the intention and capabilities e.g a resource that can provide a particular capability. Thus an organization needs an efficient mechanism to handle and manage these different types of entities. Though there are some existing tools which provide facility to manage resources in an organizations, they act either as a \textit{Retrieval Service} i.e they are used only to view or retrieve resource engagers for resources or as an \textit{Control Service} i.e they are used to run resource engagers. But there is not a service which provides both mechanism to retrieve and initiate the instances of each entities. The research work by Matthews et. al \cite{Matthews2011}  clearly points out below as the major problems in adopting to a workspace collaboration tools.
+
+\begin{enumerate}
+	\item \textbf{Lack of Methods}
+	\item \textbf{Methods that focus on individuals}
+	\item \textbf{Not well targeted groups}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Contributions}
+\label{sec:contributions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section {Outline}
+\label{sec:outline}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The remainder of the document is organized into following chapters
 \begin{description}
 \item[Chapter ~\ref{chap:motivatingScenario} -- \nameref{chap:motivatingScenario}:] In this chapter a motivating scenario has been taken which helps reader in realizing the Organizational Modeling throughout the document. 
@@ -17,37 +43,55 @@ The remainder of the document is organized into following chapters
 \item[Chapter ~\ref{chap:conclusion} -- \nameref{chap:conclusion}:] Summaries the results of this thesis work and draws conclusion. 
 \end{description}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Definitions of Abbreviations}
+\label{sec:definitionsandabbrevations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In this section, we list the definitions of abbreviations that are used in this document.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Motivation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+	\begin{longtable}{p{5cm}p{11cm}} 
+		\textbf{IPD} & Informal Process Definitions\\
+		\textbf{CTX} & Contexts\\
+		\textbf{INT} & Intentions\\
+		\textbf{XML} & eXtensible Markup Language\\
+		\textbf{INT} & XML Schema Definition\\
+		
+       \label{tab:abbreviations}
+    \end{longtable}	
+\end{center}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Problem Definition}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Contributions and Outline}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section {Research Objectives}
+\label{sec:researchobjectives}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{sec:researchobj}
+The research objectives of this thesis work has been provided in the Table \ref{tab:researchobjectives}.
 
-\begin{tabular}{p{5cm}p{11cm}} 
+\begin{center}
+	\begin{longtable}{p{5cm}p{11cm}} 
+   	\toprule 
 	\textbf{Research Objective} & \textbf{Description} \\
+	\midrule
+	\endfirsthead
 	\\
 	RO. 1 & \textit{Intentions are traceble in the different levels of the organizational hierarchy. } \label{ro1} \\
 	\\[-1.5ex]
 	RO. 2 & \textit{Linking intentions with capabilities and at the with resources enable us a cost estimation for each intention. Cost is estimated in a recursive manner.} \label{ro2} \\
 	\\[-1.5ex]
-	RO. 3 & \textit{Validity of an organizational intentions is achieveable when the intentions can be refined by defining sub-intentions, which can then be defined recursively as independent informal processes.} \label{ro3}\\
+	RO. 3 & \textit{Validity of an organizational intention is achieveable when the intention can be refined by defining sub-intentions, which can then be defined recursively as independent informal processes.} \label{ro3}\\
 	\\[-1.5ex]
 	RO. 4 & \textit{As each member of the organization aware of the higher level and lower level intentions. He can engage for these explicit intentions. } \label{ro4}\\
 	\\[-1.5ex]
 	RO. 5 & \textit{Different members of an organization participate to create organizational intentions, as a result intentions are shaped based on all members but directed by the executives.} \label{ro5}\\
 	\\[-1.5ex]
 	RO. 6 & \textit{Intention-specific solutions can be extracted as abstract re-usable entities, organizational strategy patterns and can be re-used in muliple context definitions.} \label{ro6}\\
-\end{tabular}
+	
+	\bottomrule
+	\caption{Research Objectives}
+	\label{tab:researchobjectives}
+	\end{longtable}	
+\end{center}

@@ -267,9 +267,10 @@
 \makeatother
 \let\cleardoublepage\clearpage
 \listoffigures
-\let\cleardoublepage\relax
+\newpage
+%\let\cleardoublepage\relax
 \listoftables
-
+\newpage
 %Wird nur bei Verwendung von der lstlisting-Umgebung mit dem "caption"-Parameter benoetigt
 %\lstlistoflistings 
 %ansonsten:
@@ -281,11 +282,11 @@
 
 %mittels \newfloat wurde die Algorithmus-Gleitumgebung definiert.
 %Mit folgendem Befehl werden alle floats dieses Typs ausgegeben
-\ifdeutsch
-\listof{Algorithmus}{List of Algorithms}
-\else
-\listof{Algorithmus}{List of Algorithms}
-\fi
+%\ifdeutsch
+%\listof{Algorithmus}{List of Algorithms}
+%\else
+%\listof{Algorithmus}{List of Algorithms}
+%\fi
 %\listofalgorithms %Ist nur für Algorithmen, die mittels \begin{algorithm} umschlossen werden, nötig
 
 \endgroup
@@ -308,14 +309,23 @@
 %
 % ** Hier wird der Text eingebunden **
 %
+\cleardoublepage
 \input{content/Introduction}
+\cleardoublepage
 \input{content/MotivatingScenario}
+\cleardoublepage
 \input{content/Fundamentals}
+\cleardoublepage
 \input{content/Requirements}
+\cleardoublepage
 \input{content/IntentionOrientedOrganizationalModeling}
-\input{content/IntentionOrientedOrganizationalModelingNotation}
+\cleardoublepage
+\input{content/Design}
+\cleardoublepage
 \input{content/Realization}
+\cleardoublepage
 \input{content/Evaluation}
+\cleardoublepage
 \input{content/Conclusion}
 %
 %
