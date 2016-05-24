@@ -1,8 +1,28 @@
-\chapter{Organizational Modeling}
-\label{chap:orgModeling}
+\chapter{Fundamentals}
+\label{chap:fundamentals}
+%background - What do I need to know to understand the thesis?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Organizational Modeling Notation}
+\section{Overview of Organizational Modeling}
+\label{sec:overvieworgmodel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Related Work}
+\label{sec:relatedwork}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Literature Review}
+\label{sec:literaturereview}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Organizational Modeling}
+\label{sec:orgModeling}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Organizational Modeling Notation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hspace{4ex} The Organizational Modeling element notation has been selected as per the guidelines mentioned in the paper by Daniel L.Moody \cite{Moody2009}. Also by observing  the fact that business process modelers are already well-known with the present process modeling notations such as Business Process Modeling Notation 2.0 (BPMN) \cite{bpm2011} and ArchiMate notation\cite{arc2013}, the shape depiction of organizational model elements are designed similar to those existing process notations. 
 
@@ -14,7 +34,7 @@
 		\textbf{Element} & \textbf{Definition} & \textbf{Notation} \\
 		\midrule
 		\endfirsthead
-		Goal 			& Goals are purposeful concrete steps taken to achieve expected outcomes . They reflect the actual intention of an organization.Goals are defined hierarchically, which can contain and extend goals.It is depicted by a double circle. The sub-goals are refined starting from main goal. Goals associated with capabilities are concrete goals and goals that are not associated with capabilities are abstract goals. Abstract goals are represented by dashed double circle and concrete goals are depicted by a solid double circle. & \begin{center} \includegraphics[width= 0.07\textwidth]{goals.png}  \end{center}  \\  
+		Goal 			& Goals are purposeful concrete steps taken to achieve expected outcomes . They reflect the actual intention of an organization.Goals are defined hierarchically, which can contain and extend goals.It is depicted by a double circle. The sub-goals are refined starting from main goal. Goals associated with capabilities are concrete goals and goals that are not associated with capabilities are abstract goals. Abstract goals are represented by dashed double circle and concrete goals are depicted by a solid double circle. & \begin{center} \includegraphics[width= 0.07\textwidth]{intentions.png}  \end{center}  \\  
 		
 		Capabilities	& Organizational capability is the ability to provide business values like software applications, resources, and potential of the actor to make decisions even in changing situations \cite{Stirna2012}. Capabilites are represented by a elliptical circle. Capability is an ability that should be possessed by an Actor or a Resource that work towards achievement of goal.   & \begin{center} \includegraphics[width= 0.1\textwidth]{capabilities.png} \end{center}   \\
 		
@@ -38,7 +58,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Organizational Modeling Notation Example}
+\subsection{Organizational Modeling Notation Example}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hspace{4ex} The concept of Organizational Model Notations can be explained with the following manufacturing scenario. ABC Ltd. is a budding computer technology company which designs, develops, manufactures and sells personal computers, tablets and laptops. The CEO's goal of the quarter is to increase the revenue and number of unit sales. The initial context describes the situation that motivates to start the process. The final context describes the situation that is achieved once the process completed successfully. Goals connect initial context definitions with final context definitions \cite{Sungur2014a}. The sub-goals are the intermediate goals which describes the expected outcome in a measurable form. Goals are reached through strategy implementation which is plan of action designed to meet a goal. 
 
@@ -62,7 +82,7 @@
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Organizational Modeling Process Representation}
+\subsection{Organizational Modeling Process Representation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
 	\centering
@@ -77,7 +97,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Organizational Modeling Entity Representation}
+\subsection{Organizational Modeling Entity Representation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}
@@ -98,9 +118,9 @@
 \hspace{4ex} Each informal process starts from an initial context, i.e., \textit{IPE Context} and aims to achieve a goal. After accomplishing the goal, there is a resulting context called as final context. Each Resource can be related to another Resource in the context of an informal process using predefined or custom \textit{Relationships}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Requirements Supporting Organizational Modeling}
+\subsection{Requirements Supporting Organizational Modeling}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
+
 \hspace{4ex} \textbf{Requirement 1 (R1)}: \textit{Organizational goal transparency.} A goal can be broken down into definitive actionable components, or sub-goals, upon which individual resources can act. When these lower level sub-goals are made  achievable for individual resources, they can be combined to provide successful execution of higher level goal. Different organizational members can observe lower level and higher level goals in their organizations. Goals are traceable in the different levels of the organizational hierarchy. This kind of transparency within an organization reduces inefficiencies in goal execution, and is a key factor in attracting and retaining high  performers in the labor market \cite{McManus2007}.Requirement R1 has to be satisfied in the modeling time of the process itself as the framing of goals, sub-goals, strategies are done during the modeling time .
 
 \hspace{4ex} \textbf{Requirement 2 (R2)}: \textit{Organizational goal resource-based cost estimation.}Linking goals with capabilities and with resources enable us a cost estimation for each goal. Cost is estimated in a recursive manner. Cost of a goal is calculated as follows  
@@ -138,6 +158,6 @@ level. At the moment a  goal is achieved, some resources should be allocated to 
 		
 		\bottomrule
 	\end{tabular}
-		\caption{Sub Requirements}
-		\label{tab:subrequirements}
+	\caption{Sub Requirements}
+	\label{tab:subrequirements}
 \end{table}
