@@ -1,8 +1,8 @@
 \chapter{Motivating Scenario}
 \label{chap:motivatingScenario}
 
-In order to realize the Organizational Modeling  below motivating scenario has been taken and realized using the developed UI editor.
-This scenario also helps in testing the UI editor along with realizing the Organizational Notations. The motivating scenario has been chosen based on the advice provided in works ..... The figure of this example was taken from the context of manufacturing sector. The abstract intention of the organization is to increase the quarterly revenue and number of unit sales. In order to achieve this intention through Organizational Modeling Approach, as a first step we need to break the abstract intention into several strategies like
+In order to realize the Organizational Modeling, the below motivating scenario has been taken and realized using the developed UI editor.
+This scenario also helps in testing the UI editor along with realizing the Organizational Notations. The motivating scenario has been chosen based on the advice provided in works ..... The figure of this example was taken from the context of manufacturing sector. The  intention of the organization is to increase the quarterly revenue and number of unit sales. In order to achieve this intention through Organizational Modeling Approach, as a first step we need to break the abstract intention into several strategies like
 \begin{enumerate}
 	\item Increasing the revenue through expanding the market sales. 
 	\item Through improving the excellence of the product which in turn brings back old and new customers.
@@ -13,51 +13,83 @@ This scenario also helps in testing the UI editor along with realizing the Organ
 \section{Overview}
 \label{sec:overview}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-- An abstract overview about how collaborations take place inside any organizations---
+ 
 
-- Each intention can be decomposed into sub-intentions
-- Intention canvas will only contain only sub intentions
-- In the canvas, when we select an intention, it will list possible strategies and let us create new strategies for that intention. Moreover, it will let us select the current active strategy.
-- Intentions will contain optional, necessary, and contradicting (xor) sub-intentions
-- Creating 2 types of capabilities, functional and cross-functional capabilities, cross functional capabilities contain other capabilities and these capabilities can be associated with organizational resources
-- Goals are not associated with capabilities
-- Strategies are associated with organizational capabilities
-- Goals realized through some strategies
-- We add cross-functional and (maybe functional capabilities) into
-
-- As a result each informal process model is a strategy and will have cross-functional capabilities, resources (which will be created out of capabilities), a goal that the specific strategy
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Organizational Intentions} 
+\subsection{Organizational Modeling Example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ The concept of Organizational Model Notations can be explained with the following manufacturing scenario. ABC Ltd. is a budding computer technology company which designs, develops, manufactures and sells personal computers, tablets and laptops. The CEO's goal of the quarter is to increase the revenue and number of unit sales. The initial context describes the situation that motivates to start the process. The final context describes the situation that is achieved once the process completed successfully. Goals connect initial context definitions with final context definitions \cite{Sungur2014a}. The sub-goals are the intermediate goals which describes the expected outcome in a measurable form. Goals are reached through strategy implementation which is plan of action designed to meet a goal. 
+
+ The example scenario ABC Ltd. helps in understanding the organizational modeling i.e., how organization's higher level goal can be achieved by amalgamation of specific, measurable and realistic sub-goals. . The whole view has been divided into Goal view and Strategy view. The \textit{Goal View} shown in the Figure\ref{fig:goalview} provides only the details of goal and its associated strategies. There can be multiple strategies followed to achieve a goal. The \textit{Strategy View} shown in the Figure\ref{fig:strategyview} connects big picture of each strategy with individual goals that has to be carried out. In Organizational Process Modeling, strategies are self-contained and loosely coupled. So that when we extract only the strategies from Organization Process Modeling it would be similar to Informal Process Essential Modeling. 
+
+ The Strategy view  in the Figure\ref{fig:strategyview} depicts big picture of each strategy. Strategies are associated with both goals and capabilities. Capabilities are related to goals and resources. As each goal needs certain capability to successfully execute the goal they both are connected using the verb \textit{"requires"}. Resources are the potential holder of the capability i.e., to satisfy a capability we need resources. The capability and its associated resources are linked using the verb \textit{"satisfied-by"}. 
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{StrategyView.pdf}
+	\caption{Strategy View}
+	\label{fig:strategyview}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{GoalView.pdf}
+	\caption{Goal View}
+	\label{fig:goalview}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Entity Types}
+\label{sec:entities}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ --- This section discusses in details, about each entity types of the motivating scenario and images,
+ that describes relationship between each entity types---
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Organizational Intentions} 
 \label{sec:intentions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Organizational Strategies} 
+\subsection{Organizational Strategies} 
 \label{sec:strategies}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Organizational Capabilities}
+\subsection{Organizational Capabilities}
 \label{sec:capabilities}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Each organizational capability must be provided by a resource in the organization. Resource models are optional to make precise definitions of resources needed. The relationship between organizational capabilities and organizational intentions has been provided in the Figure 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{CapIntRel.pdf}
+	\caption{Relation between organizational capabilities and intentions}
+	\label{fig:orgcapabilities}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Organizational Resources} 
+\subsection{Organizational Resources} 
 \label{sec:resources}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Organizational Processes} 
+\subsection{Organizational Processes} 
 \label{sec:processes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Informal Process Instances} 
+\subsection{Informal Process Instances} 
 \label{sec:ipinstances}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
