@@ -1,15 +1,10 @@
-\chapter{Fundamentals}
+\chapter{Fundamentals and Related Work}
 \label{chap:fundamentals}
 %background - What do I need to know to understand the thesis?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Basic Concepts}
 \label{sec:basicconcepts}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Related Work}
-\label{sec:relatedwork}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,7 +19,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Definitions }
+\section{Definitions of Terms}
 \label{sec:termdefinitions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textit{Informal Processes}  The processes that human participate and create knowledge are called unstructured/informal/human-centric processes.        \\
@@ -44,10 +39,8 @@
 
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Organizational Modeling Notations}
+\section{Resource-centric Organizational Modeling}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  The Organizational Modeling element notation has been selected as per the guidelines mentioned in the paper by Daniel L.Moody \cite{Moody2009}. Also by observing  the fact that business process modelers are already well-known with the present process modeling notations such as Business Process Modeling Notation 2.0 (BPMN) \cite{bpm2011} and ArchiMate notation\cite{arc2013}, the shape depiction of organizational model elements are designed similar to those existing process notations. 
 
@@ -84,8 +77,13 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Process Representation}
+\subsection{Process Representation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Organizational Process Modeling depicted inFigure \ref{fig:processdiagram} captures required organizational capabilities that are satisfied by resource models  to enable the achievement of organizational goals in certain context definitions through a strategy. It is a top-down approach, i.e., first goals are defined and then sub-goals  are defined by refining main goal. Goals connect initial context definitions with final context definitions through a strategy.  To understand the definition of Organizational Process Modeling we need to interpret the Organizational Process Modeling Representation shown in Figure\ref{fig:processdiagram}. 
+
+ The Organizational Process Modeling start with modeling of organizational goal (M1). Once the goal has been modeled, the second step is to model the strategies which can be a multi-instance strategy model(M2). The next step is to model the context definitions (M3.1), required organizational capabilities (M3.2) and refining the sub-goals from main goal in parallel. Once the required capabilities(M4) are matched by required resources(P1), modeling of resources(M5) can be done.  Based on created resource models (M5) and modeled context definitions(M3.1), strategies can be executed. The organizational goals would be iteratively updated supported to strategy execution.  
+
+
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{processmodeling.pdf}
@@ -93,21 +91,9 @@
 	\label{fig:processdiagram}
 \end{figure}
 
- Organizational Process Modeling depicted inFigure \ref{fig:processdiagram} captures required organizational capabilities that are satisfied by resource models  to enable the achievement of organizational goals in certain context definitions through a strategy. It is a top-down approach, i.e., first goals are defined and then sub-goals  are defined by refining main goal. Goals connect initial context definitions with final context definitions through a strategy.  To understand the definition of Organizational Process Modeling we need to interpret the Organizational Process Modeling Representation shown in Figure\ref{fig:processdiagram}. 
-
- The Organizational Process Modeling start with modeling of organizational goal (M1). Once the goal has been modeled, the second step is to model the strategies which can be a multi-instance strategy model(M2). The next step is to model the context definitions (M3.1), required organizational capabilities (M3.2) and refining the sub-goals from main goal in parallel. Once the required capabilities(M4) are matched by required resources(P1), modeling of resources(M5) can be done.  Based on created resource models (M5) and modeled context definitions(M3.1), strategies can be executed. The organizational goals would be iteratively updated supported to strategy execution.  
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Entity Representation}
+\subsection{Entity Representation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{entity.pdf}
-	\caption{Organizational Modelling Meta-Model}
-	\label{fig:metamodel}
-\end{figure}
 
  The conceptual entity model of goals is shown in the \ref{fig:metamodel}. This model shows that top level goal is refined into sub-goals. A goal can be achieved through a strategy which is a plan of action designed to meet a goal. It also describes a set of interrelated resources which work together to achieve a collective goal. As reported by Sungur et al. \cite{Sungur2014a}, the concept of IPE provides an agent-based approach i.e., human performers are considered as agents who execute the processes autonomously. Based on the approach \cite{Sungur2014a} we provide a goal-oriented approach based on goals.
 
@@ -118,4 +104,12 @@
  An informal process targets for accomplishment of a goal. The goals can be refined by defining sub-goals, which can be defined recursively as independent informal processes. The goal-based approach enables describing processes declaratively, i.e., without describing \textit{how} the intention is achieved, and providing only information about \textit{what} is achieved. Thus, to avoid predefined business logic in the representations of informal processes. 
 
  Each informal process starts from an initial context, i.e., \textit{IPE Context} and aims to achieve a goal. After accomplishing the goal, there is a resulting context called as final context. Each Resource can be related to another Resource in the context of an informal process using predefined or custom \textit{Relationships}.
+ 
+ \begin{figure}
+ 	\centering
+ 	\includegraphics[width=\textwidth]{entity.pdf}
+ 	\caption{Organizational Modelling Meta-Model}
+ 	\label{fig:metamodel}
+ \end{figure}
+ 
 

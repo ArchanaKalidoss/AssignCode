@@ -24,7 +24,7 @@ The Table \ref{tab:evaluationoftheapproach}, provides an evaluation of the appro
 \begin{center}
 	\begin{longtable}{p{5cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}} 
 		\toprule 
-		\textbf{Approach} & \textbf{RO1}  & \textbf{RO2}  & \textbf{RO2}  & \textbf{RO4}  & \textbf{RO5} \\
+		\textbf{Approach} & \textbf{R1}  & \textbf{R2}  & \textbf{R3}  & \textbf{R3}  & \textbf{R5} \\
 		\midrule
 		\endfirsthead
 		\\
@@ -50,7 +50,25 @@ Legend :
 \end{description}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Specifications}
+\section{Design Methodology}
+\label{sec:designmethodology}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+On the left list we should have all organizational context definitions and on the right one only ones that are contained in an informal process. The dropdown box of the initial and final context defines the selection inside of an informal process, thus right side.
+
+So, in db.cljs, we should have only a list of context definitions no :initial-contexts and :desired-final-contexts. Only :organizational-contexts and under this all available contexts. Under the left list, we present these elements. Right list should refer to the initial-context, final-contexts, etc. of the informal process model depending on the selection of the dropbox button. For instance if we have initial contexts selected on the dropdown box, we should present the initial contexts in the right list.
+
+I have changed the code accordingly and provided you an example how you should change data from views.cljs. All data should be stored in db.cljs. This applies to the text fields of all elements. Whenever, we want to update something we need to update the map in db.cljs and this will be propagated to the views.
+
+
+On the left side of each list item, you should present all available items of context definitions or intentions whatever type is selected there. On the right side only the ones contained in the respective informal process model. Inside of another entity, you should refer to other entities using their ids and these ids should be resolved using, for instance, intentions vector. You check each intention in the intentions vector, if it’s id is the same as the id you are looking for it, you found it and you use the information about it.  
+
+
+Please align it with the structure and names of the IPSM.xsd. Each variableName like this is written like variable-name. Each complex type is a map each attribute is a key value pair and each element in another element is another key value pair.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Specifications}
 \label{subsec:specifications}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 In order to realize the web editor of Intention-centric Organizational Modeling, a formal inquiry has been done and concluded with the below specifications.
@@ -63,7 +81,7 @@ In order to realize the web editor of Intention-centric Organizational Modeling,
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Architecture}
+\subsection{MVC Architecture}
 \label{subsec:mvcarch}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  The architecture of the UI editor is based on the \textbf{Model-View-Control (MVC)} design pattern. The MVC paradigm allows to separate business logic from the code that controls presentation and event handling \cite{Oracle2016}.Each entity view in the web page is made up of combination of at least on Model and View, and one or more Controls. The individual files which acts an Model, View and Controller has been shown in the Figure \ref{fig:mvc_arch}
@@ -121,9 +139,16 @@ The Reagent Framework architecture has been reused Fig. \ref{fig:mvc_pattern23} 
 \end{figure}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{User Interface Diagram}
+\label{sec:uidiagram}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Entity Type Relationship}
+\section{Relationship between Entity Types}
 \label{sec:enttyperelation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -141,39 +166,18 @@ Intentions connect initial context definitions with final context definitions. \
 	\label{fig:CtxIntRel}
 \end{figure}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{User Interface Diagram}
-\label{sec:uidiagram}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Design Methodology}
-\label{sec:designmethodology}
+\subsection{Capabilities Intention Relationship}
+\label{sec:capIntRel}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-On the left list we should have all organizational context definitions and on the right one only ones that are contained in an informal process. The dropdown box of the initial and final context defines the selection inside of an informal process, thus right side.
-
-So, in db.cljs, we should have only a list of context definitions no :initial-contexts and :desired-final-contexts. Only :organizational-contexts and under this all available contexts. Under the left list, we present these elements. Right list should refer to the initial-context, final-contexts, etc. of the informal process model depending on the selection of the dropbox button. For instance if we have initial contexts selected on the dropdown box, we should present the initial contexts in the right list.
-
-I have changed the code accordingly and provided you an example how you should change data from views.cljs. All data should be stored in db.cljs. This applies to the text fields of all elements. Whenever, we want to update something we need to update the map in db.cljs and this will be propagated to the views.
-
-
-On the left side of each list item, you should present all available items of context definitions or intentions whatever type is selected there. On the right side only the ones contained in the respective informal process model. Inside of another entity, you should refer to other entities using their ids and these ids should be resolved using, for instance, intentions vector. You check each intention in the intentions vector, if it’s id is the same as the id you are looking for it, you found it and you use the information about it.  
-
-
-Please align it with the structure and names of the IPSM.xsd. Each variableName like this is written like variable-name. Each complex type is a map each attribute is a key value pair and each element in another element is another key value pair.
-
-\begin{Listing}
-	\begin{lstlisting}
-	:entity-data {:informal-process-definitions [ipd1 ipd2]
-	:context-definitions [ctx1 ctx2 ctx3]
-	:intentions [int1 int2]} 
-	\end{lstlisting}
-	\caption{Entity data definition inside db.cljs}
-	\label{lst:entitydatalist}
-\end{Listing}
-
-
+ Each organizational capability must be provided by a resource in the organization. Resource models are optional to make precise definitions of resources needed. The relationship between organizational capabilities and organizational intentions has been provided in the Figure 
+ 
+ \begin{figure}
+ 	\centering
+ 	\includegraphics[width=\textwidth]{CapIntRel.pdf}
+ 	\caption{Relation between organizational capabilities and intentions}
+ 	\label{fig:orgcapabilities}
+ \end{figure}
 
 
