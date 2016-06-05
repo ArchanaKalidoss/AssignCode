@@ -35,7 +35,7 @@ In the context of our work, the definition of organizational resources refers no
 
 \textit{Organizational Capabilities} Organizational capability is the ability to provide business values like software applications, resources, and potential of the actor to make decisions even in changing situations \cite{Stirna2012}.Describes a capability provided by a resource or required by an intention. The performers of an informal process have certain skills and roles to achieve the intention.   \\
 
-
+\textit{Actors} Actors are type of organizational resources that drive execution of a process autonomously. Actors makes use of other resources as well to achieve \textit{intention} and \textit{sub-intention} of an informal process \cite{Sungur2015}.  \\
 
 
 
@@ -60,6 +60,13 @@ The work by Sungur et. al \cite{Sungur2014a} gives a comprehensive account of ch
 \subsection{Informal Process Essentials}
 \label{sec:informalprocessessentials}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In this section, we provide an overview about the concepts introduced in the approach Informal Process Essentials (IPE) \cite{Sungur2014a}. This thesis work realizes the concept of \textit{resource-centric modeling of informal processes}, specified in the above approach by Sungur et al.  As mentioned in the Section \ref{sec:termdefinitions}, resources are drivers to achieve intentions in the informal processes. In IPE approach, the author differentiates the resources based on the time the resources are needed in the informal processes as below :
+  \begin{itemize}
+  	\item \textit{Initial resources} which are required during the start of informal processes.
+  	\item \textit{On-demand resources} that are required based on intentions during process enactment.
+  	\item \textit{Actors} are the resources in IPE meta-model, that drive process execution autonomously.
+  	\item \textit{Knowledge resources} resources that contain important information required for the enactment of a process. These are critical for guiding actors.  
+  \end{itemize}
 Informal Process Essentials (IPE) describes the following about informal process \cite{Sungur2014} 
 
 \begin{itemize}
@@ -81,10 +88,30 @@ Informal Process Essentials (IPE) describes the following about informal process
 \section{Second Phase of InProcXec}
 \label{sec:inproxec}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In this section, we present the \textit{InProXec} method, proposed by Sungur et al. in \cite{Sungur2015}. Since this thesis work is realizing \textit{resource-centric informal process modeling} , the main focus of this section is on the second phase of InProXec. The method described in Figure \ref{fig:inprocxec_steps}, initializes informal process models in an automated fashion. In the following paragraphs, we present an overview of the method and overview about different phases of the method with a detailed overview about the second phase of the \textit{InProXec} method. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{InProXec_Steps.pdf}
+	\caption{Steps of InProXec method \cite{Sungur2015}}
+	\label{fig:inprocxec_steps}
+\end{figure} 
+
+As shown in the Figure \ref{fig:inprocxec_steps}, the InProcXec method consists of four different phases.
+
+\textit{Integrating Resources of Informal Processes (P1)} To model an informal process, we need information about the resources, these information are collected beforehand during process execution. There exist many services to acquire information about informal processes resources automatically. The final output of this phase is integrated resources which are required as an input to next modeling phase. Thus this phase sets up an environment required for modeling and execution of informal processes.  \\
+
+\textit{Informal Process Modeling (P2)}  This phase receives the resource definitions made available in the first phase P1 as an input.  Based on this, business experts model informal processes using different IPE modeling elements. For example business experts create informal process models using resources aiming to achieve main intentions that contains sub-intentions.   \\
+
+\textit{Informal Process Compilation (P3)}  Phase P2, describes only the intentions required to be achieved, corresponding required resources etc. But in phase P2, there is no facility to instantiate a functionality. Thus in third phase P3, the output of phase P2 is taken i.e IPE models and are transformed into intializable self-contained \textit{Deployable Informal Process Essentials Archives(DIPEA)} \cite{Sungur2015} takes place. This results in DIPEAs enacting required informal process. To realize, phase P3 an \textit{IPE Model COmpiler} also been introduced. \\
+
+\textit{Informal Process Model Deployment and Runtime (P4)} This phase employs \textit{IPE Runtime} which parses DIPEAs and runs the executables contained in those archives. During this phase, the autonomous actors work towards intentions of informal processes using acquired resources and other involved resources.  \\
 
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Informal Process Modeling (P2)}
+\label{subsec:informalprocessmodeling}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Resource-centric Organizational Modeling}
