@@ -6,6 +6,8 @@ As said by Simon Mainwaring  \footnote{http://www.azquotes.com/author/9307-Simon
 Informal proceses are collaborative type, which means that participants of an informal process collaborate to accomplish its respective intentions. These participants are the resources that drives towards the accomplishment of an intention.  Developing models for such \textit{resource-centric informal processes} plays a critical role in executing informal processes. In this document, we explain how we realized developing an editor that creates models for resource-centric informal processes. Also we validate the developed prototype using a case study. This case study has been taken as an example scenario throught this document for better understanding of the reader.
 
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivation}
 \label{sec:motivation}
@@ -13,8 +15,8 @@ Informal proceses are collaborative type, which means that participants of an in
 %% You have to demonstrate what you have done in your research, why it is relevant, and what about it is new.
 %%Explanation of why you had to and what you did
 
-Intentions of informal processes are known before their enactment \cite{Sungur2015}. Achieving these intentions requires another important driving force \textit{resources}, which can be anything from human actors, development environment, material resources etc. So we need an approach that supports modeling of informal processes along with provision for required resources. This can be achieved by associating capabilities with informal processes. In extension to the work of Sungur et. al. \cite{Sungur2014a} where a meta-model and an overview of solution architecture has been presented,  in this work the focus is to provide automated means to create resource-centric informal process and an ability to create instances for those models. The reason for selecting meta-model approach is to preserve the eseential information associated with informal processes such as intentions, context information, resource definitions etc.  This work also provides automatic initialization and acquiring of inter-related resources during enactment of resource-centric informal processes. 
-  
+Intentions of informal processes are known before their enactment \cite{Sungur2015}. Achieving these intentions requires another important driving force \textit{resources}, which can be anything from human actors, development environment, material resources etc. So we need an approach that supports modeling of informal processes along with provision for required resources. This can be achieved by associating capabilities with informal processes. In extension to the work of Sungur et. al. \cite{Sungur2014a} where a meta-model and an overview of solution architecture has been presented,  in this work the focus is to provide automated means to create resource-centric informal process and an ability to create instances for those models. The reason for selecting meta-model approach is to preserve the essential information associated with informal processes such as intentions, context information, resource definitions etc.  This work also provides automatic initialization and acquiring of inter-related resources during enactment of resource-centric informal processes.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -30,26 +32,15 @@ Intentions of informal processes are known before their enactment \cite{Sungur20
 	\item Not well supported editors for executing abstract descriptions
 \end{enumerate}
 
-Though there are \textit{activity-centric} modeling and reusing of business processes such as Business Process Execution Language (BPEL) \footnote{http://docs.oasis-open.org/wsbpel/2.0/OS/wsbpel-v2.0-OS.pdf} and Business Process Model and Notation (BPMN) \footnote{http://www.omg.org/spec/BPMN/2.0/PDF/} are available, they are not suitable for certain type processes whose execution steps cannot be predicted in advance \cite{Sungur2014a}. Also complemntary concepts such as automatic initialization and acquiring of interrelated resources are still missing in the existing work \cite{Sungur2015}.
+Though there are \textit{activity-centric} modeling and reusing of business processes such as Business Process Execution Language (BPEL) \footnote{http://docs.oasis-open.org/wsbpel/2.0/OS/wsbpel-v2.0-OS.pdf} and Business Process Model and Notation (BPMN) \footnote{http://www.omg.org/spec/BPMN/2.0/PDF/} are available, they are not suitable for certain type processes whose execution steps cannot be predicted in advance \cite{Sungur2014a}. Also complemntary concepts such as automatic initialization and acquiring of interrelated resources are still missing in the existing work \cite{Sungur2015}. Another key thing to remember is informal processes are volatile in nature which is one of the important reason for challenges in developing an environment that supports informal processes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section {Research Objectives}
 \label{sec:researchobjectives}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This work focuses on the phase 2 i.e modeling informal business processes described in approach \textit{Exceuting Informal Processes (InProXec)} mentioned by Sungur et al. \cite{Sungur2015}.
-The main contributions of the this thesis works can be listed as:
-
-\begin{enumerate}
-	\item Introduction of the fundamental concepts of Organizational Modeling.
-	\item Requirement analysis that supports realization of Intention-centric Organizational Modeling.
-	\item Detailed explanation about the approach followed in order to develop the proposed web editor.
-	\item An example case study which validates the proposed approach.
-\end{enumerate}
-
+The main focus of this diploma thesis, is to realize the phase \textit{Informal Process Modeling} described in approach \textit{Exceuting Informal Processes (InProXec)} mentioned by Sungur et al. \cite{Sungur2015}. Coupled with the main focus during the development web editor the following research objectives provided in the Table \ref{tab:researchobjectives} were also satisfied. 
 
 \label{sec:researchobj}
-The research objectives of this thesis work has been provided in the Table \ref{tab:researchobjectives}.
-
 \begin{center}
 	\begin{longtable}{p{5cm}p{11cm}} 
    	\toprule 
@@ -57,15 +48,15 @@ The research objectives of this thesis work has been provided in the Table \ref{
 	\midrule
 	\endfirsthead
 	\\
-	RO. 1 & \textit{Intentions are traceble in the different levels of the organizational hierarchy. } \label{ro1} \\
+	RO. 1 & \textit{Intentions are traceable in the different levels of the organizational hierarchy. }  \label{ro1} \\
 	\\[-1.5ex]
-	RO. 2 & \textit{Linking intentions with capabilities and at the with resources enable us a cost estimation for each intention. Cost is estimated in a recursive manner.} \label{ro2} \\
+	RO. 2 & \textit{Linking intentions with capabilities and at the with resources enable us a cost estimation for each intention. Cost is estimated in a recursive manner.}  \label{ro2} \\
 	\\[-1.5ex]
 	RO. 3 & \textit{Validity of an organizational intention is achieveable when the intention can be refined by defining sub-intentions, which can then be defined recursively as independent informal processes.} \label{ro3}\\
 	\\[-1.5ex]
-	RO. 4 & \textit{As each member of the organization aware of the higher level and lower level intentions. He can engage for these explicit intentions. } \label{ro4}\\
+	RO. 4 & \textit{As each member of the organization aware of the higher level and lower level intentions. He can engage for these explicit intentions. }  \label{ro4}\\
 	\\[-1.5ex]
-	RO. 5 & \textit{Different members of an organization participate to create organizational intentions, as a result intentions are shaped based on all members but directed by the executives.} \label{ro5}\\
+	RO. 5 & \textit{Different members of an organization participate to create organizational intentions, as a result intentions are shaped based on all members but directed by the executives.}\label{ro5}\\
 	\\[-1.5ex]
 	RO. 6 & \textit{Intention-specific solutions can be extracted as abstract re-usable entities, organizational strategy patterns and can be re-used in muliple context definitions.} \label{ro6}\\
 	
@@ -85,7 +76,6 @@ The remainder of this document has been organized into following chapters
 	\item[Chapter ~\ref{chap:fundamentals} -- \nameref{chap:fundamentals}:] In this chapter, basic concepts that are essential to understand this thesis work has been discussed.
 	\item[Chapter ~\ref{chap:analysis} -- \nameref{chap:analysis}:] This chapter provides detailed requirement analysis based on scientific facts published in existing work. This chapter also provides concrete introduction about some properties of the organizations.
 	\item[Chapter ~\ref{chap:approach} -- \nameref{chap:approach}:] This chapter discusses about the methodology followed in realizing the concepts  of Intention-centric Organizational Modeling has been discussed and notations used to realize the Organization Modeling has also been discussed.
-	\item[Chapter ~\ref{chap:casestudy} -- \nameref{chap:casestudy}:] This chapter validates the approach presented in Chapter \ref{chap:approach}. This chapter also discusses detailed system architecture and also presents the experimental results. The abstract concepts motivating scenario discussed in \ref{chap:motivatingScenario} has been explained in a concrete way.
-	
+	\item[Chapter ~\ref{chap:casestudy} -- \nameref{chap:casestudy}:] This chapter validates the approach presented in Chapter \ref{chap:approach}. This chapter also discusses detailed system architecture and also presents the experimental results. The abstract concepts motivating scenario discussed in \ref{chap:motivatingScenario} has been explained in a concrete way.	
 	\item[Chapter ~\ref{chap:conclusion} -- \nameref{chap:conclusion}:] This chapter summarizes  the results of this thesis work and draws conclusion. This chapter also throws some light on the future work to be carried out in the field of Organizational Modeling. 
 \end{description}
