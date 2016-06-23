@@ -147,6 +147,8 @@ The Reagent Framework architecture has been reused Fig. \ref{fig:mvc_pattern23} 
 \section{A Top-Down Approach}
 \label{sec:topdownapproach}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Intentions are defined hierarchically, intentions can contain and extend intentions which are called as sub-intentions. Intentions can contradict to itself as well. Intentions are associated with strategies, thus intentions can be realized through strategies. Strategies are associated with capabilities. These capabilities are of two types \textit{functional capabilities} and \textit{cross functional capabilities}. Functional capabilities are associated with resources and cross functional capabilities are associated with functional capabilities. Each informal process model is a strategy that has capabilities, strategies, resources that are created out of capabilities and intentions. 
+
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{TopDownApproach.pdf}
@@ -157,7 +159,7 @@ The Reagent Framework architecture has been reused Fig. \ref{fig:mvc_pattern23} 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Relationship between Entity Types}
+\section{Characteristics of Entity Types}
 \label{sec:enttyperelation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -190,4 +192,16 @@ Intentions connect initial context definitions with final context definitions Fi
  \end{figure}
 
 Each \textit{intention} can require certain \textit{capabilities} which are provided by \textit{organizational resources}. 
+As a result each informal process model is a strategy and will have cross-functional capabilities, resources (which will be created out of capabilities), a goal that the specific strategy.
+
+For cost calculations of instance descriptors:
+
+For every unspecified instance cost, we go recursively to the lower levels. Assuming that we start our calculation from intentions, with an instance descriptor with id a. We start iterating through every contained achieving strategy, and for each achieving strategy, we iterate through their instance descriptors. In case the parent instance id of an instance descriptor contained in an achieving strategy „a“, then this is relevant for us. In case it’s already specified we directly add it to our summation and proceed with the next instance descriptor and then with the next achieving strategy. In case the cost of an instance descriptor of a strategy has not been specified, we specify it by calculating the cost of instance descriptors of associated informal process definitions. For informal process definitions, we use the cost resource definitions. But you can assume that in each instance descriptor of informal process definition, we already have the cost specified. So this is the end point of the recursion.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Acquirable Entity Types}
+\label{sec:acquirableentities}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
