@@ -235,6 +235,8 @@ This work develops web editor to support models and instances of \textit{informa
 %\renewcommand{\@pnumwidth}{2em}
 %\makeatother
 %
+
+
 \tableofcontents
 
 % Bei einem ungünstigen Seitenumbruch im Inhaltsverzeichnis, kann dieser mit
@@ -270,15 +272,19 @@ This work develops web editor to support models and instances of \textit{informa
     \vskip 5\p@
   }}
 \makeatother
-\let\cleardoublepage\clearpage
+\cleardoublepage
 \listoffigures
-\newpage
+%\cleardoublepage
+%\newpage
 %\let\cleardoublepage\relax
+\cleardoublepage
 \listoftables
-\newpage
+
+%\newpage
 %Wird nur bei Verwendung von der lstlisting-Umgebung mit dem "caption"-Parameter benoetigt
 %\lstlistoflistings 
 %ansonsten:
+\cleardoublepage
 \ifdeutsch
 \listof{Listing}{List of Listings}
 \else
