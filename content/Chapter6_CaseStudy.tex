@@ -7,9 +7,19 @@
 In this chapter, we provide architecture of the functioning system as a first section. The section provides, implementation details along with the reason for making certain implementation decisions. The final section validates the system by analyzing the work the validating it with the proposed approach. This section also has some screen results as it helps in validating the functioning of the system as well.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Architecture of the Case Study}
-\label{sec:casestudyarchitecture}
+\section{Architecture of the Functioning System}
+\label{sec:architectureofthefunctioningsystem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+User interface URL navigation of the functioning system is provided in the Figure \ref{fig:UIArchitecture}
+
+
+\begin{figure}
+	\centering
+	\includegraphics [width= \textwidth]{UIArchitecture.pdf}
+	\caption{User interface URL navigation of the functioning system}
+	\label{fig:UIArchitecture}
+\end{figure}
 
 
 
@@ -104,17 +114,34 @@ What important is, at the end editor should have a view that is capable of addin
 	Informal process instances are separate entities similar to informal process models. They should be listed on the left side similar to informal process models. When one of the instance is selected by user, its properties should be presented on the right.
 	
 	
-	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Validation}
+\label{sec:validation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+This section validates the research objectives discussed in Chapter \ref{chap:introduction} and prototype developed through the approach discussed in Chapter \ref{chap:approach} using the motivating scenario discussed in Chapter \ref{chap:motivatingScenario}.
 	
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\subsection{Realization of Requirements}
-	\label{subsec:realizationofrequirements}
+\subsection{Validation of Research Objectives}
+\label{subsec:validationofrequirements}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+As discussed in Chapter \ref{chap:approach}, the research objectives are satisfied at the design level but their validity can be confirmed only by evaluating the research objectives with some sample scenarios, like the one provided in Chapter \ref{chap:motivatingScenario}.   
+
+\textit{Organizational intentions transparency} (R1): A valid user whose credentials are stored in database is able to login successfully and view the intentions and its associated entities. Hence the research objective R1 is met.
+
+\textit{Organizational intention resource-based cost estimation} (R2): An intention whose cost is unspecified for a sample intention, is calculated by the developed system recursively as mentioned in the Chapter \ref{chap:approach}. Thus the research objective R2 is also met.
+
+\textit{Organizational intention achievability estimation} (R3): Similar to cost calculation, an intention instance whose achievability is not in prior is also estimated by the current functioning system. Hence research objective R3 is satisifed.
+
+\textit{Intention oriented working style} (R4): The users can login and create intention models, strategy models, informal process models etc., through the developed editor. Hence research objective R4 is also met.
+
+\textit{Participative organizational modeling} (R5): Each entity type that can be acquired or instantiated has list of participants with their corresponding privileges. Thus this satisfies the requirements of research objective R5.
+
+\textit{Re-use of organizational knowledge} (R6): The descriptive information about each models can be stored and re-used for next enactments. Hence research objective R6 is also met.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\section{Validation of Prototype}
-	\label{sec:validation}
+\section{Validation of Prototype}
+\label{sec:validationofprototype}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 how research objectives are satisfied. 
 	%queries and print screens
