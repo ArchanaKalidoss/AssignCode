@@ -81,8 +81,6 @@ Intentions are defined hierarchically, intentions can contain and extend intenti
 
 Bider et al \cite{bider2005strategy} propose a strategy-driven modeling approach of processes. Processes are defined based on the goals and refinement continues until meaningful operation level is reached. Consequently, created models are easily changeable as they are decoupled from their operational terms. Such declarative approaches provide more flexibility and enable easier change of the business process models \cite{Sungur2016}. As we mentioned before, the modeling approach in our context is descriptive modeling approach which starts from the top level and refines modeling until the bottom level is reached. 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Design Methodology}
 \label{sec:designmethodology}
@@ -124,7 +122,7 @@ The entity types are modeled as descriptive informations, this is because models
 \subsection{Context Intention Relationship}
 \label{sec:ctxintrel}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Intentions connect initial context definitions with final context definitions Figure \footnote{C Timurhan Sungur, An approach to supporting and automating informal processes, May 2015}.
+Intentions connect initial context definitions with final context definitions Figure \footnote{C Timurhan Sungur, An approach to supporting and automating informal processes, May 2015}. From the Figure \ref{fig:orgIntentions}, it is clear that only on successfully achieving an intention the context reaches desired final context. Consider in the Figure \ref{fig:orgIntentions}, from our motivating scenario that C1 as inital context of the motivating scenario, I1 as the main intention of the motivating scenario and C2 as the desired final context of the motivating on successful completion of intention I1. Only when the main intention of increased revenue and number of unit sales (I1) is achieved for the quarter, the desired final context(C2) is achieved else the execution may end up in a state(C3) other than the desired final context. 
 
 
 \begin{figure}
@@ -138,7 +136,7 @@ Intentions connect initial context definitions with final context definitions Fi
 \subsection{Capabilities Resource Relationship}
 \label{sec:capIntRel}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Each organizational capability must be provided by a resource in the organization. Resource models are optional to make precise definitions of resources needed. The relationship between organizational capabilities and organizational intentions has been provided in the Figure 
+Each organizational capability must be provided by a resource in the organization. Resource models are optional to make precise definitions of resources needed. The relationship between organizational capabilities and organizational intentions has been provided in the Figure \ref{fig:capabilitiesresources}
  
 \begin{figure}
 	\centering
@@ -148,16 +146,15 @@ Each organizational capability must be provided by a resource in the organizatio
 \end{figure}
 
 Each \textit{intention} can require certain \textit{capabilities} which are provided by \textit{organizational resources}. 
-As a result each informal process model is a strategy and will have cross-functional capabilities, resources (which will be created out of capabilities), a goal that the specific strategy.
-
-
-
+As a result each informal process model is a strategy that has cross-functional capabilities, resources which are created out of capabilities and an intention specific to that strategy. In our context of resource-centric organizational modeling capabilities are of two types such as \textit{functional capabilities} and \textit{cross functional capabilities}. Functional capabilities are the capabilities that are associated with resources that satsifies required capabilities. Cross functional capabilities are the capabilities that contains functional capabilities. The required resources are typically provided by some services which are called as \textit{resource organizers}. Resource organizers are responsible for preparing the resources for the process execution and releasing them upon process completion \cite{Sungur2014a}. In our functioning system, resource models can be created for each informal process models. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Acquirable Entity Types}
 \label{sec:acquirableentities}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+This thesis work scope is limited only till creating descriptive models. Runnable or executable components are not part of the implementation. A short overview about acquirable entities are provided as the editor provides support to add functionality that are required to instantiate a process. The models can be created using the developed editor, these models when compiled they are acquirable i.e., these are instantiate-able.
+
 Final state of the model instance is saved Figure \ref{fig:acquirableentities}.
 
 \begin{figure}
@@ -167,5 +164,11 @@ Final state of the model instance is saved Figure \ref{fig:acquirableentities}.
 	\label{fig:acquirableentities}
 \end{figure}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth,angle=0]{AcquirableEntities2.pdf}
+	\caption{Acquirable Entities Hierarchy}
+	\label{fig:acquirableentities2}
+\end{figure}
 
 
