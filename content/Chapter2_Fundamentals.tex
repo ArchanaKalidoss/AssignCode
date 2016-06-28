@@ -1,6 +1,5 @@
 \chapter{Fundamentals and Related Work}
 \label{chap:fundamentals}
-%background - What do I need to know to understand the thesis?
 This chapter provides the fundamental concepts and related work that are required to understand the approach to be discussed in following Chapter \ref{chap:approach}. The first section introduces definitions of terms that are used throughout this document. The second section provides a brief introduction about the basic concepts of this thesis work.  The third and fourth sections present description about  works related to the presented approach. The last section focuses on concepts of Resource-centric Organizational Modeling and its notations. Though modeling notations are not part of implementation, it has been introduced to assist the reader in better understanding. The last section also discusses about the process and entity representation of the organizational modeling.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -25,7 +24,9 @@ In this section, the definitions of terminologies that are used throughout this 
 
 \textit{Informal Process Essentials} - Informal Process Essentials (IPE) is an intention-based approach that enables describing process declartively, i.e., without describing how the intention is achieved, and providing only information about what has to be achieved \cite{Sungur2014a}. 
 
-\textit{OASIS Topology and Orchestration Specification for Cloud Applications}(TOSCA) :
+\textit{OASIS Topology and Orchestration Specification for Cloud Applications}(TOSCA) - TOSCA  is  a  new  OASIS(Organization for the Advancement of Structured Information Standards)  standard  to  describe  composite applications  and  their  management \cite{Kopp2013}.  
+
+\textit{Winery} - Winery is a modeling tool offering an HTML5-based environment for graph-based modeling of application topologies and defining reusable component and relationship types. It uses TOSCA as an internal storage, import, and export format \cite{Kopp2013}. 
  
 \textit{Intention} - Intentions are defined hierarchically, which can contain and extend sub-intentions.It is depicted by a double circle in organizational notations. The sub-intentions are refined starting from main intentions. Intentions are associated with capabilities or resources. An accomplishment of an intention changes state. An intention can extend another intention.        
 
@@ -71,11 +72,9 @@ Due to the importance of shapes in expressing the information visually , the not
 \section{Entity Types Representation}
 \label{sec:entitytypesrepresentation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 The conceptual model of entity types in organizational modeling are shown in the Figure \ref{fig:entitymodel}. This model shows that among all the entity types, intentions are in the top level of hierarchy which can be further divided into \textit{sub-intentions} and/or \textit{strategies}. An intention can either contradict or be a sub intention of another intention. These type of sub-intention and contradicting intention has been explained in detail with a suitable example in Section \ref{sec:intentions}.  An intention can be achieved through a strategy, which is a plan of action designed to meet the intention. An intention can be achieved through none or many strategies. Strategies also describe none or many capabilities and processes required to achieve intention. The capabilities and processes can be further resolved into resources or resource models. Thus starting from defining intentions, we define strategies then required capabilities and process models. The capabilities and process models define the required resources. 
  
 As reported by Sungur et al. \cite{Sungur2014a}, the concept of IPE provides an agent-based approach i.e., human performers are considered as agents who execute the processes autonomously. Organizational Process Modeling is \textit{Resource-centric} approach as they support processes by providing required resources and thrives to successfully execute the processes by using qualified autonomous agents, i.e., actors under certain \textit{context definitions}.  As we mentioned before, in our context resources can be anything like people, IT tools, data that are used to accomplish the objectives. Emerging intentions can result in the requirement of new capabilities, i.e., resources. Resource models are also provided in the developed prototype to make precise definitions of resources needed.
-
 
 \begin{figure}
 	\centering
@@ -110,14 +109,7 @@ In IPE approach, the author differentiates the resources based on the time. The 
   	\item \textit{Knowledge resources} resources that contain important information required for the enactment of a process. These are critical for guiding actors.  
   \end{itemize}
  
-It has been mentioned in the approach \cite{Sungur2014} that Informal Process Essentials (IPE) describes the following about informal process  
-
-\begin{itemize}
-	\item Describes the constituents informal process such as performers, data and software tools
-	\item Describes how to make core element ready for the enactment of the informal process i.e resource providers
-\end{itemize}
-
-Predefining business logic would results in higher cost compared to making decisions by human performers during enactment \cite{Sungur2014}. Sometimes, a process team may require participation of  new resources with different roles and relationships from a different team \cite{Matthews2011,Matthews2012}. For example, in our motivating scenario we have two teams  software development team and help desk team. To improve the user feedback portal, help desk team may require resources from software development team with a role of user interface web developer. Thus to satisfy requirement changes, resources are also changeable during process execution. 
+It has been mentioned in the approach \cite{Sungur2014} that Informal Process Essentials (IPE) describes the following about informal process, 1. Describes the constituents informal process such as performers, data and software tools 2. Describes how to make core element ready for the enactment of the informal process i.e resource providers. Predefining business logic would results in higher cost compared to making decisions by human performers during enactment \cite{Sungur2014}. Sometimes, a process team may require participation of  new resources with different roles and relationships from a different team \cite{Matthews2011,Matthews2012}. For example, in our motivating scenario we have two teams  software development team and help desk team. To improve the user feedback portal, help desk team may require resources from software development team with a role of user interface web developer. Thus to satisfy requirement changes, resources are also changeable during process execution. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Human Centric Process}
@@ -144,7 +136,7 @@ In this section, we present an overview about the \textit{Executing Informal Pro
 	\label{fig:inprocxec_steps}
 \end{figure} 
 
-As shown in the Figure \ref{fig:inprocxec_steps}, the InProcXec method consists of four different phases.
+As shown in the Figure \ref{fig:inprocxec_steps}, the InProcXec method consists of four different phases:
 
 \textit{Integrating Resources of Informal Processes (P1)} - In order to model an informal process, we need information about the resources, these information are collected beforehand during process execution. There exist many services to acquire information about informal processes resources automatically. The final output of this phase is integrated resources which are required as an input to next modeling phase. Thus this phase sets up an environment required for modeling and execution of informal processes.  
 

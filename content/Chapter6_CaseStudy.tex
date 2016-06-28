@@ -1,14 +1,10 @@
 \chapter{Case Study on Resource-centric Organizational Modeling}
 \label{chap:casestudy}
-
-%of the system: Class diagrams (components), ER, algorithms if there are any
-%%Presentation of the functioning system and culmination of the work.
-%%Analysis of the work as well as a comparison with the state of the art
-In this chapter, we provide architecture of the functioning system as a first section. This section provides, implementation details along with the reason for making certain implementation decisions. The final section validates the system by  validating it with the proposed approach. This section also has some screen results as it helps in evaluating the usability of the functioning system in a real life scenario.
+In this chapter, we provide architecture of the functioning system as a first section. This section provides, implementation details along with the reason for making certain decisions regarding the implementation. The final section validates the system by  validating it with the proposed approach. This section also has some requirement evaluation with the state of the art.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Architecture of the Functioning System}
-\label{sec:architectureofthefunctioningsystem}
+\section{Presentation of the Functioning System}
+\label{sec:presentationofthefunctioningsystem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 User interface URL navigation of the functioning system is provided in the Figure \ref{fig:UIArchitecture}
@@ -94,9 +90,11 @@ There are two types of capabilities. Functional capabilities and cross-functiona
 There are two keys, one for tosca repository and one for tosca modeling tool. Tosca repository url refers to winery and the other one refers to topology modeler. This should only contain root contexts and additional suffixes such as service templates in a separate key in default db.Out of these a function should create corresponding url for topology modeling. The topology modeler page of a specific service temple without knowing its id and namespace. This can be composed from different variables: :topology-modeler-url, :tosco-repository-url,:target-namespace, and :id.
 
 
-\fbox{\begin{minipage}{\textwidth}
+\fbox{
+	\begin{minipage}{\textwidth}
 		\{topology-modeler-url\}?repositoryURL=\{encoded-tosca-repository-url\}\&ns=\{encoded-target-namepsace\}\&id=\{encoded-id\}\#
-	\end{minipage}}
+	\end{minipage}
+	}
 	
 		
 What important is, at the end editor should have a view that is capable of adding, viewing, deleting and updating models aligned with the XSD schema. In general, separate entities should reference each other but not contain each other. For instance, a strategy containing a goal should use goals id to resolve it but not the actual goal.
@@ -112,8 +110,7 @@ What important is, at the end editor should have a view that is capable of addin
 \label{sec:validation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 This section validates the degree of satisfaction of the research objectives discussed in Chapter \ref{chap:introduction} against the developed prototype through. Also, we claim that this master thesis is a part of creating models that are required for supporting and automating informal processes, it is important to evaluate the developed prototype along with the requirements that are discussed in the approach \textit{Informal Process Essentials} \cite{Sungur2014a}. In this section, examples are provided from motivating scenario which is discussed in the Chapter \ref{chap:motivatingScenario}.
-	
-	
+		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Validation of Research Objectives}
 \label{subsec:validationofrequirements}
@@ -140,7 +137,7 @@ In the approach of \textit{Supporting Informal Processes} \cite{Sungur2014}, the
 
 \textit{Enactable Informal Process Representation}: In this requirement, the core elements are performers, IT tools, data etc., and the requirement gets satisfied only when we are able to provide textual descriptions of how to make these ready. In the functioning web editor, the user can create textual information i.e models required for resources, contexts, strategies etc. Hence the developed prototype satisfies the requirement of providing enactable informal process representation. For example, using our motivating scenario we only provide definitions of intentions, contexts, strategies, capabilities and resources inside the editor but there is no functionality to  predefine business logic of these informal processes.
 
-\textit{Resource Relationships Definition}: In an informal process, each resource can have a relation with other resource. For example in our motivating scenario, a resource with front-end developer capability has a "requires" relationship with front-end developer tools. In the functioning system, TOSCA modeling and repository web page has been included to edit the resource models. Thus the functioning system also satisfies the requirement of defining relationship between the resources. 
+\textit{Resource Relationships Definition}: In an informal process, each resource can have a relation with other resource. For example in our motivating scenario, a resource with front-end developer capability has a "requires" relationship with front-end developer tools. In the functioning system, Winery modeling tool's repository web page has been included to edit the resource models. Thus the functioning system also satisfies the requirement of defining relationship between the resources. 
 
 \textit{Resource Visibility Definition}: Informal processes contains resources that work towards the process' specific intention. These resources can participate in more than one informal process. For example, in the same organization as in our motivating scenario there can be another process working towards achieving an intention say \textit{improving skills of all the employees}. This can make an employee with a developer capability to participate in both the processes. Thus all the resources of an informal process has to be visible. In or functioning system we have septate user interface tab that details associated resources of an informal process. This satisfies the requirement of making the resource definitions visible.    
 
