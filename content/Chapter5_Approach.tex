@@ -86,8 +86,9 @@ Bider et al \cite{bider2005strategy} propose a strategy-driven modeling approach
 \label{sec:designmethodology}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 When designing the user interface components and functionalities required to develop the tool, most of the similar functionalities are 
-designed as common functionalities and re-used. This reduces the unnecessary functional redundancies and overhead. The common functionality methodology are implemented for both model functions and view functions.  Some of important methodologies followed with respect to user interface components design are 1. multiple items to be selected from multiple items are displayed as  \textit{list} 2. selecting single item from multiple items are displayed as drop down. For example, to select multiple strategies from a list of strategies, available strategies are displayed as a list from which the user can select desired number of strategies. Another important methodology followed during user interface design is, for every entity their properties should be displayed only under their respective properties tab. For example in the figure \ref{fig:samplescreen}, the basic properties such as name, target namespace and process type of an informal process model should be displayed only under the respective basic properties tab. This methodology is followed uniformly throughout the design of all the entity types such as intention definitions, strategy definitions, capability defintions, context definitions, instance definitions and informal process definitions and for all of their property types. 
-All data are stored only under the data artifact. This applies to the labels and text fields of all user interface elements and this data can be updated only through the handler function. Through \textit{settings} option, the user also has option to add new namespace and intention relation type. 
+designed as common functionalities and re-used. This reduces the unnecessary functional redundancies and overhead. The common functionality methodology are implemented for both model functions and view functions.  Some of important methodologies followed with respect to user interface components design are 1. multiple items to be selected from multiple items are displayed as  \textit{list} 2. selecting single item from multiple items are displayed as drop down. For example, to select multiple strategies from a list of strategies, available strategies are displayed as a list from which the user can select desired number of strategies. Another important methodology followed during user interface design is, for every entity their properties should be displayed only under their respective properties tab. For example in the Figure \ref{fig:samplescreen}, the basic properties such as name, target namespace and process type of an informal process model should be displayed only under the respective basic properties tab. This methodology is followed uniformly throughout the design of all the entity types such as intention definitions, strategy definitions, capability defintions, context definitions, instance definitions and informal process definitions and for all of their property types. 
+
+All data are stored only under the data artifact. This applies to the labels and text fields of all user interface elements and this data can be updated only through the handler function. Through \textit{settings} option, the user also has option to add new namespace and intention relation type. From the Figure \ref{fig:samplescreen}, it is clear that a standard design methodology has been followed to display the list of available entity types such as intentions, strategies, capabilities etc., and to display their respective properties such as basic, entity specific, instance data, etc., properties. 
 
 \begin{figure}
 	\centering
@@ -148,14 +149,11 @@ Each organizational capability must be provided by a resource in the organizatio
 Each \textit{intention} can require certain \textit{capabilities} which are provided by \textit{organizational resources}. 
 As a result each informal process model is a strategy that has cross-functional capabilities, resources which are created out of capabilities and an intention specific to that strategy. In our context of resource-centric organizational modeling capabilities are of two types such as \textit{functional capabilities} and \textit{cross functional capabilities}. Functional capabilities are the capabilities that are associated with resources that satsifies required capabilities. Cross functional capabilities are the capabilities that contains functional capabilities. The required resources are typically provided by some services which are called as \textit{resource organizers}. Resource organizers are responsible for preparing the resources for the process execution and releasing them upon process completion \cite{Sungur2014a}. In our functioning system, resource models can be created for each informal process models. 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Acquirable Entity Types}
 \label{sec:acquirableentities}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This thesis work scope is limited only till creating descriptive models. Runnable or executable components are not part of the implementation. A short overview about acquirable entities are provided as the editor provides support to add functionality that are required to instantiate a process. The models can be created using the developed editor, these models when compiled they are acquirable i.e., these are instantiate-able.
-
-Final state of the model instance is saved Figure \ref{fig:acquirableentities}.
+This thesis work scope is limited only till creating descriptive models. Creating runnable or executable components are not part of the implementation. A short overview about acquirable entities are provided as the editor provides support to add functionality that are required to instantiate a process. The models can be created using the developed editor, these models when compiled they are acquirable i.e., these are instantiate-able which is shown in the Figure \ref{fig:acquirableentities}. Final state of the model instance is saved as they are required for subsequent phases during the execution of informal processes \cite{Sungur2015}. 
 
 \begin{figure}
 	\centering
@@ -163,6 +161,8 @@ Final state of the model instance is saved Figure \ref{fig:acquirableentities}.
 	\caption{Acquirable Instances}
 	\label{fig:acquirableentities}
 \end{figure}
+
+
 
 \begin{figure}
 	\centering
