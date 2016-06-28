@@ -1,14 +1,29 @@
 \chapter{Case Study on Resource-centric Organizational Modeling}
 \label{chap:casestudy}
-In this chapter, we provide architecture of the functioning system as a first section. This section provides, implementation details along with the reason for making certain decisions regarding the implementation. The final section validates the system by  validating it with the proposed approach. This section also has some requirement evaluation with the state of the art.
+In this chapter, we provide architecture of the functioning system as a first section. This section provides, implementation details along with the reason for making certain decisions regarding the implementation. The final section validates the system by validating it with the proposed approach. This section also has some requirement evaluation with the state of the art approaches.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Presentation of the Functioning System}
 \label{sec:presentationofthefunctioningsystem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+As discussed in the Chapter \ref{chap:approach}, informal process targets for accomplishment of an intention. Thus in the Figure \ref{fig:architectureofthecasestudy}, we associate intentions with both process definitions and strategy definitions as intention definitions are used by both process definitions and strategy definitions. Intentions are associated through resources either through strategies or through informal processes. Intentions can be refined by defining sub-intentions, which can be defined recursively as independent informal process. For example, in our motivating scenario the main intention increase revenue and number of unit sales can be refined into sub-intention of improve customer help desk portal. This sub-intention can be associated with process models. This \textit{intention-based} approach enables describing process declaratively,  i.e., without describing \textit{how} the intention is achieved, and providing information about \textit{what} has to be achieved. This avoids the need for predefined business logic in the representations of informal process \cite{Sungur2014a}. 
 
-User interface URL navigation of the functioning system is provided in the Figure \ref{fig:UIArchitecture}
 
+
+
+
+\begin{figure}
+	\centering
+	\includegraphics [width= \textwidth]{architectureofthecasestudy.pdf}
+	\caption{Presentation of the functioning system}
+	\label{fig:architectureofthecasestudy}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Application Flow}
+\label{subsec:applicationflow}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Figure \ref{fig:UIArchitecture}
 
 \begin{figure}
 	\centering
@@ -24,7 +39,7 @@ User interface URL navigation of the functioning system is provided in the Figur
 \label{sec:realization}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %how did I implement, technology and frameworks used and why.
-It is important to discuss the conrete concepts of informal process from an organizational aspect, because they have a direct effect on the outcome of the informal process \cite{Sungur2014}. This section discusses about how Intention-centric organizational modeling realized as an user interface editor  from an organizational aspect by taking the motivating scenario discussed in Chapter \ref {chap:motivatingScenario}. 
+It is important to discuss the conrete concepts of informal process from an organizational aspect, because they have a direct effect on the outcome of the informal process \cite{Sungur2014}. This section discusses about how Intention-centric organizational modeling realized the user interface editor from an organizational aspect by taking the motivating scenario discussed in Chapter \ref {chap:motivatingScenario}. Also we have provided some schema definitions because, the editor has a view that is capable of adding, viewing, deleting and updating models aligned with the schema definition. 
 
 
 
@@ -32,6 +47,7 @@ It is important to discuss the conrete concepts of informal process from an orga
 \subsection{Realization of Entity Views}
 \label{subsec:realofentityviews}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 The XML Schema Definition of entity type has been provided in \ref{lst:xsdlist}
 
 
@@ -68,16 +84,21 @@ The XML Schema Definition of entity type has been provided in \ref{lst:xsdlist}
 \end{Listing}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Realization of Organizational Intentions}
+\subsection{Realization of Context Definitions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Each informal process start from an initial context, i.e., IPE Context and aims to achieve an intention, i.e., an IPE Intention \cite{Sungur2014a}. After reaching an intention, there is resulting IPE Context. In the motivating scenario  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Realization of Intention Definitions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Realization of Organizational  Strategies}
+\subsection{Realization of Strategy Definitions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Realization of Organizational Capabilities}
+\subsection{Realization of Capabilitiy Definitions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 There are two types of capabilities. Functional capabilities and cross-functional capabilities. Functional capabilities must be associated with instance descriptors. Cross-functional capabilities are capabilities containing multiple functional capabilities. We need to have the ability to add and remove instance descriptors for an entity type, e.g, resource definitions,  informal process definitions, etc. An instance descriptor of a functional capability should refer to a resource definition meaning that a capability is provided by a resource definition. So an instance descriptor of a capability refers to a resource definition and we can manually add and remove resource definitions in general.
 
@@ -85,31 +106,79 @@ There are two types of capabilities. Functional capabilities and cross-functiona
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Realization of Organizational Resources}
+\subsection{Realization of Resource Definitions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-There are two keys, one for tosca repository and one for tosca modeling tool. Tosca repository url refers to winery and the other one refers to topology modeler. This should only contain root contexts and additional suffixes such as service templates in a separate key in default db.Out of these a function should create corresponding url for topology modeling. The topology modeler page of a specific service temple without knowing its id and namespace. This can be composed from different variables: :topology-modeler-url, :tosco-repository-url,:target-namespace, and :id.
+As discussed earlier each resource can be related to another resource which are defined using predefined or custom \textit{relationships} \cite{Sungur2014a}. These resources are managed through \textit{Resource Organizers}, this is because resource organizers are used to bring together the relevant interrelated resources that work towards to achieve the corresponding intentions. TOSCA \cite{Binz2014} can be used to model all nodes and relationship among them. In our context, we can consider resources as nodes to make use of the TOSCA's service. The schema definition of considering each resource as node is provided in the listing \ref{lst:xsdnodetype}. In the developed editor, the resource models are managed by embedding  the open source modeling tool Winery web page \cite{Kopp2013} in our editor's web page. This is because, it creates a new service template that contains an application topology by using the topology modeler. Winery also offers all available node types in a palette. From there, the user drags the desired node type and drops it into the editing area. There, the node type
+becomes a node template: a node in the topology graph. Node templates can be annotated with requirements and capabilities, property values, and policies. 
 
+In order to achieve this we use tosca repository url referring to winery and the other one referring to topology modeler of the winery. Using these values we create corresponding url required for our modeling based on the name and namespace properties of an entity. The functionality to generate resource model page, using tosca repository url and topology modeler url is provided below.
 
 \fbox{
 	\begin{minipage}{\textwidth}
 		\{topology-modeler-url\}?repositoryURL=\{encoded-tosca-repository-url\}\&ns=\{encoded-target-namepsace\}\&id=\{encoded-id\}\#
 	\end{minipage}
 	}
-	
+			
+\begin{Listing}
+	\begin{lstlisting}
+	<xs:complexType name="tNodeTemplate">
+	<xs:complexContent>
+	<xs:extension base="tEntityTemplate">
+	<xs:sequence>
+	<xs:element name="Requirements" minOccurs="0">
+	<xs:complexType>
+	<xs:sequence>
+	<xs:element name="Requirement" type="tRequirement" maxOccurs="unbounded"/>
+	</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="Capabilities" minOccurs="0">
+	<xs:complexType>
+	<xs:sequence>
+	<xs:element name="Capability" type="tCapability" maxOccurs="unbounded"/>
+	</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="Policies" minOccurs="0">
+	<xs:complexType>
+	<xs:sequence>
+	<xs:element name="Policy" type="tPolicy" maxOccurs="unbounded"/>
+	</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="DeploymentArtifacts" type="tDeploymentArtifacts" minOccurs="0"/>
+	</xs:sequence>
+	<xs:attribute name="name" type="xs:string" use="optional"/>
+	<xs:attribute name="minInstances" type="xs:int" use="optional" default="1"/>
+	<xs:attribute name="maxInstances" use="optional" default="1">
+	<xs:simpleType>
+	<xs:union>
+	<xs:simpleType>
+	<xs:restriction base="xs:nonNegativeInteger">
+	<xs:pattern value="([1-9]+[0-9]*)"/>
+	</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType>
+	<xs:restriction base="xs:string">
+	<xs:enumeration value="unbounded"/>
+	</xs:restriction>
+	</xs:simpleType>
+	</xs:union>
+	</xs:simpleType>
+	</xs:attribute>
+	</xs:extension>
+	</xs:complexContent>
+	</xs:complexType>
+	\end{lstlisting}
+	\caption{XML Schema Definition of Node Type}
+	\label{lst:xsdnodetype}
+\end{Listing}
 		
-What important is, at the end editor should have a view that is capable of adding, viewing, deleting and updating models aligned with the XSD schema. In general, separate entities should reference each other but not contain each other. For instance, a strategy containing a goal should use goals id to resolve it but not the actual goal.
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\subsection{Realization of Informal Processes}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
-	
-	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Validation}
 \label{sec:validation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-This section validates the degree of satisfaction of the research objectives discussed in Chapter \ref{chap:introduction} against the developed prototype through. Also, we claim that this master thesis is a part of creating models that are required for supporting and automating informal processes, it is important to evaluate the developed prototype along with the requirements that are discussed in the approach \textit{Informal Process Essentials} \cite{Sungur2014a}. In this section, examples are provided from motivating scenario which is discussed in the Chapter \ref{chap:motivatingScenario}.
+This section validates the degree of satisfaction of the research objectives discussed in Chapter \ref{chap:introduction} against the developed prototype through. Also, we claim that this master thesis is a part of creating models that are required for supporting and automating informal processes, it is important to evaluate the developed prototype along with the requirements that are discussed in the approach \textit{Informal Process Essentials} \cite{Sungur2014a}. In this section, examples are provided from motivating scenario which is discussed in the Chapter \ref{chap:motivatingScenario}. The concept of \textit{resource-centric} modeling approach has also been validated in the approach \textit{Informal Process Essentials} \cite{Sungur2014a}, where the author describes that the approach is right one since the focus is not on business logic rather on other dimensions like resources. The author also states that non-existence of business logic facilitates more autonomy for human performers and enables establishment of best practices. Since the above arguments justifies to the fact of providing more autonomous informal process modeling, one can claim that the approach of \textit{resource-centric modeling} is a valid one. Not stopping with these arguments, we also provide a detailed validation of research objectives discussed in Chapter \ref{chap:introduction} and validation of developed prototype with suitable examples.
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Validation of Research Objectives}
