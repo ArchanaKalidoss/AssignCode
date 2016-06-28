@@ -4,7 +4,7 @@
 %of the system: Class diagrams (components), ER, algorithms if there are any
 %%Presentation of the functioning system and culmination of the work.
 %%Analysis of the work as well as a comparison with the state of the art
-In this chapter, we provide architecture of the functioning system as a first section. The section provides, implementation details along with the reason for making certain implementation decisions. The final section validates the system by analyzing the work the validating it with the proposed approach. This section also has some screen results as it helps in validating the functioning of the system as well.
+In this chapter, we provide architecture of the functioning system as a first section. This section provides, implementation details along with the reason for making certain implementation decisions. The final section validates the system by  validating it with the proposed approach. This section also has some screen results as it helps in evaluating the usability of the functioning system in a real life scenario.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Architecture of the Functioning System}
@@ -28,9 +28,7 @@ User interface URL navigation of the functioning system is provided in the Figur
 \label{sec:realization}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %how did I implement, technology and frameworks used and why.
-
- This chapter discusses about how Intention-centric organizational modeling realized as an user interface editor. This also explains the realization of requirements described in Chapter 4. In the first section, we will first discuss the overview of basic concepts and then specify the design components required for the realization of this editor. The next section discusses about how the entity views in particular are realized. The last section covers in detail how individual requirement has been realized through the web editor.
-
+It is important to discuss the conrete concepts of informal process from an organizational aspect, because they have a direct effect on the outcome of the informal process \cite{Sungur2014}. This section discusses about how Intention-centric organizational modeling realized as an user interface editor  from an organizational aspect by taking the motivating scenario discussed in Chapter \ref {chap:motivatingScenario}. 
 
 
 
@@ -104,28 +102,23 @@ There are two keys, one for tosca repository and one for tosca modeling tool. To
 What important is, at the end editor should have a view that is capable of adding, viewing, deleting and updating models aligned with the XSD schema. In general, separate entities should reference each other but not contain each other. For instance, a strategy containing a goal should use goals id to resolve it but not the actual goal.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\subsection{Realization of Organizational Processes}
+	\subsection{Realization of Informal Processes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\subsection{Realization of Informal Process Instances}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	Informal process instances are separate entities similar to informal process models. They should be listed on the left side similar to informal process models. When one of the instance is selected by user, its properties should be presented on the right.
 	
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Validation}
 \label{sec:validation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-This section validates the research objectives discussed in Chapter \ref{chap:introduction} and prototype developed through the approach discussed in Chapter \ref{chap:approach} using the motivating scenario discussed in Chapter \ref{chap:motivatingScenario}.
+This section validates the degree of satisfaction of the research objectives discussed in Chapter \ref{chap:introduction} against the developed prototype through. Also, we claim that this master thesis is a part of creating models that are required for supporting and automating informal processes, it is important to evaluate the developed prototype along with the requirements that are discussed in the approach \textit{Informal Process Essentials} \cite{Sungur2014a}. In this section, examples are provided from motivating scenario which is discussed in the Chapter \ref{chap:motivatingScenario}.
 	
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Validation of Research Objectives}
 \label{subsec:validationofrequirements}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-As discussed in Chapter \ref{chap:approach}, the research objectives are satisfied at the design level but their validity can be confirmed only by evaluating the research objectives with some sample scenarios, like the one provided in Chapter \ref{chap:motivatingScenario}.   
+As discussed in Chapter \ref{chap:approach}, the research objectives are satisfied at the design level but their validity can be confirmed only by evaluating the research objectives with some sample scenarios provided in Chapter \ref{chap:motivatingScenario}.   
 
 \textit{Organizational intentions transparency} (R1): A valid user whose credentials are stored in database is able to login successfully and view the intentions and its associated entities. Hence the research objective R1 is met.
 
@@ -135,7 +128,7 @@ As discussed in Chapter \ref{chap:approach}, the research objectives are satisfi
 
 \textit{Intention oriented working style} (R4): The users can login and create intention models, strategy models, informal process models etc., through the developed editor. Hence research objective R4 is also met.
 
-\textit{Participative organizational modeling} (R5): Each entity type that can be acquired or instantiated has list of participants with their corresponding privileges. Thus this satisfies the requirements of research objective R5.
+\textit{Participative organizational modeling} (R5): Each entity type that can be interactively acquirable has list of participants with their corresponding privileges. Thus this satisfies the requirements of research objective R5.
 
 \textit{Re-use of organizational knowledge} (R6): The descriptive information about each models can be stored and re-used for next enactments. Hence research objective R6 is also met.
 	
@@ -143,11 +136,15 @@ As discussed in Chapter \ref{chap:approach}, the research objectives are satisfi
 \subsection{Validation of Prototype}
 \label{subsec:validationofprototype}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-how research objectives are satisfied. 
-	%queries and print screens
+In the approach of \textit{Supporting Informal Processes} \cite{Sungur2014}, the author has categorized generic requirements that supports enactment of informal processes under three dimensions such as business logic, IT infrastructure and organization. In order to make the validation procedure simple, we have taken the concrete requirements discussed in the approach of \textit{Informal Process Essentials} \cite{Sungur2014a}. This is because the latter approach itself is an extended work of former approach.  
 
-	
+\textit{Enactable Informal Process Representation}: In this requirement, the core elements are performers, IT tools, data etc., and the requirement gets satisfied only when we are able to provide textual descriptions of how to make these ready. In the functioning web editor, the user can create textual information i.e models required for resources, contexts, strategies etc. Hence the developed prototype satisfies the requirement of providing enactable informal process representation. For example, using our motivating scenario we only provide definitions of intentions, contexts, strategies, capabilities and resources inside the editor but there is no functionality to  predefine business logic of these informal processes.
 
+\textit{Resource Relationships Definition}: In an informal process, each resource can have a relation with other resource. For example in our motivating scenario, a resource with front-end developer capability has a "requires" relationship with front-end developer tools. In the functioning system, TOSCA modeling and repository web page has been included to edit the resource models. Thus the functioning system also satisfies the requirement of defining relationship between the resources. 
+
+\textit{Resource Visibility Definition}: Informal processes contains resources that work towards the process' specific intention. These resources can participate in more than one informal process. For example, in the same organization as in our motivating scenario there can be another process working towards achieving an intention say \textit{improving skills of all the employees}. This can make an employee with a developer capability to participate in both the processes. Thus all the resources of an informal process has to be visible. In or functioning system we have septate user interface tab that details associated resources of an informal process. This satisfies the requirement of making the resource definitions visible.    
+
+\textit{Support for Dynamically Changing Resources}: Due to dynamic nature of informal processes, the developed editor provides facility to add or remove resources. For example, in our motivating scenario consider the sub-intention of \textit{improving the help desk portal} where a new requirement of \textit{extending the help desk portal support in mobiles} may arise dynamically. In this situation, the editor must provide means to add new resource with new capability of \textit{mobile application developer capability}. The functioning system provides facility to add or remove resources associated with capabilities. Thus the requirement of providing support for dynamically changing resources is also satisfied by the editor. 
 	
 
 
