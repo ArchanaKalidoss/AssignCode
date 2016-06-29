@@ -3,27 +3,27 @@
 In this chapter, we provide architecture of the functioning system as a first section. This section provides, implementation details along with the reason for making certain decisions regarding the implementation. The final section validates the system by validating it with the proposed approach. This section also has some requirement evaluation with the state of the art approaches.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Presentation of the Functioning System}
-\label{sec:presentationofthefunctioningsystem}
+\section{Architecture of the Functioning System}
+\label{sec:architectureofthefunctioningsystem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 As discussed in the Chapter \ref{chap:approach}, informal process targets for accomplishment of an intention. Thus in the Figure \ref{fig:architectureofthecasestudy}, we associate intentions with both process definitions and strategy definitions as intention definitions are used by both process definitions and strategy definitions. Intentions are associated through resources either through strategies or through informal processes. Intentions can be refined by defining sub-intentions, which can be defined recursively as independent informal process. For example, in our motivating scenario the main intention increase revenue and number of unit sales can be refined into sub-intention of improve customer help desk portal. This sub-intention can be associated with process models. This \textit{intention-based} approach enables describing process declaratively,  i.e., without describing \textit{how} the intention is achieved, and providing information about \textit{what} has to be achieved. This avoids the need for predefined business logic in the representations of informal process \cite{Sungur2014a}. 
-
-
 
 
 
 \begin{figure}
 	\centering
 	\includegraphics [width= \textwidth]{architectureofthecasestudy.pdf}
-	\caption{Presentation of the functioning system}
-	\label{fig:architectureofthecasestudy}
-\end{figure}
+	\caption{Architecture of the Functioning System}
+		\label{fig:architectureofthecasestudy}
+	\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Application Flow}
 \label{subsec:applicationflow}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Figure \ref{fig:UIArchitecture}
+
+Each entity item has basic properties such as \textit{name} and \textit{target namespace}. The entities are identified using their unique id which is generated using the combination of name and target namespace. Other entities that are associated with a particular entity are resolved through this unique identifier. For example, in our motivating scenario consider the intention \textit{improve the customer help desk portal} when creating model for this intention, business expert provide name and namespace for this intention and add it to the database. A unique identifier is generated for the intention model using the combination of name and namespace by the system. The strategy (in our scenario \textit{through application  development}) that is associated with this intention, just contains only this unique identifer for the reference. 
 
 \begin{figure}
 	\centering
@@ -32,25 +32,11 @@ Figure \ref{fig:UIArchitecture}
 	\label{fig:UIArchitecture}
 \end{figure}
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{A Concrete View of Entity Types}
-\label{sec:realization}
+\label{sec:concreteviewofentitytypes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%how did I implement, technology and frameworks used and why.
-It is important to discuss the conrete concepts of informal process from an organizational aspect, because they have a direct effect on the outcome of the informal process \cite{Sungur2014}. This section discusses about how Intention-centric organizational modeling realized the user interface editor from an organizational aspect by taking the motivating scenario discussed in Chapter \ref {chap:motivatingScenario}. Also we have provided some schema definitions because, the editor has a view that is capable of adding, viewing, deleting and updating models aligned with the schema definition. 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Realization of Entity Views}
-\label{subsec:realofentityviews}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-The XML Schema Definition of entity type has been provided in \ref{lst:xsdlist}
-
-
+It is important to discuss the concrete concepts of informal process from an organizational aspect, because they have a direct effect on the outcome of the informal process \cite{Sungur2014}. This section discusses about how Intention-centric organizational modeling realized the user interface editor from an organizational aspect by taking the motivating scenario discussed in Chapter \ref {chap:motivatingScenario}. Though developing schema definitions are not part of the thesis implementation, it has been provided because the editor has a view that is capable of adding, viewing, deleting and updating model data aligned with the schema definition. A typical XML Schema Definition of entity type has been provided in the listing \ref{lst:xsdlist}.
 
 \begin{Listing}
 	\begin{lstlisting}
@@ -82,6 +68,19 @@ The XML Schema Definition of entity type has been provided in \ref{lst:xsdlist}
 	\caption{XML Schema Definition of Entity Type}
 	\label{lst:xsdlist}
 \end{Listing}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Realization of Motivating Scenario}
+\label{sec:realization}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Figure \ref{fig:realizationofmotivatingscenario}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth,angle=0]{PhasesofMotivatingScenario.pdf}
+	\caption{Realization of Motivating Scenario}
+	\label{fig:realizationofmotivatingscenario}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Realization of Context Definitions}
