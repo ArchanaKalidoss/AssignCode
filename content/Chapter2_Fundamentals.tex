@@ -38,6 +38,8 @@ In this section, the definitions of terminologies that are used throughout this 
 
 \textit{Strategy} -  A  strategy is a method or plan chosen to bring  desired results, such as achievement of an intention or solution to a problem \footnote{http://www.businessdictionary.com/definition/strategy.html}. 
 
+\textit{ENntity} - Throughout our document we use the term \textit{entity}, which denotes every individual model e.g., an intention model, strategy model, capability model etc. Entity type means the type which an entity belongs to e.g., intentions, strategies, capabilities etc. For example, when we call an intention definition as an entity then entity type of this entity is intention. 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Organizational Modeling Notations}
@@ -158,21 +160,27 @@ This approach of Informal Process Modeling is directed towards modeling the info
 \begin{figure}
 		\centering
 		\includegraphics[width=1.5\textwidth,angle=90]{processmodeling.pdf}
-		\caption{Organizational Process Modeling}
+		\caption{Steps of the Informal Process Modeling}
 		\label{fig:processdiagram}
 \end{figure}
 
-\textit{Model Context Definitions} (M1) -  The first step is to model context definitions, where we can model both basic properties like name and namespace of a context definition and entity specific properties like contained contexts, entity definitions etc., of a context definition.  
+\subsubsection{Model Context Definitions (M1)}  
+The first step is to model context definitions, where we can model both basic properties like name and namespace of a context definition and entity specific properties like contained contexts, entity definitions etc., of a context definition.  
 
-\textit{Model Intentions} (M2) -  Similar to context definition modeling (M1), the second step (M2) is to model intentions. The context definitions created in step M1 can be used to specify initial and final contexts of an intention. Intentions can contain sub-intentions and contradicting intentions. These type of sub intentions and contradicting intentions are also modeled as intentions in this step and their type of relation to specific intention are mentioned. 
+\subsubsection{Model Intentions (M2)}  
+ Similar to context definition modeling (M1), the second step (M2) is to model intentions. The context definitions created in step M1 can be used to specify initial and final contexts of an intention. Intentions can contain sub-intentions and contradicting intentions. These type of sub intentions and contradicting intentions are also modeled as intentions in this step and their type of relation to specific intention are mentioned. 
 
-\textit{Model Strategies} (M3) -  Once intentions are identified and modeled, the third step is modeling of strategy to achieve a specific intention. As mentioned earlier in Section \ref{sec:entitytypesrepresentation}, an intention can have multiple strategies. 
+\subsubsection{Model Strategies (M3)}  
+ Once intentions are identified and modeled, the third step is modeling of strategy to achieve a specific intention. As mentioned earlier in Section \ref{sec:entitytypesrepresentation}, an intention can have multiple strategies. 
 
-\textit{Model Required Capabilities} (M4) - After modeling of strategies, capabilities required to achieve an intention in a specific strategy is modeled. A strategy can require multiple capabilities which has been explained in detail with a suitable example in the following Chapter \ref{chap:motivatingScenario}. 
+\subsubsection{Model Required Capabilities (M4)}  
+ After modeling of strategies, capabilities required to achieve an intention in a specific strategy is modeled. A strategy can require multiple capabilities which has been explained in detail with a suitable example in the following Chapter \ref{chap:motivatingScenario}. 
 
-\textit{Create Resource Models} (M6) -  After matching the resources and capabilities i.e after finding the correct resource that has the capability to carry out the process, the resource models are created. The need for modeling a new intention may arise in parallel this has been explained with a suitable example in the following Chapter \ref{chap:motivatingScenario}.   
+\subsubsection{Create Resource Models (M6)}  
+After matching the resources and capabilities i.e after finding the correct resource that has the capability to carry out the process, the resource models are created. The need for modeling a new intention may arise in parallel this has been explained with a suitable example in the following Chapter \ref{chap:motivatingScenario}.   
 
-\textit{Extract as an IPE Model} (M7) -  After the completion of above mentioned steps, the modeled entities can be extracted as an IPE model which can be reused. 
+\subsubsection{Extract as an IPE Model (M7)}  
+ After the completion of above mentioned steps, the modeled entities can be extracted as an IPE model which can be reused. 
 
 The other steps denoted in dashed round edged rectangle which are not part of developed web editor includes matching of required organizational capabilities that are satisfied by resource models  to enable the achievement of organizational intentions in certain context definitions through a strategy. If there is no suitable matching capability then phase P1 of InProXec can be carried out again until a matching capability is found. If Capabilites are satisfied resource models can be created. The created resource models(M6) along with modeled capabilities can be extracted as an IPE Model(M7) which will be provided as input for the next step execution of intentions (M8). After the execution of an intention, the status of an intention is updated inside the specific intentions's property. 
 
