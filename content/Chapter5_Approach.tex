@@ -6,64 +6,42 @@ This section describes in detail about the technical approach that has been take
 \section{Overview of the Modeling Process}
 \label{sec:overviewmodelingprocess}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The main focus of this approach is to develop a web-based editor which can be used by business experts to model the informal processes, intentions, strategies and capabilities. Also in this thesis work, the scope of modeling is limited only to the descriptive type of modeling. As we mentioned before, the resource definitions required for the editor is made available from the first phase P1 of the InProXec approach. Business experts develop descriptive models through the editor using these resource models to achieve main intention that contains sub-intentions, strategies etc. The reason for following descriptive modeling approach is due to the fact that models reuse descriptive data and these stored models provides means of execution for the phases P3 and P4 of InProXec. The model provides necessary concepts and relations for modeling the core elements of resource-centric organizational modeling. Resources are abstract description which are made concrete during initialization of an instance. There are also resource specific views based on the participating resources' role. For example, based on the privilege provided to a participant he can view/edit/own/follow the instances. Initializing resource-centric models requires \textit{acquiring} and engaging interrelated resources \cite{Sungur2015} which is explained in a detailed way in the following sections of this chapter. 
+The main focus of this approach is to develop a web-based editor which can be used by business experts to model the informal processes, intentions, strategies and capabilities. Also in this thesis work, the scope of modeling is limited only to the descriptive type of modeling i.e., models that describe processes declaratively by providing only information about what has to be done. As we mentioned before, the resource definitions required for the editor is made available from the first phase P1 of the InProXec approach. Business experts develop descriptive models through the editor using these resource models to achieve main intention that contains sub-intentions, strategies etc. The reason for following descriptive modeling approach is due to the fact that models reuse descriptive data and these stored models provides means of execution for the phases P3 and P4 of InProXec. The model provides necessary concepts and relations for modeling the core elements of resource-centric organizational modeling. Resources are abstract description which are made concrete during initialization of an instance. There are also resource specific views based on the participating resources' role. For example, based on the privilege provided to a participant he can view/edit/own/follow the instances. Initializing resource-centric models requires \textit{acquiring} and engaging interrelated resources \cite{Sungur2015} which is explained in a detailed way in the following sections of this chapter. 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Technologies and Frameworks}
-\label{subsec:specifications}
+\subsection{Informal Process Modeling (P2)}
+\label{subsec:informalprocessmodeling}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In order to realize the web-based editor of resource-centric organizational modeling, a formal inquiry was done to choose suitable technologies and frameworks required. The below specifications were finalized and \textit{client-side scripting}\footnote{https://en.wikipedia.org/wiki/Client-side\_scripting} was chosen, due to the fact that our developed editor is web-based. 
-
-\begin{enumerate}   
-	\item \textit{Clojure}\footnote{https://clojure.org/} as the programming language
-	\item \textit{IntelliJIDEA}\footnote{https://www.jetbrains.com/idea/} as the development environment
-	\item \textit{MVC}\footnote{https://en.wikipedia.org/wiki/Model-view-controller}  as the architecture pattern
-	\item \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} as the pattern for writing SPAs \footnote{https://en.wikipedia.org/wiki/Single-page\_application} in ClojureScript, using Reagent	
-\end{enumerate}
-
-Other than the above listed frameworks and technologies, frameworks like \textit{react-bootstrap}\footnote{https://react-bootstrap.github.io/}, jquery\footnote{https://jquery.com/} were also used to provide more optimal view of the editor. Along with this we have also used libraries like bidi\footnote{https://github.com/juxt/bidi} and pushy\footnote{https://github.com/kibu-australia/pushy}, to handle page navigation fom current location to the desired location in the URL\footnote{URL- Uniform Resource Locator} of the browser. \textit{Clojure} is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language with an efficient and robust infrastructure for multithreaded programming. \textit{ClojureScript}\footnote{http://clojure.org/about/clojurescript} is a compiler for Clojure that targets JavaScript which has been designed to emit JavaScript code. In our implementation, we have used both Clojure and Clojurescript. We also used \textit{Reagent}\footnote{http://reagent-project.github.io/} which provides a minimalistic interface between ClojureScript and React\footnote{https://facebook.github.io/react/}. A \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} is a pattern for writing applications in ClojureScript, using Reagent.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{MVC Architecture}
-\label{subsec:mvcarch}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- The architecture of the developed user interface is based on the \textit{Model-View-Control (MVC)} design pattern. The MVC paradigm allows to separate business logic from the code that controls presentation and event handling \cite{Oracle2016}. Each entity view in the web page is made up of combination of at least one Model and View, and one or more Controls. The functionalities of individual files which acts as Model, View and Controller are shown in the Figure \ref{fig:mvc_arch}
+This approach of Informal Process Modeling is directed towards modeling the informal process based on their intentions rather than their activities. This is due to the fact that intentions only define \textit{what to do} rather than \textit{how to do}. Since this phase is part of InProXec method, the properties and requirements described in previous approaches \cite{Sungur2014a,Sungur2015} also applies to informal process modeling phase. The developed system serves as an holistic web based editor to create, view and update all the associated entities of informal process like intentions, capabilities, strategies etc., along with informal process. Also from our detailed explanation in previous sections about the importance of resources in organizational modeling  and along with the fact that phase P2 receives resource defintions as input from phase P1 of InProXec method we can apprehend that resource definitions are the lowest level in the hierarchy of resource-centric organizational modeling approach. The sequence of steps to be carried out using the developed editor has been shown in the Figure  \ref{fig:processdiagram}. It is important to note that in the figure, only solid round edged rectangles are part of the developed editor. The tasks to be carried out in each of the steps in developed editor is described as below:
 
 \begin{figure}
 	\centering
-	\includegraphics [width= 0.75\textwidth]{mvc_arch.pdf}
-	\caption{MVC architecture components}
-	\label{fig:mvc_arch}
+	\includegraphics[width=1.5\textwidth,angle=90]{processmodeling.pdf}
+	\caption{Steps of the Informal Process Modeling}
+	\label{fig:processdiagram}
 \end{figure}
 
-\textit{Model} artifact stores the required data structure for web-editor. In the developed model artifact, the four main types of data structure such as intentions, strategies, capabilities and informal process instances are stored. 
+\subsubsection{Model Context Definitions (M1)}  
+The first step is to model context definitions, where we can model both basic properties like name and namespace of a context definition and entity specific properties like contained contexts, entity definitions etc., of a context definition.  
 
-\textit{View} artifact contains HTML\footnote{https://en.wikipedia.org/wiki/HTML} elements and HTML constructs that describe the way of displaying the data from Model to the user. Most of the common functionalities that render user interface components are re-used. 
+\subsubsection{Model Intentions (M2)}  
+Similar to context definition modeling (M1), the second step (M2) is to model intentions. The context definitions created in step M1 can be used to specify initial and final contexts of an intention. Intentions can contain sub-intentions and contradicting intentions. These type of sub intentions and contradicting intentions are also modeled as intentions in this step and their type of relation to specific intention are mentioned. Intentions are defined hierarchically, which can contain and extend sub-intentions.It is depicted by a double circle in organizational notations. The sub-intentions are refined starting from main intentions. Intentions are associated with strategies.
 
-\textit{Control} artifact contains the handler functions which can only change the model. Even the initial values of the model are put inside the control. This artifact has functions that updates default database, which then causes a re-render of view that makes the user to see a new view.
-	
-Apart from the above artifacts, there is another important artifact that registers subscription functions i.e., query layer of the data. As view components never source data directly from default model, we use \textit{subscription} functions. Subscription functions returns values that change over time i.e based on a user events.
+\subsubsection{Model Strategies (M3)}  
+Once intentions are identified and modeled, the third step is modeling of strategy to achieve a specific intention. As mentioned earlier in Section \ref{sec:entitytypesrepresentation}, an intention can have multiple strategies.  A  strategy is a method or plan chosen to bring  desired results, such as achievement of an intention or solution to a problem. Strategies are associated with capabilities. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Example: Component using MVC Pattern }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- The Figure \ref{fig:mvc_arch} below shows the simplifed version of how the components interact with each other using the Model-View-Control (MVC) pattern, for the functionality of adding new entity data. This functionality is same for all the types such as intentions, strategies, capabilities and informal processes and below is the detailed explanation of each interaction.
- 
- \begin{figure}
- 	\centering
- 	\includegraphics [width= \textwidth]{mvc_pattern.pdf}
- 	\caption{MVC Pattern of adding new entity}
- 	\label{fig:mvc_pattern}
- \end{figure}
+\subsubsection{Model Required Capabilities (M4)}  
+After modeling of strategies, capabilities required to achieve an intention in a specific strategy is modeled. A strategy can require multiple capabilities which has been explained in detail with a suitable example in the following Chapter \ref{chap:motivatingScenario}. 
+A capability is the ability to provide business values like software applications, resources and potential of the actor to make decisions even in changing situations \cite{Stirna2012}. Capability describes the ability provided by a resource or required by an intention. The performers of an informal process should posses certain skills and roles to achieve the intention. These type of required skills are modeled during this step.
 
-\begin{enumerate}
-	\item User clicks the tab \textit{Add New} button in the developed editor.
-	\item In response to the user click, the view displays the respective user interface component for entering the new entity data details.
-	\item User enters the required basic details for adding new entity data and clicks save button.
-	\item The view dispatches the data to control, as control can only modify the model.
-	\item Control inserts/updates data into the model.
-	\item View displays the updated model as it has been subscribed to the model.
-\end{enumerate}
+\subsubsection{Create Resource Models (M6)}  
+After matching the resources and capabilities i.e after finding the correct resource that has the capability to carry out the process, the resource models are created. The need for modeling a new intention may arise in parallel during modeling of resources. This has been explained with a suitable example in the following Chapter \ref{chap:motivatingScenario}.  A resource can be a people or tool those/that drive towards the successful execution of the process. It is key for achieving specified process intentions. In the context of this work, the definition of organizational resources refers not only the entities that are capable of doing work but also entities that have an impact on the outcome of the processes, e.g., software tools, human performers, data etc.      
+
+\subsubsection{Extract as an IPE Model (M7)}  
+After the completion of above mentioned steps, the modeled entities can be extracted as an IPE model which can be reused. 
+
+The other steps denoted in dashed round edged rectangle are not part of developed web editor. The steps are matching of required organizational capabilities (M5) that are satisfied by resource models and integration of required resources (P1). If there is no suitable matching capability then phase P1 of InProXec can be carried out again until a matching capability is found. If Capabilites are satisfied resource models can be created. The created resource models(M6) along with modeled capabilities can be extracted as an IPE Model(M7) which will be provided as input for the next step execution of intentions (M8). After the execution of an intention, the status of an intention is updated inside the specific intentions's property. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{A Top-Down Modeling Approach}

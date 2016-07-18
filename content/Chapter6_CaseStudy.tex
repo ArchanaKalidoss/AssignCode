@@ -18,6 +18,64 @@ As discussed in the Chapter \ref{chap:approach}, informal process targets for ac
 Also from the Figure \ref{fig:architectureofthecasestudy}, it is clear that we followed the MVC architecture to design the user interface. Business experts can use the editor to view/update the descriptive entity details. Whenever a change in the model data is detected respective handler function is \textit{dispatched} and the corresponding handler function can only \textit{update} the model. Since we associate every entity type with another entity type, model data of an entity type is required by another entity type which are resolved using the unique reference identifier. For example, intention model's unique reference identifier of intention \textit{improve help customer help portal} is required by the strategy \textit{through application development}. This is because for strategy (through application development), intention (improve help customer help portal) is the target intention. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Technologies and Frameworks}
+\label{subsec:specifications}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In order to realize the web-based editor of resource-centric organizational modeling, a formal inquiry was done to choose suitable technologies and frameworks required. The below specifications were finalized and \textit{client-side scripting}\footnote{https://en.wikipedia.org/wiki/Client-side\_scripting} was chosen, due to the fact that our developed editor is web-based. 
+
+\begin{enumerate}   
+	\item \textit{ClojureScript}\footnote{http://clojure.org/about/clojurescript} as the programming language
+	\item \textit{IntelliJIDEA}\footnote{https://www.jetbrains.com/idea/} as the development environment
+	\item \textit{MVC}\footnote{https://en.wikipedia.org/wiki/Model-view-controller}  as the architecture pattern
+	\item \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} as the pattern for writing SPAs \footnote{https://en.wikipedia.org/wiki/Single-page\_application} in ClojureScript, using Reagent	
+\end{enumerate}
+
+Other than the above listed frameworks and technologies, frameworks like \textit{react-bootstrap}\footnote{https://react-bootstrap.github.io/}, jquery\footnote{https://jquery.com/} were also used to provide more optimal view of the editor. Along with this we have also used libraries like bidi\footnote{https://github.com/juxt/bidi} and pushy\footnote{https://github.com/kibu-australia/pushy}, to handle page navigation fom current location to the desired location in the URL\footnote{URL- Uniform Resource Locator} of the browser. \textit{Clojure} is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language with an efficient and robust infrastructure for multithreaded programming. \textit{ClojureScript} is a compiler for Clojure that targets JavaScript which has been designed to emit JavaScript code. In our implementation, we have used both Clojure and Clojurescript. We also used \textit{Reagent}\footnote{http://reagent-project.github.io/} which provides a minimalistic interface between ClojureScript and React\footnote{https://facebook.github.io/react/}. A \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} is a pattern for writing applications in ClojureScript, using Reagent.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{MVC Architecture}
+\label{subsec:mvcarch}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The architecture of the developed user interface is based on the \textit{Model-View-Control (MVC)} design pattern. The MVC paradigm allows to separate business logic from the code that controls presentation and event handling \cite{Oracle2016}. Each entity view in the web page is made up of combination of at least one Model and View, and one or more Controls. The functionalities of individual files which acts as Model, View and Controller are shown in the Figure \ref{fig:mvc_arch}
+
+\begin{figure}
+	\centering
+	\includegraphics [width= 0.75\textwidth]{mvc_arch.pdf}
+	\caption{MVC architecture components}
+	\label{fig:mvc_arch}
+\end{figure}
+
+\textit{Model} artifact stores the required data structure for web-editor. In the developed model artifact, the four main types of data structure such as intentions, strategies, capabilities and informal process instances are stored. 
+
+\textit{View} artifact contains HTML\footnote{https://en.wikipedia.org/wiki/HTML} elements and HTML constructs that describe the way of displaying the data from Model to the user. Most of the common functionalities that render user interface components are re-used. 
+
+\textit{Control} artifact contains the handler functions which can only change the model. Even the initial values of the model are put inside the control. This artifact has functions that updates default database, which then causes a re-render of view that makes the user to see a new view.
+
+Apart from the above artifacts, there is another important artifact that registers subscription functions i.e., query layer of the data. As view components never source data directly from default model, we use \textit{subscription} functions. Subscription functions returns values that change over time i.e based on a user events.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Example: Component using MVC Pattern }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The Figure \ref{fig:mvc_arch} below shows the simplifed version of how the components interact with each other using the Model-View-Control (MVC) pattern, for the functionality of adding new entity data. This functionality is same for all the types such as intentions, strategies, capabilities and informal processes and below is the detailed explanation of each interaction.
+
+\begin{figure}
+	\centering
+	\includegraphics [width= \textwidth]{mvc_pattern.pdf}
+	\caption{MVC Pattern of adding new entity}
+	\label{fig:mvc_pattern}
+\end{figure}
+
+\begin{enumerate}
+	\item User clicks the tab \textit{Add New} button in the developed editor.
+	\item In response to the user click, the view displays the respective user interface component for entering the new entity data details.
+	\item User enters the required basic details for adding new entity data and clicks save button.
+	\item The view dispatches the data to control, as control can only modify the model.
+	\item Control inserts/updates data into the model.
+	\item View displays the updated model as it has been subscribed to the model.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Application Flow}
 \label{subsec:applicationflow}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -252,19 +310,3 @@ As discussed in Chapter \ref{chap:approach}, the research objectives are satisfi
 
 \textit{Re-use of organizational knowledge} (R6): The descriptive information about each models can be stored and re-used for next enactments. Hence research objective R6 is also met.
 	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Validation of Prototype}
-\label{subsec:validationofprototype}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In the approach of \textit{Supporting Informal Processes} \cite{Sungur2014}, the author has categorized generic requirements that supports enactment of informal processes under three dimensions such as business logic, IT infrastructure and organization. In order to make the validation procedure simple, we have taken the concrete requirements discussed in the approach of \textit{Informal Process Essentials} \cite{Sungur2014a}. This is because the latter approach itself is an extended work of former approach.  
-
-\textit{Enactable Informal Process Representation}: In this requirement, the core elements are performers, IT tools, data etc., and the requirement gets satisfied only when one is able to provide representation of how to make these resources ready. In the functioning web editor, the user can create textual information i.e models required for resources, contexts, strategies etc. Hence the developed prototype satisfies the requirement of providing enactable informal process representation. For example, using our motivating scenario we only provide definitions of intentions, contexts, strategies, capabilities and resources inside the editor but there is no functionality to  predefine business logic of these informal processes.
-
-\textit{Resource Relationships Definition}: In an informal process, each resource can have a relation with other resource. For example in our motivating scenario, a resource with front-end developer capability has a "requires" relationship with front-end developer tools. In the functioning system, Winery modeling tool's repository web page has been included to edit the resource models. Thus the functioning system also satisfies the requirement of defining relationship between the resources. 
-
-\textit{Resource Visibility Definition}: Informal processes contains resources that work towards the process' specific intention. These resources can participate in more than one informal process. For example, in the same organization as in our motivating scenario there can be another process working towards achieving an intention say, \textit{improving skills of all the employees}. This can make an employee with a developer capability to participate in both the processes. Thus all the resources of an informal process has to be visible. In the functioning system, there is seprate user interface tab that details associated resources of an informal process. This satisfies the requirement of making the resource definitions visible.    
-
-\textit{Support for Dynamically Changing Resources}: Due to dynamic nature of informal processes, the developed editor provides facility to add or remove resources. For example, in our motivating scenario consider the sub-intention of \textit{improving the help desk portal} where a new requirement of \textit{extending the help desk portal support in mobiles} may arise dynamically. In this situation, the editor provides means to add new resource with new capability of \textit{mobile application developer capability}. The functioning system provides facility to add or remove resources associated with capabilities. Thus the requirement of providing support for dynamically changing resources is also satisfied by the editor. 
-	
-
-
