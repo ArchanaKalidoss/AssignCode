@@ -86,38 +86,7 @@ Each entity item has basic properties such as \textit{name} and \textit{target n
 \section{A Concrete View of Entity Types}
 \label{sec:concreteviewofentitytypes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-It is important to discuss the concrete concepts of informal process from an organizational aspects, because organizational aspects have a direct effect on the outcome of the informal process \cite{Sungur2014}. This section discusses about how resource-centric organizational modeling is realized as a web-based editor from an organizational aspect by taking the motivating scenario discussed in Chapter \ref {chap:motivatingScenario}. Though developing schema definitions are not part of the thesis implementation, it has been provided because the editor has a view that is capable of adding, viewing, deleting and updating model data aligned with the schema definition. A typical XML Schema Definition of entity type has been provided in the listing \ref{lst:xsdlist}.
-
-\begin{Listing}
-	\begin{lstlisting}
-	<xs:complexType name="tEntityType" abstract="true">
-	<xs:complexContent>
-	<xs:extension base="tExtensibleElements">
-	<xs:sequence>
-	<xs:element name="Tags" type="tTags" minOccurs="0"/>
-	<xs:element name="DerivedFrom" minOccurs="0">
-	<xs:complexType>
-	<xs:attribute name="typeRef" type="xs:QName" use="required"/>
-	</xs:complexType>
-	</xs:element>
-	<xs:element name="PropertiesDefinition" minOccurs="0">
-	<xs:complexType>
-	<xs:attribute name="element" type="xs:QName"/>
-	<xs:attribute name="type" type="xs:QName"/>
-	</xs:complexType>
-	</xs:element>
-	</xs:sequence>
-	<xs:attribute name="name" type="xs:NCName" use="required"/>
-	<xs:attribute name="abstract" type="tBoolean" default="no"/>
-	<xs:attribute name="final" type="tBoolean" default="no"/>
-	<xs:attribute name="targetNamespace" type="xs:anyURI" use="optional"/>
-	</xs:extension>
-	</xs:complexContent>
-	</xs:complexType>>
-	\end{lstlisting}
-	\caption{XML Schema Definition of Entity Type}
-	\label{lst:xsdlist}
-\end{Listing}
+It is important to discuss the concrete concepts of informal process from an organizational aspects, because organizational aspects have a direct effect on the outcome of the informal process \cite{Sungur2014}. This section discusses about how resource-centric organizational modeling is realized as a web-based editor from an organizational aspect by taking the motivating scenario discussed in Chapter \ref {chap:motivatingScenario}. Though developing schema definitions are not part of the thesis implementation, it has been provided because the editor has a view that is capable of adding, viewing, deleting and updating model data aligned with the schema definition.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Realization of Motivating Scenario}
@@ -160,7 +129,7 @@ By modeling the business processes based on the resources that work towards cert
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Realization of Resource Definitions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-As discussed earlier each resource can be related to another resource which are defined using predefined or custom \textit{relationships} \cite{Sungur2014a}. These resources are managed through \textit{Resource Organizers}, this is because resource organizers are used to bring together the relevant interrelated resources that work towards to achieve the corresponding intentions. TOSCA \cite{Binz2014} can be used to model all nodes and relationship among them. In this work, consider resources as nodes to make use of the TOSCA's service. The schema definition of considering each resource as node is provided in the listing \ref{lst:xsdnodetype}. In the developed editor, the resource models are managed by embedding the open source modeling tool Winery web page \cite{Kopp2013} in our editor's web page. This is because, it creates a new service template that contains an application topology by using the topology modeler. Winery also offers all available node types in a palette. From there, user drags the desired node type and drops it into the editing area. There, the node type
+As discussed earlier each resource can be related to another resource which are defined using predefined or custom \textit{relationships} \cite{Sungur2014a}. These resources are managed through \textit{Resource Organizers}, this is because resource organizers are used to bring together the relevant interrelated resources that work towards to achieve the corresponding intentions. TOSCA \cite{Binz2014} can be used to model all nodes and relationship among them. In this work, consider resources as nodes to make use of the TOSCA's service. In the developed editor, the resource models are managed by embedding the open source modeling tool Winery web page \cite{Kopp2013} in our editor's web page. This is because, it creates a new service template that contains an application topology by using the topology modeler. Winery also offers all available node types in a palette. From there, user drags the desired node type and drops it into the editing area. There, the node type
 becomes a node template i.e., a node in the topology graph. Node templates can be annotated with requirements and capabilities, property values, and policies. The screen shot of modeling sample resource has been provided in the Figure \ref{fig:realizationofresourcemodel}. 
 
 In order to achieve this we use tosca repository url referring to winery and the other one referring to topology modeler of the winery. Using these values we create corresponding url required for our modeling based on the name and namespace properties of an entity. The functionality to generate resource model page, using tosca repository url and topology modeler url is provided below.
@@ -180,65 +149,12 @@ In order to achieve this we use tosca repository url referring to winery and the
 \end{figure}
 
 
-\begin{Listing}
-	\begin{lstlisting}
-	<xs:complexType name="tNodeTemplate">
-	<xs:complexContent>
-	<xs:extension base="tEntityTemplate">
-	<xs:sequence>
-	<xs:element name="Requirements" minOccurs="0">
-	<xs:complexType>
-	<xs:sequence>
-	<xs:element name="Requirement" type="tRequirement" maxOccurs="unbounded"/>
-	</xs:sequence>
-	</xs:complexType>
-	</xs:element>
-	<xs:element name="Capabilities" minOccurs="0">
-	<xs:complexType>
-	<xs:sequence>
-	<xs:element name="Capability" type="tCapability" maxOccurs="unbounded"/>
-	</xs:sequence>
-	</xs:complexType>
-	</xs:element>
-	<xs:element name="Policies" minOccurs="0">
-	<xs:complexType>
-	<xs:sequence>
-	<xs:element name="Policy" type="tPolicy" maxOccurs="unbounded"/>
-	</xs:sequence>
-	</xs:complexType>
-	</xs:element>
-	<xs:element name="DeploymentArtifacts" type="tDeploymentArtifacts" minOccurs="0"/>
-	</xs:sequence>
-	<xs:attribute name="name" type="xs:string" use="optional"/>
-	<xs:attribute name="minInstances" type="xs:int" use="optional" default="1"/>
-	<xs:attribute name="maxInstances" use="optional" default="1">
-	<xs:simpleType>
-	<xs:union>
-	<xs:simpleType>
-	<xs:restriction base="xs:nonNegativeInteger">
-	<xs:pattern value="([1-9]+[0-9]*)"/>
-	</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType>
-	<xs:restriction base="xs:string">
-	<xs:enumeration value="unbounded"/>
-	</xs:restriction>
-	</xs:simpleType>
-	</xs:union>
-	</xs:simpleType>
-	</xs:attribute>
-	</xs:extension>
-	</xs:complexContent>
-	</xs:complexType>
-	\end{lstlisting}
-	\caption{XML Schema Definition of Node Type}
-	\label{lst:xsdnodetype}
-\end{Listing}
+
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Realization of Instance creation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Initializing resource-centric processes requires acquiring and engaging interrelated resources \cite{Sungur2015}. As mentioned earlier, the phases of compiling and initializing of informal process models are out of scope of this work. Only the functionalities such as creating instances, extracting instances and editing instances are part of the developed editor. This is because initializing informal process models starts after the initial context defined in an IPE model \cite{Sungur2015}. Thus it is important to discuss realization of instance creation which are required for subsequent phases P3 and P4 of Executing Informal Processes (InProXec) method. Acquirable entity types' models can be converted into instances. For example, resource definition is converted into \textit{resource instance}. A model instance contains additional meta-data about the executed processes such as the information about the start date and time, end date and time, instance status, cost, source model etc. From the screen-shot image \ref{fig:realizationofinstances2} it is clear that these properties of an instance can be edited through the developed editor. Only when a acquirable model is successfully initialized it can be engaged to adapt the process execution of emerging requirements \cite{Sungur2015}. The properties that describe each instance is provided in the listing \ref{lst:xsdinstances}
+Initializing resource-centric processes requires acquiring and engaging interrelated resources \cite{Sungur2015}. As mentioned earlier, the phases of compiling and initializing of informal process models are out of scope of this work. Only the functionalities such as creating instances, extracting instances and editing instances are part of the developed editor. This is because initializing informal process models starts after the initial context defined in an IPE model \cite{Sungur2015}. Thus it is important to discuss realization of instance creation which are required for subsequent phases P3 and P4 of Executing Informal Processes (InProXec) method. Acquirable entity types' models can be converted into instances. For example, resource definition is converted into \textit{resource instance}. A model instance contains additional meta-data about the executed processes such as the information about the start date and time, end date and time, instance status, cost, source model etc. From the screen-shot image \ref{fig:realizationofinstances2} it is clear that these properties of an instance can be edited through the developed editor. Only when a acquirable model is successfully initialized it can be engaged to adapt the process execution of emerging requirements \cite{Sungur2015}. 
 
 \begin{figure}
 	\centering
@@ -256,27 +172,6 @@ The developed editor supports creation and updation of descriptive information a
 	\label{fig:realizationofinstances}
 \end{figure}
 
-
-\begin{Listing}
-	\begin{lstlisting}
-<complexType name="tInstanceDescriptor">
-<complexContent>
-<extension base="ipsm:tIdentifiableEntityDefinition">
-<attribute name="startTime" type="time" use="optional"></attribute>
-<attribute name="endTime" type="time" use="optional"></attribute>
-<attribute name="instanceState" type="string" use="required"></attribute>
-<attribute name="instanceURI" type="anyURI" use="optional"></attribute>
-<attribute name="sourceModel" type="tAcquireableentitydefinition" use="required"></attribute>
-<attribute name="parentInstance" type="string" use="optional"></attribute>
-<attribute name="id" type="string" use="required"></attribute>
-<anyAttribute></anyAttribute>
-</extension>
-</complexContent>
-</complexType>		
-\end{lstlisting}
-\caption{XML Schema Definition of Instance Descriptor}
-\label{lst:xsdinstances}
-\end{Listing}
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Validation}
