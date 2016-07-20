@@ -25,8 +25,7 @@ In order to realize the web-based editor of resource-centric organizational mode
 
 \begin{enumerate}   
 	\item \textit{ClojureScript}\footnote{http://clojure.org/about/clojurescript} as the programming language
-	\item \textit{IntelliJIDEA}\footnote{https://www.jetbrains.com/idea/} as the development environment
-	\item \textit{MVC}\footnote{https://en.wikipedia.org/wiki/Model-view-controller}  as the architecture pattern
+	\item \textit{Model-view-controller (MVC)}\footnote{https://en.wikipedia.org/wiki/Model-view-controller}  as the architecture pattern
 	\item \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} as the pattern for writing SPAs \footnote{https://en.wikipedia.org/wiki/Single-page\_application} in ClojureScript, using Reagent	
 \end{enumerate}
 
@@ -36,14 +35,7 @@ Other than the above listed frameworks and technologies, frameworks like \textit
 \subsection{MVC Architecture}
 \label{subsec:mvcarch}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The architecture of the developed user interface is based on the \textit{Model-View-Control (MVC)} design pattern. The MVC paradigm allows to separate business logic from the code that controls presentation and event handling \cite{Oracle2016}. Each entity view in the web page is made up of combination of at least one Model and View, and one or more Controls. The functionalities of individual files which acts as Model, View and Controller are shown in the Figure \ref{fig:mvc_arch}
-
-\begin{figure}
-	\centering
-	\includegraphics [width= 0.75\textwidth]{mvc_arch.pdf}
-	\caption{MVC architecture components}
-	\label{fig:mvc_arch}
-\end{figure}
+The architecture of the developed user interface is based on the \textit{Model-View-Control (MVC)} design pattern. The MVC paradigm allows to separate business logic from the code that controls presentation and event handling \cite{Oracle2016}. Each entity view in the web page is made up of combination of at least one Model and View, and one or more Controls. 
 
 \textit{Model} artifact stores the required data structure for web-editor. In the developed model artifact, the four main types of data structure such as intentions, strategies, capabilities and informal process instances are stored. 
 
