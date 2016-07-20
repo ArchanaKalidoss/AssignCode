@@ -60,9 +60,8 @@ Strategy driven approach is decision oriented modeling approach that focus on go
 Traditional workflows are based on activity-oriented process models and executed based on these models. Requirements R1, R4 and R5 are not satisfied as details of intentions and modeling based on intentions are not provided. The details about cost calculation is addressed but cost calculation of strategies are not addressed. Hence, requirement R2 is partially satisfied. Though this approach does not support sub-processes directly, it provides support for plugging in sub process extensions which can be executed as independent process. Since none of the pre-requisites of requirement R3, the requirement is not satisfied by the approach. 
 
 \subsection{Activity-centric} 
-The activity-centric approach also supports knowledge workers by providing shared activity constructs as a computational unit for organizing the work. This approach provides team level view of past and ongoing work and also supports propagation of completed activities to the existing activities. Hence requirement R1 is partially met. The information about cost of achieving a goal or activity has not been mentioned. Thus requirement R2 is not satisfied. In this approach, activities support objectives at various levels of granularity and thus requirement R4 is met. Since the main focus of this approach is activity, it has not provided any information regarding working style based on goals, instead the working style is based on activities. Hence requirement R5 is not met. Cross activity overview pattern is one of the pattern described in this approach which does unifying work across the team members, hence requirement R5 is addressed. Since this approach also supports reusable activity patterns requirement R6 is also met. 
+The activity-centric approach also supports knowledge workers by providing shared activity constructs (i.e., activity-oriented constructs) as a computational unit for organizing the work. Though this approach provides team level view of past and ongoing work by supporting propagation of completed activities to the existing activities, the approach is not goal-oriented. Thus requirements R1, R4 and R5 are not met. The information about cost of achieving a goal or activity has not been mentioned. Thus requirement R2 is not satisfied. The approach also does not provide any information regarding association of strategies with valid capability.  
  
-
 \subsection{Artifact-centric} 
 Artifact-centric is a data-centric approach to model business processes based on business relevant data. The artifact-centric approach combines business data (artifacts) and business process in a holistic way. Requirements R1, R4 and R5 are not satisfied as details of intentions and modeling based on intentions are not provided. The requirement R2 which is about cost calculation is also not addressed. Though the approach allows modularity of business operations at various levels, it is not associated with strategies. Hence requirement R3 is also not satisfied. 
 
@@ -78,8 +77,6 @@ ArchiMate provides an integrated modeling approach by allowing to model based on
 \begin{table}[]
 	\scriptsize 
 	\centering
-	\caption{Summary of the Evaluation}
-	\label{tab:evaluationoftheapproach}
 	\begin{tabular}{p{2cm}p{2.5cm}p{2.5cm}p{2.5cm}p{2.5cm}p{2.5cm}}
 	\toprule
 		Approach & R1               & R2               & R3         & R4       & R5        \\
@@ -87,16 +84,18 @@ ArchiMate provides an integrated modeling approach by allowing to model based on
 	Strategy-driven & (1)+Refinable, (2)-Not Addressed  & (1)-Not Addressed, (2)-Not Addressed  & (1)-Not Addressed, (2)-Not Addressed  & (1)~R1 partially satisfied, (2)+Addressed  & (1)~R1 partially satisfied, (2)-Not Addressed \\
 	Activity-oriented & (1)-Activity-oriented, (2)-Activity-oriented
 	 &(1)~Addressed, (2)- Not Addressed  & (1)-Not addressed, (2)-Not addressed   &(1)-Activity-oriented, (2)-Activity-oriented  &(1)-Activity-oriented, (2)-Activity-oriented \\
-	Activity-centric &  &  &  &  & \\
+	Activity-centric & (1)-Activity-centric, (2)-Activity-centric  & (1)-Not Addressed, (2)-Not Addressed  & (1)-Not Addressed, (2)-Not Addressed  &  (1)-Activity-centric, (2)-Activity-centric &  (1)-Activity-centric, (2)-Activity-centric \\
 	Artifact-centric    & (1)-Artifact-centric, (2)-Artifact-centric  & (1)-Not Addressed, (2)-Not Addressed  & (1)-Not Addressed, (2)-Not Addressed  & (1)-Artifact-centric, (2)-Artifact-centric & (1)-Artifact-centric, (2)-Artifact-centric  \\ 
 	Capability-driven   & (1)+Refinable, (2)-Not addressed & (1)-Not addressed, (2)-Not addressed   & (1)-Not addressed, (2)-Not addressed  & (1)~R1 partially satisfied, (2)+Addressed  & (1)~R1 partially satisfied, (2)-Not Addressed  \\
 	ArchiMate  & (1)~Addressed, (2)- Not Addressed & (1)+Addressed, (2)+Addressed & (1)-Not addressed, (2)-Not addressed  & (1)+R1 satisfied, (2)+Addressed & (1)+R1 satisfied, (2)+Addressed\\
-	\bottomrule     
+	\bottomrule   
 	\end{tabular}
+	\caption{Summary of the Evaluation}
+	\label{tab:evaluationoftheapproach}  
 \end{table}
 
 
-
+From the Table \ref{tab:evaluationoftheapproach}, one could comprehend that none of the evaluated approaches satisfy all the requirements together. Thus, we propose a new intention-oriented organizational modeling approach in Chapter \ref{chap:approach} that satisfies all of the requirements. 
  
 
 
