@@ -1,6 +1,6 @@
 \chapter{Fundamentals and Related Work}
 \label{chap:fundamentals}
-This chapter provides the fundamental concepts and related work that are required to understand the approach to be discussed in following Chapter \ref{chap:approach}. The first section introduces definitions of terms that are used throughout this document. The second section provides a brief introduction about the Informal Process Essentials (IPE) approach, as this provides basic information required for understanding this thesis work. The third section provides a short overview about organizational modeling notations adopted from another work \cite{Sierr2015}. Though provided notations are not part of implementation, it is introduced to assist the reader in better understanding. The fourth section also describes about fundamental information required to understand the concepts of this thesis work. The fifth section discusses about the entity types representation of the organizational modeling. The last section discusses in details about each steps of the informal process modeling phase. 
+The first three sections of this chapter are the fundamental concepts that are required to understand the approach discussed in following Chapter \ref{chap:approach}. The fourth section provides a brief introduction about related work Informal Process Essentials (IPE) approach, as the conceptual model described in the fifth section is adapted from IPE approach. The final section is also a related work because this thesis work is part of the phase P2 of the Executing Informal Processes (InProXec) method.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Definitions of Terms}
@@ -10,7 +10,7 @@ In this section, the definitions of terminologies that are used throughout this 
 
 \textit{Business Process} -  A business process has been defined as set of activities whose final output is accomplishment of a goal \cite{Weske2012}.  
 
-\textit{Business Logic} - Business logic refers to the activities that need to be done to execute the corresponding process. 
+\textit{Business Logic} - Business logic refers to the activities that need to be done to execute the corresponding business process. 
 
 \textit{Business Process Models} - Business process models are models to capture recurring activities during a business process execution and enact them in an automated fashion for re-using those stored knowledge. 
 
@@ -24,31 +24,13 @@ In this section, the definitions of terminologies that are used throughout this 
 \section{Human Centric Process}
 \label{sec:humancentric}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The role of humans in organizations has been evolving over time. The shift from "personnel" to "human resources" acknowledges the importance of humans as organizational resources. There are incredible number of pressure on today's organizations \footnote{http://www.siop.org/tip/backissues/tipjan98/may.aspx} due to dynamic nature of organizations. For example, organizational changes like addition of new organizational alliances, new structures and hierarchies, new ways of assigning work, and a very high rate of changes like changes in the workforce, including employees' priorities, capabilities, and demographic characteristics. Thus it is impossible to do one hundred percent perfect forecasting of dynamically changing processes in an organization.
+The role of humans in organizations has been evolving over time. The shift from "personnel" to "human resources" acknowledges the importance of humans as organizational resources. There are incredible number of pressure on today's organizations \cite{May2016} due to dynamic nature of organizations. For example, organizational changes like addition of new organizational alliances, new structures and hierarchies, new ways of assigning work, and a very high rate of changes like changes in the workforce, including employees' priorities, capabilities, and demographic characteristics. Thus it is impossible to do one hundred percent perfect forecasting of dynamically changing processes in an organization.
 
-In order to manage such a dynamic environment, organizations need skilled human resources with previous knowledge of handling unforeseen scenarios. Thus human resources are vital part of any organizations as they have skills of acute future orientation to understand changing organizational environment. Humans in organizations carry out many important activities. Managers and Human Resource (HR) professionals organize jobs of each and every human in the organization so that they can effectively perform these jobs. Thus humans in any organization are viewed as resources of the organization which is a contemporary part of Human Resource Management \footnote{http://smallbusiness.chron.com/role-human-resource-management-organizations-21077.html}.
+In order to manage such a dynamic environment, organizations need skilled human resources with previous knowledge of handling unforeseen scenarios. Thus human resources are vital part of any organizations as they have skills of acute future orientation to understand changing organizational environment. Humans in organizations carry out many important activities. Managers and Human Resource (HR) professionals organize jobs of each and every human in the organization so that they can effectively perform these jobs. Thus humans in any organization are viewed as resources of the organization which is a contemporary part of Human Resource Management \cite{Bianca2016}.
 
 When there are multiple human resources working for a process, then there should be some sort of co-ordination and understanding between the humans which is called \textit{collaboration} at an organizational level. Collaboration exists in every levels of an organization. For example at management levels of an organization, managers and HR professionals work together to assign employees their roles and task in the organization. This helps the employees of the organization to adapt to its environment. In a flexible organization, employees' roles and responsiblities changes dynamically based on the requirements and business priorities. Thus the need for network of representations between the human resources is arising. This network of representation sets up an environment to support collaborative work of business related process. This kind of support to represent human resource network has been realized in the work by author Canko \cite{Canko2015}. The concept of \textit{virtual human representation} described by author is an extension of actor-concept described in \textit{Informal Process Essentials} \cite{Sungur2014a}. The developed prototype \textit{Human Resource Representation} in the work \cite{Canko2015} saves the information such as capabilities, roles, responsibilities etc., as a virtual human web ontology instance which can be re-used in web based environments.
 
 These kind of human representation are highly helpful to organizations with dynamically changing resources. These representations can describe and match resources with their capabilities based on the requirements. As we have mentioned in Chapter \ref{chap:introduction}, in our context of intention-oriented organizational modeling humans are also considered as resources and we associate \textit{capabilities} with each resource. Moreover, associating capabilities with resources is helpful in the following example situation. For example, there can be a situation where resources producing more accurate results for processing a task are preferred than resources which can produce higher throughput for processing a task. Thus, we need to associate capabilities and resources. 
-
- 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Overview of Informal Process Essentials}
-\label{sec:basicconcepts}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In this section, we provide an overview about the concepts introduced in the approach Informal Process Essentials (IPE) \cite{Sungur2014a}. The execution steps of a process are recorded as models. These models can be represented as graphs, linguistic description, etc. Models are used in various fields like manufacturing, scientific, IT, etc. These models are mainly useful in re-using the predefined solutions. Such models have numerous benefits \footnote{http://www.nomagic.com/getting-started/modeling-benefits.html} like performance improvement, reduced cost of operation and design, etc. Besides the traditional processes, there are processes which requires participation of human. The performance of these processes depend on dynamic nature of human knowledge i.e., they are subject to change and carried out based on experience of previous knowledge. 
-
-The authors describe following as the properties of an informal process (1) business logic of informal processes is not defined explicitly before the enactment, (2) informal processes are collaborative in nature which requires resources with interrelationships (3) a resource can participate in multiple informal processes and (4) resources can change dynamically.
-
-The authors also provide following requirements that support informal processes with the above described properties. The summarized requirements are (1) ability to represent informal process as models and ability to execute it, (2) due to involvement of multiple resources, ability to define relationships among the resources, (3) resources should be visible in process representations and (4) support for dynamically changing resources. 
-
-The authors also compare existing approaches in the literature with the above requirements. It has also been concluded that analyzed approaches only satisfies some of the requirements but not all the requirements completely. So the authors propose a new \textit{meta-model} approach that satisfies all the requirements. In this IPE meta-model approach, resources are related to each other and work towards achievement of an intention, i.e., goal.   
-
-As mentioned in Section \ref{sec:termdefinitions}, resources are drivers to achieve intentions in the informal processes. In the IPE approach, author states that when the desired process result is repeated the same set of resources can be selected and engaged towards collective intention of the informal processes. 
- 
-It has been mentioned in the IPE approach that Informal Process Essentials (IPE) meta-model describes the following about informal process: (1) describes the constituents informal process such as performers, data and software tools and (2) describes how to make core element ready for the enactment of the informal process i.e resource providers. IPE models begin from initial context and after achieving the main intention it results in another context. 
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Organizational Modeling Notations}
@@ -81,6 +63,22 @@ Due to the importance of shapes in expressing information visually, the notation
 		\label{tab:notations}		
 	\end{longtable}	
 \end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Overview of Informal Process Essentials}
+\label{sec:basicconcepts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In this section, we provide an overview about the concepts introduced in the approach Informal Process Essentials (IPE) \cite{Sungur2014a}. The execution steps of a process are recorded as models. These models can be represented as graphs, linguistic description, etc. Models are used in various fields like manufacturing, scientific, IT, etc. These models are mainly useful in re-using the predefined solutions. Such models have numerous benefits \footnote{http://www.nomagic.com/getting-started/modeling-benefits.html} like performance improvement, reduced cost of operation and design, etc. Besides the traditional processes, there are processes which requires participation of human. The performance of these processes depend on dynamic nature of human knowledge i.e., they are subject to change and carried out based on experience of previous knowledge. 
+
+The authors describe following as the properties of an informal process (1) business logic of informal processes is not defined explicitly before the enactment, (2) informal processes are collaborative in nature which requires resources with interrelationships (3) a resource can participate in multiple informal processes and (4) resources can change dynamically.
+
+The authors also provide following requirements that support informal processes with the above described properties. The summarized requirements are (1) ability to represent informal process as models and ability to execute it, (2) due to involvement of multiple resources, ability to define relationships among the resources, (3) resources should be visible in process representations and (4) support for dynamically changing resources. 
+
+The authors also compare existing approaches in the literature with the above requirements. It has also been concluded that analyzed approaches only satisfies some of the requirements but not all the requirements completely. So the authors propose a new \textit{meta-model} approach that satisfies all the requirements. In this IPE meta-model approach, resources are related to each other and work towards achievement of an intention, i.e., goal.   
+
+As mentioned in Section \ref{sec:termdefinitions}, resources are drivers to achieve intentions in the informal processes. In the IPE approach, author states that when the desired process result is repeated the same set of resources can be selected and engaged towards collective intention of the informal processes. 
+
+It has been mentioned in the IPE approach that Informal Process Essentials (IPE) meta-model describes the following about informal process: (1) describes the constituents informal process such as performers, data and software tools and (2) describes how to make core element ready for the enactment of the informal process i.e resource providers. IPE models begin from initial context and after achieving the main intention it results in another context. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
