@@ -13,15 +13,15 @@ As discussed in the Chapter \ref{chap:approach}, informal process targets for ac
 	\includegraphics [width= \textwidth]{architectureofthecasestudy.pdf}
 	\caption{Architecture of the Functioning System}
 	\label{fig:architectureofthecasestudy}
-	\end{figure}
+\end{figure}
 
-Also from the Figure \ref{fig:architectureofthecasestudy}, it is clear that we followed the MVC architecture to design the user interface. Business experts can use the editor to view/update the descriptive entity details. Whenever a change in the model data is detected respective handler function is \textit{dispatched} and the corresponding handler function can only \textit{update} the model. Since we associate every entity type with another entity type, model data of an entity type is required by another entity type which are resolved using the unique reference identifier. For example, intention model's unique reference identifier of intention \textit{improve help customer help portal} is required by the strategy \textit{through application development}. This is because for strategy (through application development), intention (improve help customer help portal) is the target intention. 
+Also from the Figure \ref{fig:architectureofthecasestudy}, it is clear that we followed the MVC architecture to design the user interface. Business experts can use the web-based modeling tool to view/update the descriptive entity details. Whenever a change in the model data is detected respective handler function is \textit{dispatched} and the corresponding handler function can only \textit{update} the model. Since we associate every entity type with another entity type, model data of an entity type is required by another entity type which are resolved using the unique reference identifier. For example, intention model's unique reference identifier of intention \textit{improve help customer help portal} is required by the strategy \textit{through application development}. This is because for strategy (through application development), intention (improve help customer help portal) is the target intention. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Technologies and Frameworks}
 \label{subsec:specifications}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In order to realize the web-based editor of resource-centric organizational modeling, a formal inquiry was done to choose suitable technologies and frameworks required. The below specifications were finalized and \textit{client-side scripting}\footnote{https://en.wikipedia.org/wiki/Client-side\_scripting} was chosen, due to the fact that our developed editor is web-based. 
+In order to realize the web-based modeling tool of intention-oriented organizational modeling, a formal inquiry was done to choose suitable technologies and frameworks required. The below specifications were finalized and \textit{client-side scripting} \cite{Sierra2012} was chosen, due to the fact that our developed editor is web-based. 
 
 \begin{enumerate}   
 	\item \textit{ClojureScript}\footnote{http://clojure.org/about/clojurescript} as the programming language
