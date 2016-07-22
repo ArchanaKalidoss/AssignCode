@@ -29,17 +29,17 @@ In order to realize the web-based modeling tool of intention-oriented organizati
 	\item \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} as the pattern for writing SPAs \footnote{https://en.wikipedia.org/wiki/Single-page\_application} in ClojureScript, using Reagent	
 \end{enumerate}
 
-Other than the above listed frameworks and technologies, frameworks like \textit{react-bootstrap}\footnote{https://react-bootstrap.github.io/}, jquery\footnote{https://jquery.com/} were also used to provide more optimal view of the editor. Along with this we have also used libraries like bidi\footnote{https://github.com/juxt/bidi} and pushy\footnote{https://github.com/kibu-australia/pushy}, to handle page navigation fom current location to the desired location in the URL\footnote{URL- Uniform Resource Locator} of the browser. \textit{Clojure} is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language with an efficient and robust infrastructure for multithreaded programming. \textit{ClojureScript} is a compiler for Clojure that targets JavaScript which has been designed to emit JavaScript code. In our implementation, we have used both Clojure and Clojurescript. We also used \textit{Reagent}\footnote{http://reagent-project.github.io/} which provides a minimalistic interface between ClojureScript and React\footnote{https://facebook.github.io/react/}. A \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} is a pattern for writing applications in ClojureScript, using Reagent.
+Other than the above listed frameworks and technologies, frameworks like \textit{react-bootstrap}\footnote{https://react-bootstrap.github.io/}, jquery\footnote{https://jquery.com/} were also used to provide more optimal view of the editor. Along with this we have also used libraries like bidi\footnote{https://github.com/juxt/bidi} and pushy\footnote{https://github.com/kibu-australia/pushy}, to handle page navigation from current location to the desired location in the URL\footnote{URL- Uniform Resource Locator} of the browser. \textit{Clojure} is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language with an efficient and robust infrastructure for multi threaded programming. \textit{ClojureScript} is a compiler for Clojure that targets JavaScript which has been designed to emit JavaScript code. In our implementation, we have used both Clojure and Clojurescript. We also used \textit{Reagent}\footnote{http://reagent-project.github.io/} which provides a minimalistic interface between ClojureScript and React\footnote{https://facebook.github.io/react/}. A \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} is a pattern for writing applications in ClojureScript, using Reagent.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{MVC Architecture}
 \label{subsec:mvcarch}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The architecture of the developed user interface is based on the \textit{Model-View-Control (MVC)} design pattern. The MVC paradigm allows to separate business logic from the code that controls presentation and event handling \cite{Oracle2016}. Each entity view in the web page is made up of combination of at least one Model and View, and one or more Controls. 
+The architecture of the developed user interface is based on the \textit{Model-View-Control (MVC)} design pattern. The MVC paradigm allows to separate business logic from the code that controls presentation of user interface and event handling \cite{Oracle2016}. Each entity view in the web page is made up of combination of at least one Model and View, and one or more Controls. 
 
-\textit{Model} artifact stores the required data structure for web-editor. In the developed model artifact, the four main types of data structure such as intentions, strategies, capabilities and informal process instances are stored. 
+\textit{Model} artifact stores the required data structure for web-editor. In the developed model artifact, the four main types of data structures such as intentions, strategies, capabilities and informal process instances are stored. 
 
-\textit{View} artifact contains HTML\footnote{https://en.wikipedia.org/wiki/HTML} elements and HTML constructs that describe the way of displaying the data from Model to the user. Most of the common functionalities that render user interface components are re-used. 
+\textit{View} artifact contains HTML (HyperText Markup Language) elements and HTML constructs that describe the way of displaying the data from Model to the user. Most of the common functionalities that render user interface components are re-used. 
 
 \textit{Control} artifact contains the handler functions which can only change the model. Even the initial values of the model are put inside the control. This artifact has functions that updates default database, which then causes a re-render of view that makes the user to see a new view.
 
@@ -48,7 +48,7 @@ Apart from the above artifacts, there is another important artifact that registe
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Example: Component using MVC Pattern }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The Figure \ref{fig:mvc_pattern} below shows the simplifed version of how the components interact with each other using the Model-View-Control (MVC) pattern, for the functionality of adding new entity data. This functionality is same for all the types such as intentions, strategies, capabilities and informal processes and below is the detailed explanation of each interaction.
+The Figure \ref{fig:mvc_pattern} below shows the simplified version of how the components interact with each other using the MVC pattern, for the functionality of adding new entity data. This functionality is same for all the types such as intentions, strategies, capabilities and informal processes and below is the detailed explanation of each interaction.
 
 \begin{figure}
 	\centering
@@ -66,12 +66,11 @@ The Figure \ref{fig:mvc_pattern} below shows the simplifed version of how the co
 	\item View displays the updated model as it has been subscribed to the model.
 \end{enumerate}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Application Flow}
 \label{subsec:applicationflow}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In this sub section we provide an overview about how page navigation from current location to the desired location happen in URL\footnote{URL- Uniform Resource Locator} of the browser. The external libraries used for route navigation, parses URLs into data structures and also generates URLs from data structure defined as required routes. We call a function to dispatch route, with the matched route. Then we also have function that parses the URL, to turn a URL into a data structure representing it. From the Figure \ref{fig:UIArchitecture}, it is clear that route navigation for each entity items happens based on their entity type and its own unique reference identifier.
+In this sub-section we provide an overview about how page navigation from current location to the desired location happens in URL\footnote{URL- Uniform Resource Locator} of the browser. The external libraries used for route navigation, parses URL into data structures and also generates URL from data structure defined as required routes. We call a function to dispatch route, with the matched route. Then we also have function that parses the URL, to turn a URL into a data structure representing it. From the Figure \ref{fig:UIArchitecture}, it is clear that route navigation for each entity items happens based on their entity type and its own unique reference identifier.
 
 \begin{figure}
 	\centering
@@ -80,13 +79,13 @@ In this sub section we provide an overview about how page navigation from curren
 	\label{fig:UIArchitecture}
 \end{figure} 
 
-Each entity item has basic properties such as \textit{name} and \textit{target namespace}. The entities are identified using their unique id which is generated using the combination of name and target namespace. Other entities that are associated with a particular entity are resolved through this unique identifier. For example, in our motivating scenario consider the intention \textit{improve the customer help desk portal} when creating model for this intention, business expert provide name and namespace for this intention and add it to the database. A unique identifier is generated for the intention model using the combination of name and namespace by the system. The strategy (in our scenario \textit{through application  development}) that is associated with this intention, just contains only this unique identifer for the reference. 
+Each entity item has basic properties such as \textit{name} and \textit{target namespace}. The entities are identified using their unique id which is generated using the combination of name and target namespace. Other entities that are associated with a particular entity are resolved through this unique identifier. For example, in our motivating scenario consider the intention \textit{improve the customer help desk portal} when creating model for this intention, business expert provide name and namespace for this intention and add it to the database. A unique identifier is generated for the intention model using the combination of name and namespace by the system. The strategy (in our scenario \textit{through application  development}) that is associated with this intention, just contains only this unique identifier for the reference. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{A Concrete View of Entity Types}
 \label{sec:concreteviewofentitytypes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-It is important to discuss the concrete concepts of informal process from an organizational aspects, because organizational aspects have a direct effect on the outcome of the informal process \cite{Sungur2014}. This section discusses about how resource-centric organizational modeling is realized as a web-based editor from an organizational aspect by taking the motivating scenario discussed in Chapter \ref {chap:motivatingScenario}. Though developing schema definitions are not part of the thesis implementation, it has been provided because the editor has a view that is capable of adding, viewing, deleting and updating model data aligned with the schema definition.
+It is important to discuss the concrete concepts of informal process from an organizational aspects, because organizational aspects have a direct effect on the outcome of the informal process \cite{Sungur2014}. This section discusses about how intention-oriented organizational modeling is realized as a web-based editor from an organizational aspect by taking the motivating scenario discussed in Chapter \ref {chap:motivatingScenario}. Though developing schema definitions are not part of the thesis implementation, it has been provided because the editor has a view that is capable of adding, viewing, deleting and updating model data aligned with the schema definition.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Realization of Motivating Scenario}
@@ -117,7 +116,7 @@ After modeling context definitions(M1), the second step of the modeling is to mo
 After modeling context definitions(M1) and intention definitions(M2) user can proceed to model the strategies through which an intention can be achieved which is third step of the modeling process. For example, in our motivating scenario user can model the strategies such as \textit{through expansion},\textit{through advertisements} and other required strategies as third step of the modeling process. Similar to earlier modeling steps, during the modeling of strategy also user required to provide basic properties such as name and target namespace. After providing the basic properties, entity specific properties such as target intention of the strategy, intention, capability and process definitions associated with strategy are also provided. Since strategy is also an interactive acquirable entity similar to intention, participant list details are also provided during modeling of strategies
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Realization of Capabilitiy Definitions}
+\subsection{Realization of Capability Definitions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 There are two types of capabilities. Functional capabilities and cross-functional capabilities. Functional capabilities are the capabilites that associated with other entity types. Cross-functional capabilities contains multiple functional capabilities. Similar to earlier entity types basic properties such as name and target namespace are added to get the unique reference identifier and entity specific properties for both capabilities are added. Since cross functional capability contains functional capabilities, it holds the identifiers of the functional capabilities contained in it. Functional capability definitions also has participant list details similar to intention definitions and strategy definitions. 
 
@@ -132,7 +131,7 @@ By modeling the business processes based on the resources that work towards cert
 As discussed earlier each resource can be related to another resource which are defined using predefined or custom \textit{relationships} \cite{Sungur2014a}. These resources are managed through \textit{Resource Organizers}, this is because resource organizers are used to bring together the relevant interrelated resources that work towards to achieve the corresponding intentions. TOSCA \cite{Binz2014} can be used to model all nodes and relationship among them. In this work, consider resources as nodes to make use of the TOSCA's service. In the developed editor, the resource models are managed by embedding the open source modeling tool Winery web page \cite{Kopp2013} in our editor's web page. This is because, it creates a new service template that contains an application topology by using the topology modeler. Winery also offers all available node types in a palette. From there, user drags the desired node type and drops it into the editing area. There, the node type
 becomes a node template i.e., a node in the topology graph. Node templates can be annotated with requirements and capabilities, property values, and policies. The screen shot of modeling sample resource has been provided in the Figure \ref{fig:realizationofresourcemodel}. 
 
-In order to achieve this we use tosca repository url referring to winery and the other one referring to topology modeler of the winery. Using these values we create corresponding url required for our modeling based on the name and namespace properties of an entity. The functionality to generate resource model page, using tosca repository url and topology modeler url is provided below.
+In order to achieve this we use TOSCA repository URL referring to winery and the other one referring to topology modeler of the winery. Using these values we create corresponding URL required for our modeling based on the name and namespace properties of an entity. The functionality to generate resource model page, using TOSCA repository URL and topology modeler URL is provided below.
 
 \fbox{
 	\begin{minipage}{\textwidth}
@@ -144,7 +143,7 @@ In order to achieve this we use tosca repository url referring to winery and the
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth,angle=0]{samplescreen.png}
-	\caption{Screenshot of Resource Model}
+	\caption{User Interface Screen of Resource Model}
 	\label{fig:realizationofresourcemodel}
 \end{figure}
 
@@ -159,7 +158,7 @@ Initializing resource-centric processes requires acquiring and engaging interrel
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth,angle=0]{sampleinstancescreen2.png}
-	\caption{Screenshot of Instances Descriptor}
+	\caption{User Interface Screen of Instances Descriptor}
 	\label{fig:realizationofinstances2}
 \end{figure}
 
@@ -168,7 +167,7 @@ The developed editor supports creation and updation of descriptive information a
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth,angle=0]{sampleinstancescreen.png}
-	\caption{Screenshot of Acquriable Entities}
+	\caption{User Interface Screen of Acquirable Entities}
 	\label{fig:realizationofinstances}
 \end{figure}
 
