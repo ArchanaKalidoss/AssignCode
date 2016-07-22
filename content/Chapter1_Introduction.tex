@@ -19,7 +19,9 @@ Though sequence of steps to be carried out to execute informal processes cannot 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Though there are \textit{activity-centric} modeling and reusing of business processes such as Business Process Execution Language (BPEL) \footnote{http://docs.oasis-open.org/wsbpel/2.0/OS/wsbpel-v2.0-OS.pdf} and Business Process Model and Notation (BPMN) \footnote{http://www.omg.org/spec/BPMN/2.0/PDF/} are available, they are not suitable for certain type processes whose execution steps cannot be predicted in advance \cite{Sungur2014a}. This is because of the challenges in determining the sequence of activities before enacting an informal process. Another key thing to remember is, informal processes are volatile in nature which is one of the important challenges in developing an environment that supports informal process modeling. As mentioned earlier, there is also lack of modeling tool that creates models declaratively by providing only essential information in order to enact a process. 
 
-Every organization contains multiple entities like \textit{resources} e.g., humans, tools etc., \textit{intentions} e.g., revenue based intentions, quarterly intentions etc., \textit{strategies} e.g., the process to achieve the intention and \textit{capabilities} e.g., a resource that can provide a particular capability. Thus, an organization needs an approach to model these different organizational elements oriented to intention as intention of an informal process can be known before their enactment. Informal processes are collaborative in nature, which means that participants of informal process collaborate with each other to accomplish its intentions\cite{Sungur2015}. Designing these collaborations and assigning participants their respective privileges, plays an important role during modeling of the respective informal processes. The research work about designing workspace collaboration tools \cite{Matthews2011} mentions that below points are the major problems in adopting to a workspace collaboration tools.
+Every organization contains multiple entities like \textit{resources} e.g., humans, tools etc., \textit{intentions} e.g., revenue based intentions, quarterly intentions etc., \textit{strategies} e.g., the process to achieve the intention and \textit{capabilities} e.g., a resource that can provide a particular capability. Thus, an organization needs an approach to model these different organizational elements oriented to intention as intention of an informal process can be known before their enactment.
+
+When there are multiple human resources working for a process, then there should be some sort of co-ordination and understanding between the humans which is called \textit{collaboration} at an organizational level. Informal processes are collaborative in nature, which means that participants of informal process collaborate with each other to accomplish its intentions\cite{Sungur2015}. Designing these collaborations and assigning participants their respective privileges, plays an important role during modeling of the respective informal processes. The research work about designing workspace collaboration tools \cite{Matthews2011} mentions that below points are the major problems in adopting to a workspace collaboration tools.
 
 \begin{enumerate}
 	\item Lack of Methods
@@ -28,8 +30,7 @@ Every organization contains multiple entities like \textit{resources} e.g., huma
 	\item Not well supported editors for executing abstract descriptions
 \end{enumerate}
 
-Due to the involvement of multiple resources during modeling, there is a need for organizations to make decision regarding strategy selection based on cost calculation and achieve-ability estimation. 
-
+Due to the involvement of multiple resources during modeling, there is a need for organizations to make decision regarding strategy selection based on cost calculation and achieve-ability estimation.  Moreover, associating capabilities with resources is helpful in the following example situation. For example, there can be a situation where resources producing more accurate results for processing a task are preferred than resources which can produce higher throughput for processing a task. Thus, we need to associate organizational modeling elements of a process such as intentions, strategies, capabilities and resources with each other. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section {Contributions}
@@ -51,10 +52,10 @@ The contributions of this work can be categorized as follows:
 \label{sec:outline}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The remainder of this document is organized into following chapters:
-\begin{description}
+\begin{description} [labelwidth = 0.07\textwidth]
 	\item[Chapter ~\ref{chap:fundamentals} -- \nameref{chap:fundamentals}:] In this chapter, fundamental concepts and an overview of the related approaches that are essential to understand the work are provided.
 	\item[Chapter ~\ref{chap:motivatingScenario} -- \nameref{chap:motivatingScenario}:] In this chapter, a motivating scenario has been taken and detailed explanation for each phases of the scenario has been provided. This aids the reader to understand the concepts of organizational modeling clearly. 
-	\item[Chapter ~\ref{chap:analysis} --\textbf{Requirements for Supporting Intention-oriented Organizational Modeling}:] This chapter provides detailed requirement analysis based on scientific facts published in existing works. This chapter also provides literature review of existing works.
+	\item [Chapter ~\ref{chap:analysis} --\textbf{Requirements for Supporting Intention-oriented Organizational Modeling}:] This chapter provides detailed requirement analysis based on scientific facts published in existing works. This chapter also provides literature review of existing works.
 	\item[Chapter ~\ref{chap:approach} -- \nameref{chap:approach}:] This chapter discusses about the methodology followed in realizing the concepts  of resource-centric organizational.
 	\item[Chapter ~\ref{chap:casestudy} -- \nameref{chap:casestudy}:] This chapter validates the approach presented in Chapter \ref{chap:approach}. This chapter also discusses detailed system architecture and also presents the validation results. The abstract concepts motivating scenario discussed in \ref{chap:motivatingScenario} is explained in a concrete way.	
 	\item[Chapter ~\ref{chap:conclusion} -- \nameref{chap:conclusion}:] This chapter summarizes the results of the work and draws conclusion. This chapter also throws some light on the future work to be carried out in the approach of executing informal processes. 
