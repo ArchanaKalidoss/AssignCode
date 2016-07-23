@@ -6,7 +6,7 @@ In this chapter, we provide an architecture of the functioning system as a first
 \section{Architecture of the Functioning System}
 \label{sec:architectureofthefunctioningsystem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-As, informal process targets for accomplishment of an intention. Thus in the Figure \ref{fig:architectureofthecasestudy}, we associate intentions with both process definitions and strategy definitions as intention definitions are used by both process definitions and strategy definitions. Intentions are associated to resources either through strategies or through informal processes. Intentions can be refined by defining sub-intentions, which can be defined recursively as independent informal process. For example, in our motivating scenario the main intention increase revenue and number of unit sales can be refined into sub-intention of improve customer help desk portal. This sub-intention can be associated with process models. This \textit{intention-based} approach enables describing process declaratively,  i.e., without describing \textit{how} the intention is achieved, and providing information about \textit{what} has to be achieved. This avoids the need for predefined business logic in the representations of informal process \cite{Sungur2014a}. 
+Also from the Figure \ref{fig:architectureofthecasestudy}, it is clear that we followed the MVC architecture to design the user interface. Business experts can use the web-based modeling tool to view/update the descriptive entity details. Whenever a change in the model data is detected respective handler function is \textit{dispatched} and the corresponding handler function can only \textit{update} the model. Since we associate every modeling element with another modeling element, model data of an element is required by another element which are resolved using the unique reference identifier. For example, intention model's unique reference identifier of intention \textit{improve help customer help portal} is required by the strategy \textit{through application development}. This is because for strategy (through application development), intention (improve help customer help portal) is the target intention. 
 
 \begin{figure}
 	\centering
@@ -14,8 +14,6 @@ As, informal process targets for accomplishment of an intention. Thus in the Fig
 	\caption{Architecture of the Functioning System}
 	\label{fig:architectureofthecasestudy}
 \end{figure}
-
-Also from the Figure \ref{fig:architectureofthecasestudy}, it is clear that we followed the MVC architecture to design the user interface. Business experts can use the web-based modeling tool to view/update the descriptive entity details. Whenever a change in the model data is detected respective handler function is \textit{dispatched} and the corresponding handler function can only \textit{update} the model. Since we associate every entity type with another entity type, model data of an entity type is required by another entity type which are resolved using the unique reference identifier. For example, intention model's unique reference identifier of intention \textit{improve help customer help portal} is required by the strategy \textit{through application development}. This is because for strategy (through application development), intention (improve help customer help portal) is the target intention. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Technologies and Frameworks}
