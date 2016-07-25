@@ -1,19 +1,7 @@
 \chapter{Case Study on Intention-oriented Organizational Modeling}
 \label{chap:casestudy}
-In this chapter, we provide an architecture of the functioning system as a first section. This section provides implementation details along with the reason for making certain decisions regarding the implementation of web-based modeling tool. The second section explains how motivating scenario has been realized using the proposed modeling approach. Successful modeling of the motivating scenario using the developed editor serves as a proof for usability of the web-based modeling tool. Hence, the final section validates the system by validating it with the requirements for supporting intention-oriented organizational modeling. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Architecture of the Functioning System}
-\label{sec:architectureofthefunctioningsystem}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Also from the Figure \ref{fig:architectureofthecasestudy}, it is clear that we followed the MVC architecture to design the user interface. Business experts can use the web-based modeling tool to view/update the descriptive entity details. Whenever a change in the model data is detected respective handler function is \textit{dispatched} and the corresponding handler function can only \textit{update} the model. Since we associate every modeling element with another modeling element, model data of an element is required by another element which are resolved using the unique reference identifier. For example, intention model's unique reference identifier of intention \textit{improve help customer help portal} is required by the strategy \textit{through application development}. This is because for strategy (through application development), intention (improve help customer help portal) is the target intention. 
-
-\begin{figure}
-	\centering
-	\includegraphics [width= \textwidth]{architectureofthecasestudy.pdf}
-	\caption{Architecture of the Functioning System}
-	\label{fig:architectureofthecasestudy}
-\end{figure}
+In this chapter, the first two sections provide implementation details along with the reason for making certain decisions regarding the implementation of web-based modeling tool. The third section provides an architecture of the functioning system and fourth section provides application flow of the functioning system. The fifth section explains how motivating scenario has been realized using the proposed modeling approach. Successful modeling of the motivating scenario using the developed editor serves as a proof for usability of the web-based modeling tool. Hence, the final section validates the system by validating it with the requirements for supporting intention-oriented organizational modeling. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Technologies and Frameworks}
@@ -63,6 +51,20 @@ The Figure \ref{fig:mvc_pattern} below shows how the components interact with ea
 	\item Control inserts/updates data into the model.
 	\item View displays the updated model as it has been subscribed to the model.
 \end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Architecture of the Functioning System}
+\label{sec:architectureofthefunctioningsystem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Also from the Figure \ref{fig:architectureofthecasestudy}, it is clear that we followed the MVC architecture to design the user interface. Business experts can use the web-based modeling tool to view/update the descriptive entity details. Whenever a change in the model data is detected respective handler function is \textit{dispatched} and the corresponding handler function can only \textit{update} the model. Since we associate every modeling element with another modeling element, model data of an element is required by another element which are resolved using the unique reference identifier. For example, intention model's unique reference identifier of intention \textit{improve help customer help portal} is required by the strategy \textit{through application development}. This is because for strategy (through application development), intention (improve help customer help portal) is the target intention. 
+
+\begin{figure}
+	\centering
+	\includegraphics [width= \textwidth]{architectureofthecasestudy.pdf}
+	\caption{Architecture of the Functioning System}
+	\label{fig:architectureofthecasestudy}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Application Flow}
