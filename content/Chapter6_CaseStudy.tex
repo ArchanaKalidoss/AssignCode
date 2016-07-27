@@ -1,21 +1,21 @@
 \chapter{Case Study on Intention-oriented Organizational Modeling}
 \label{chap:casestudy}
 
-In this chapter, the first two sections provide implementation details along with the reason for making certain decisions regarding the implementation of web-based modeling tool. The third section provides an architecture of the functioning system and fourth section provides application flow of the functioning system. The fifth section explains how motivating scenario has been realized using the proposed modeling approach. Successful modeling of the motivating scenario using the developed editor serves as a proof for usability of the web-based modeling tool. Hence, the final section validates the system by validating it with the requirements for supporting intention-oriented organizational modeling. 
+In this chapter, the first two sections provide implementation details along with the reason for making certain decisions regarding the implementation of web-based modeling tool. The third section provides an architecture of the functioning system and fourth section provides application flow of the functioning system. The fifth section explains how motivating scenario has been realized using the proposed modeling approach. Successful modeling of the motivating scenario using the developed editor serves as a proof for usability of the web-based modeling tool. Hence, the final section validates the system by evaluating it with the requirements for supporting intention-oriented organizational modeling. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Technologies and Frameworks}
 \label{subsec:specifications}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In order to realize the web-based modeling tool of intention-oriented organizational modeling, a formal inquiry was done to choose suitable technologies and frameworks required. The below specifications were finalized and \textit{client-side scripting} \cite{Sierra2012} was chosen, due to the fact that developed tool is web-based single page application (SPA). 
+In order to realize the web-based modeling tool of intention-oriented organizational modeling, a formal inquiry was done to choose suitable technologies and frameworks required. The below specifications were finalized and \textit{client-side scripting} \cite{Sierra2012} was chosen, due to the fact that developed tool is web-based single page application (SPA) \cite{Mikowski2013}. 
 
 \begin{enumerate}   
 	\item \textit{ClojureScript}\footnote{http://clojure.org/about/clojurescript} as the programming language
 	\item \textit{Model-view-controller (MVC)} \cite{Deacon2009}  as the architecture pattern
-	\item \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} as the pattern for writing SPA \cite{Mikowski2013} in ClojureScript, using Reagent	
+	\item \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} as the pattern for writing SPA in ClojureScript, using Reagent\footnote{http://reagent-project.github.io/}	
 \end{enumerate}
 
-Other than the above listed frameworks and technologies, frameworks like \textit{react-bootstrap}\footnote{https://react-bootstrap.github.io/}, jquery\footnote{https://jquery.com/} were also used to provide more optimal view of the tool. Along with this we have also used libraries like bidi\footnote{https://github.com/juxt/bidi} and pushy\footnote{https://github.com/kibu-australia/pushy}, to handle page navigation from current location to the desired location in the URL (Uniform Resource Locator) of the browser. \textit{Clojure} is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language with an efficient and robust infrastructure for multi threaded programming. \textit{ClojureScript} is a compiler for Clojure that targets JavaScript which has been designed to emit JavaScript code. In our implementation, we have used both Clojure and Clojurescript artifacts. We also used \textit{Reagent}\footnote{http://reagent-project.github.io/} which provides a minimalistic interface between ClojureScript and React\footnote{https://facebook.github.io/react/}. \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} is a pattern for writing applications in ClojureScript, using Reagent.
+Other than the above listed frameworks and technologies, frameworks like \textit{react-bootstrap}\footnote{https://react-bootstrap.github.io/}, jquery\footnote{https://jquery.com/} were also used to provide more optimal view of the tool. Along with this, we have also used libraries like bidi\footnote{https://github.com/juxt/bidi} and pushy\footnote{https://github.com/kibu-australia/pushy}, to handle page navigation from current location to the desired location in the URL (Uniform Resource Locator) of the browser. \textit{Clojure}https://clojure.org/ is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language. \textit{ClojureScript} is a compiler for Clojure that targets JavaScript which has been designed to emit JavaScript code. In our implementation, we have used both Clojure and Clojurescript artifacts. We also used \textit{Reagent} which provides minimalistic interface between ClojureScript and React\footnote{https://facebook.github.io/react/}. \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} is a pattern for writing applications in ClojureScript, using Reagent.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{MVC Architecture}
@@ -29,7 +29,7 @@ The architecture of the developed user interface is based on the \textit{Model-V
 
 \textit{Control} artifact contains the handler functions which can only change the model. Even the initial values of the model are put inside the control. This artifact has functions that updates default database, which then causes a re-render of view that makes the user to see a new view.
 
-Apart from the above artifacts, there is another important artifact that registers subscription functions i.e., query layer of the data. As view components never source data directly from default model, we use \textit{subscription} functions. Subscription functions returns values that change over time, i.e., based on user events.
+Apart from the above artifacts, there is another important artifact that registers subscription functions, i.e., query layer of the data. As view components never source data directly from default model, we use \textit{subscription} functions. Subscription functions returns values that change over time, i.e., based on user events.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Example: Component using MVC Pattern }
@@ -44,8 +44,8 @@ The Figure \ref{fig:mvc_pattern} below shows how components interact with each o
 \end{figure}
 
 \begin{enumerate}
-	\item User clicks the tab \textit{Add New} button in the developed editor.
-	\item In response to the user click, view displays the respective user interface component for entering the new entity data details.
+	\item User clicks the \textit{Add New} button in the developed editor.
+	\item Responding to the user click, view displays the respective user interface component for entering the new entity data details.
 	\item User enters the required basic details for adding new entity data and clicks save button.
 	\item View dispatches data to control, as control can only modify the model.
 	\item Control inserts/updates data into the model.
@@ -56,7 +56,7 @@ The Figure \ref{fig:mvc_pattern} below shows how components interact with each o
 \section{Architecture of the Functioning System}
 \label{sec:architectureofthefunctioningsystem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Also from the Figure \ref{fig:architectureofthecasestudy}, it is clear that we followed the MVC architecture to design the user interface. Business experts can use the web-based modeling tool to view/update the descriptive entity details. Whenever a change in the model data is detected respective handler function is \textit{dispatched} and the corresponding handler function can only \textit{update} the model. Since we associate every modeling element with another modeling element, model data of an element is required by another element which are resolved using the unique reference identifier. For example, intention model's unique reference identifier of intention \textit{improve help customer help portal} is required by the strategy \textit{through application development}. This is because for strategy (through application development), intention (improve help customer help portal) is the target intention. 
+Also from the Figure \ref{fig:architectureofthecasestudy}, it is clear that we followed the MVC architecture to design the user interface. Business experts can use the web-based modeling tool to view/update the descriptive entity details. Whenever a change in the model data is detected respective handler function is \textit{dispatched} and the corresponding handler function can only \textit{update} the model. Since we associate every modeling element with another modeling element, model data of an element is required by another element which are resolved using the unique reference identifier. For example, intention model's unique reference identifier of intention \textit{improve help customer help portal} is required by the strategy \textit{through application development}. This is because, for strategy (through application development), intention (improve help customer help portal) is the target intention. 
 
 \begin{figure}
 	\centering
@@ -70,7 +70,7 @@ Also from the Figure \ref{fig:architectureofthecasestudy}, it is clear that we f
 \subsection{Application Flow}
 \label{subsec:applicationflow}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In this sub-section we provide an overview about how page navigation from current location to the desired location happens in URL\footnote{URL- Uniform Resource Locator} of the browser. The external libraries used for route navigation, parses URL into data structures and also generates URL from data structure defined as required routes. We call a function to dispatch route, with the matched route. Then we also have another function that parses the URL, to turn URL into data structure representing it. From the Figure \ref{fig:UIArchitecture}, it is clear that route navigation for each entity items happens based on their entity type and its own unique reference identifier.
+In this sub-section we provide an overview about how page navigation from current location to the desired location happens in URL of the browser. The external libraries used for route navigation, parses URL into data structures and generates URL from data structure defined as required routes. We call a function to dispatch route, with the matched route. Then we also have another function that parses the URL, to turn URL into data structure representing it. From the Figure \ref{fig:UIArchitecture}, it is clear that route navigation for each entity items happens based on their entity type and its own unique reference identifier.
 
 \begin{figure}
 	\centering
@@ -79,7 +79,7 @@ In this sub-section we provide an overview about how page navigation from curren
 	\label{fig:UIArchitecture}
 \end{figure} 
 
-Each entity item has basic properties such as \textit{name} and \textit{target namespace}. The entities are identified using their unique id which is generated using the unique combination of name and target namespace. Other entities that are associated with a particular entity are resolved through this unique identifier. For example, in our motivating scenario consider the intention \textit{improve the customer help desk portal} when creating model for this intention, business expert provide name and namespace for this intention and add it to the database. A unique identifier is generated for the intention model using the combination of name and namespace by the system. For example, the strategy in the motivating scenario \textit{through application  development} that is associated with an intention, contains only the unique identifier of intention as reference. 
+Each entity item has basic properties such as \textit{name} and \textit{target namespace}. The entities are identified using their unique id which is generated using the unique combination of name and target namespace. The entities that are associated with a particular entity are resolved through unique identifier. For example, in our motivating scenario consider the intention \textit{improve the customer help desk portal} when creating model for this intention, business expert provide name and namespace for this intention and add it to the database. A unique identifier is generated for the intention model using the combination of name and namespace by the system. For example, the strategy in the motivating scenario \textit{through application  development} that is associated with an intention, contains only the unique identifier of intention as reference. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Realization of Motivating Scenario}
@@ -97,7 +97,7 @@ The realization of motivating scenario is explained by integrating the concepts 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Realization of Context Definitions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In the informal process modeling approach, the first modeling step is to model the context definitions (M1). Each informal process starts from an initial context and aims to achieve an intention \cite{Sungur2014a}. After reaching an intention, there is resulting IPE Context. In the motivating scenario, the user can add new contexts by providing basic properties such as name of the context and target namespace of the context as they serve as unique reference identifier for these contexts. After successfully adding the basic properties, user can provide entity specific properties such as contained contexts inside the main context, entity definition details about the contexts and participant list with respective privileges for each participant are also provided. The required context definitions are modeled first because these definition are required for modeling intention definitions and process definitions.  
+In the informal process modeling approach, the first modeling step is to model the context definitions (M1). Each informal process starts from an initial context and aims to achieve an intention \cite{Sungur2014a}. After reaching an intention, there is resulting IPE Context. To realize the motivating scenario, user can add new contexts by providing basic properties such as name of the context and target namespace of the context as they serve as unique reference identifier for these contexts. After successfully adding the basic properties, user can provide entity specific properties such as contained contexts inside the main context, entity definition details about the contexts and participant list with respective privileges for each participant are also provided. The required context definitions are modeled first because these definition are required for modeling intention definitions and process definitions.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Realization of Intention Definitions}
@@ -107,7 +107,7 @@ After modeling context definitions(M1), the second step of the modeling is to mo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Realization of Strategy Definitions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-After modeling context definitions (M1) and intention definitions (M2) user can proceed to model the strategies (M3) which is third step of the modeling process. For example, in our motivating scenario user can model the strategies such as \textit{through expansion},\textit{through advertisements} and other required strategies as third step of the modeling process. Similar to earlier modeling steps, during the modeling of strategy also user required to provide basic properties such as name and target namespace. After providing the basic properties, entity specific properties such as target intentions of the strategy, capabilities and process definitions associated with strategy are also provided. Since, strategy is also an interactive acquirable entity similar to intention, participant list details are also provided during modeling of strategies
+After modeling context definitions (M1) and intention definitions (M2) user can proceed to model the strategies (M3) which is third step of the modeling process. For example, in our motivating scenario user can model the strategies such as \textit{through expansion}, \textit{through advertisements} and other required strategies as third step of the modeling process. Similar to earlier modeling steps, during modeling of strategy user required to provide basic properties such as name and target namespace. After providing the basic properties, entity specific properties such as target intentions of the strategy, capabilities and process definitions associated with strategy are also provided. Since, strategy is also an interactive acquirable entity similar to intention, participant list details are also provided during modeling of strategies
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Realization of Capability Definitions}
@@ -117,7 +117,7 @@ Modeling of capability (M4) is the fourth step in intention-oriented organizatio
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Realization of Process Definitions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-By modeling the business processes based on the resources that work towards certain intentions, informal processes are modeled without predefining their business logic \cite{Sungur2014a}. Also as mentioned earlier each informal process starts from an initial context and aims to achieve an intention that results in a final context. Thus, we require context definitions and intention definitions before modeling process definitions. Similar to earlier modeling of entity types, process modeling also require basic properties such as name, namespace  and entity specific properties such as associated intentions, contexts and resources. Process definition also has participant list similar to other entity types. 
+By modeling the business processes based on resources that work towards certain intentions, informal processes are modeled without predefining their business logic \cite{Sungur2014a}. Also as mentioned earlier each informal process starts from an initial context and aims to achieve an intention that results in a final context. Thus, we require context definitions and intention definitions before modeling process definitions. Similar to earlier modeling of entity types, process modeling also require basic properties such as name, namespace  and entity specific properties such as associated intentions, contexts and resources. Process definition also has participant list similar to other entity types. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Realization of Resource Definitions}
