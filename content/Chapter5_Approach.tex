@@ -66,20 +66,5 @@ The approach is evaluated based on the derived requirements in the Section \ref{
 
 \textit{Participative Organizational Modeling} (R5) : This approach (1) satisfies requirement R1 and  (2) intentions are modeled collaboratively based on input received from different members of the organization. Thus, requirement R4 is satisfied by the approach as it satisfies all of the pre-requisites. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Design Methodology}
-\label{sec:designmethodology}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This section discusses in detail the method of designing the web-based modeling tool, that realizes the approach proposed in the Section \ref{sec:topdownapproach}. When designing the user interface components and functionalities required to develop the tool, most of the similar functionalities are designed as common functions for the purpose of reusing the functions. This reduced unnecessary functional redundancies and overhead. Some of the important methodologies followed with respect to user interface components design are (1) multiple items to be selected from multiple list items are displayed as \textit{list group} and (2) selecting single item from multiple items are displayed as \textit{drop down}. For example, to select multiple strategies from a list of strategies, available strategies are displayed as a list from which the user can select desired number of strategies. Another important methodology followed during user interface design is, for every entity the properties should be displayed only under the respective properties tab. For example, in the Figure \ref{fig:samplescreen}, the basic properties such as name, target namespace and process type of an informal process model should be displayed only under the respective basic properties tab and similarly for all other tabs. This methodology is followed uniformly throughout the design of all the entity types such as intention definitions, strategy definitions, capability definitions, context definitions, instance definitions and informal process definitions. 
-
-All data are stored only under the data artifact. This applies to the labels and text fields of all user interface elements and this data can be updated only through the handler function. Through the \textit{settings} option, user can add new namespace type and intention relation type. From the Figure \ref{fig:samplescreen}, it is clear that a consistent design methodology has been followed to display the list of available entity types such as intentions, strategies, capabilities etc., and to display their respective properties such as basic, entity specific, instance data, etc., properties. Though the top-down modeling approach \ref{sec:topdownapproach}, shows that definition of each entity type is contained within another entity type, as per the user interface design, separate entities references each other using the unique reference identifier but does not contain all properties of referenced entity. For instance, a strategy containing an intention should contain only the intention's unique reference identifier but not the actual intention itself. Later in the view of strategy, actual intention properties are fetched and displayed based on the unique reference identifier. 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth,angle=0]{Design_UI.png}
-	\caption{User Interface Design of the Modeling Tool}
-	\label{fig:samplescreen}
-\end{figure}
-
 
 

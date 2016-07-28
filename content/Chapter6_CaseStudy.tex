@@ -1,4 +1,4 @@
-\chapter{Case Study on Intention-oriented Organizational Modeling}
+\chapter{Case Study on a Manufacturing Company}
 \label{chap:casestudy}
 
 In this chapter, the first two sections provide implementation details along with the reason for making certain decisions regarding the implementation of web-based modeling tool. The third section provides an architecture of the functioning system and fourth section provides application flow of the functioning system. The fifth section explains how motivating scenario has been realized using the proposed modeling approach. Successful modeling of the motivating scenario using the developed editor serves as a proof for usability of the web-based modeling tool. Hence, the final section validates the system by evaluating it with the requirements for supporting intention-oriented organizational modeling. 
@@ -80,6 +80,23 @@ In this sub-section we provide an overview about how page navigation from curren
 \end{figure} 
 
 Each entity item has basic properties such as \textit{name} and \textit{target namespace}. The entities are identified using their unique id which is generated using the unique combination of name and target namespace. The entities that are associated with a particular entity are resolved through unique identifier. For example, in our motivating scenario consider the intention \textit{improve the customer help desk portal} when creating model for this intention, business expert provide name and namespace for this intention and add it to the database. A unique identifier is generated for the intention model using the combination of name and namespace by the system. For example, the strategy in the motivating scenario \textit{through application  development} that is associated with an intention, contains only the unique identifier of intention as reference. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Design Methodology}
+\label{sec:designmethodology}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+This section discusses in detail the method of designing the web-based modeling tool, that realizes the approach proposed in the Section \ref{sec:topdownapproach}. When designing the user interface components and functionalities required to develop the tool, most of the similar functionalities are designed as common functions for the purpose of reusing the functions. This reduced unnecessary functional redundancies and overhead. Some of the important methodologies followed with respect to user interface components design are (1) multiple items to be selected from multiple list items are displayed as \textit{list group} and (2) selecting single item from multiple items are displayed as \textit{drop down}. For example, to select multiple strategies from a list of strategies, available strategies are displayed as a list from which the user can select desired number of strategies. Another important methodology followed during user interface design is, for every entity the properties should be displayed only under the respective properties tab. For example, in the Figure \ref{fig:samplescreen}, the basic properties such as name, target namespace and process type of an informal process model should be displayed only under the respective basic properties tab and similarly for all other tabs. This methodology is followed uniformly throughout the design of all the entity types such as intention definitions, strategy definitions, capability definitions, context definitions, instance definitions and informal process definitions. 
+
+All data are stored only under the data artifact. This applies to the labels and text fields of all user interface elements and this data can be updated only through the handler function. Through the \textit{settings} option, user can add new namespace type and intention relation type. From the Figure \ref{fig:samplescreen}, it is clear that a consistent design methodology has been followed to display the list of available entity types such as intentions, strategies, capabilities etc., and to display their respective properties such as basic, entity specific, instance data, etc., properties. Though the top-down modeling approach \ref{sec:topdownapproach}, shows that definition of each entity type is contained within another entity type, as per the user interface design, separate entities references each other using the unique reference identifier but does not contain all properties of referenced entity. For instance, a strategy containing an intention should contain only the intention's unique reference identifier but not the actual intention itself. Later in the view of strategy, actual intention properties are fetched and displayed based on the unique reference identifier. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth,angle=0]{Design_UI.png}
+	\caption{User Interface Design of the Modeling Tool}
+	\label{fig:samplescreen}
+\end{figure}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Realization of Motivating Scenario}
