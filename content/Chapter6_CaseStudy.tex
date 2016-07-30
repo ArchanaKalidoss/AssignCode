@@ -1,13 +1,13 @@
 \chapter{Case Study on a Manufacturing Company}
 \label{chap:casestudy}
 
-In this chapter, the first two sections provide implementation details along with the reason for making certain decisions regarding the implementation of web-based modeling tool. The third section provides an architecture of the functioning system and fourth section provides application flow of the functioning system. The fifth section explains how motivating scenario has been realized using the proposed modeling approach. Successful modeling of the motivating scenario using the developed editor serves as a proof for usability of the web-based modeling tool. Hence, the final section validates the system by evaluating it with the requirements for supporting intention-oriented organizational modeling. 
+In this chapter, the first three sections provide the implementation details along with the reason for making certain decisions regarding the implementation of web-based modeling tool. The fourth section provides an architecture of the functioning system and fifth section provides application flow of the functioning system. The sixth section explains how motivating scenario has been realized using the proposed modeling approach. Successful modeling of the motivating scenario using the developed editor serves as a proof for usability of the web-based modeling tool. Hence, the final section validates the system by evaluating it with the requirements for supporting intention-oriented organizational modeling. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Technologies and Frameworks}
 \label{subsec:specifications}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In order to realize the web-based modeling tool of intention-oriented organizational modeling, a formal inquiry was done to choose suitable technologies and frameworks required. The below specifications were finalized and \textit{client-side scripting} \cite{Sierra2012} was chosen, due to the fact that developed tool is web-based single page application (SPA) \cite{Mikowski2013}. 
+In order to, realize the approach presented in the Section \ref{sec:topdownapproach} of the previous Chapter \ref{chap:approach}, a formal inquiry was done to choose suitable technologies and frameworks required. The below specifications were finalized and \textit{single page web application} (SPA) using\textit{client-side scripting} was chosen. The single page web application is a web application that fits on a single web page with user experience similar to a desktop application. In a SPA, the necessary code is retrieved within a single page load and they are easily updated and distributed, usually without requiring any action from the user \cite{Mikowski2013}. The client side scripting refers to the script code that is executed on the user's web browser instead on the web server \cite{Sierra2012}. The reason for selecting client side scripting is because of their advantages such as (1) no refreshing of the page while using the application, (2) suitable for applications that uses Javascript framework for evaluating SPA, etc. 
 
 \begin{enumerate}   
 	\item \textit{ClojureScript}\footnote{http://clojure.org/about/clojurescript} as the programming language
@@ -15,21 +15,21 @@ In order to realize the web-based modeling tool of intention-oriented organizati
 	\item \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} as the pattern for writing SPA in ClojureScript, using Reagent\footnote{http://reagent-project.github.io/}	
 \end{enumerate}
 
-Other than the above listed frameworks and technologies, frameworks like \textit{react-bootstrap}\footnote{https://react-bootstrap.github.io/}, jquery\footnote{https://jquery.com/} were also used to provide more optimal view of the tool. Along with this, we have also used libraries like bidi\footnote{https://github.com/juxt/bidi} and pushy\footnote{https://github.com/kibu-australia/pushy}, to handle page navigation from current location to the desired location in the URL (Uniform Resource Locator) of the browser. \textit{Clojure}\footnote{https://clojure.org/} is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language. \textit{ClojureScript} is a compiler for Clojure that targets JavaScript which has been designed to emit JavaScript code. In our implementation, we have used both Clojure and Clojurescript artifacts. We also used \textit{Reagent} which provides minimalistic interface between ClojureScript and React\footnote{https://facebook.github.io/react/}. \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} is a pattern for writing applications in ClojureScript, using Reagent.
+Other than the above listed frameworks and technologies, frameworks like \textit{react-bootstrap}\footnote{https://react-bootstrap.github.io/}, jquery\footnote{https://jquery.com/} were also used, to provide more optimal view of the tool. Along with this, we have also used libraries like bidi\footnote{https://github.com/juxt/bidi} and pushy\footnote{https://github.com/kibu-australia/pushy}, to handle page navigation from current location to the desired location in the URL (Uniform Resource Locator) of the browser. \textit{Clojure}\footnote{https://clojure.org/} is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language. \textit{ClojureScript} is a compiler for Clojure that targets JavaScript which has been designed to emit JavaScript code. In our implementation, we have used both Clojure and Clojurescript artifacts. We also used \textit{Reagent} which provides minimalistic interface between ClojureScript and React\footnote{https://facebook.github.io/react/}. \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} is a pattern for writing applications in ClojureScript, using Reagent.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{MVC Architecture}
 \label{subsec:mvcarch}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The architecture of the developed user interface is based on the \textit{Model-View-Control (MVC)} design pattern. The MVC paradigm allows to separate business logic from the code that controls presentation of user interface and event handling \cite{Oracle2016}. Each entity view in the web page is made as a combination of at least one Model, View and one or more Controls. 
+The architecture of the developed user interface is based on the MVC design pattern. The MVC paradigm allows to separate business logic from the code that controls presentation of user interface and event handling \cite{Oracle2016}. Each entity view in the web page is made as a combination of at least one model, view and one or more controls. 
 
-\textit{Model} artifact stores the required data structure for web-based modeling tool. In the developed model artifact, the data structure of modeling elements with their values are stored. 
+\textit{Model} stores the required data structure for web-based modeling tool. In the developed model artifact, the data structure of modeling elements with their values are stored. 
 
-\textit{View} artifact contains HTML (HyperText Markup Language) elements and HTML constructs that describe the way of displaying the data from Model to the user. Most of the common functionalities that render user interface components are re-used. 
+\textit{View} contains HTML (HyperText Markup Language) elements and HTML constructs that describe the way of displaying the data from Model to the user. Most of the common functionalities that render user interface components are re-used. 
 
-\textit{Control} artifact contains the handler functions which can only change the model. Even the initial values of the model are put inside the control. This artifact has functions that updates default database, which then causes a re-render of view that makes the user to see a new view.
+\textit{Control} contains the handler functions which can only change the model. Even the initial values of the model are put inside the control. This artifact has functions that updates default database, which then causes a re-render of view that makes the user to see a new view.
 
-Apart from the above artifacts, there is another important artifact that registers subscription functions, i.e., query layer of the data. As view components never source data directly from default model, we use \textit{subscription} functions. Subscription functions returns values that change over time, i.e., based on user events.
+Apart from the above, there is another important component that registers subscription functions, i.e., query layer of the data. Subscription functions returns values that change over time, i.e., based on user events.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Example: Component using the MVC Pattern }
@@ -70,7 +70,7 @@ Also from the Figure \ref{fig:architectureofthecasestudy}, it is clear that we f
 \subsection{Application Flow}
 \label{subsec:applicationflow}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In this sub-section we provide an overview about how page navigation from current location to the desired location happens in URL of the browser. The external libraries used for route navigation, parses URL into data structures and generates URL from data structure defined as required routes. We call a function to dispatch route, with the matched route. Then we also have another function that parses the URL, to turn URL into data structure representing it. From the Figure \ref{fig:UIArchitecture}, it is clear that route navigation for each entity items happens based on their entity type and its own unique reference identifier.
+ Together with the previous sub-sections, we provide an overview about how page navigation from current location to the desired location happens in URL of the browser. The external libraries used for route navigation, parses URL into data structures and generates URL from data structure defined as required routes. We call a function to dispatch route, with the matched route. Then we also have another function that parses the URL, to turn URL into data structure representing it. From the Figure \ref{fig:UIArchitecture}, it is clear that route navigation for each entity items happens based on their entity type and its own unique reference identifier.
 
 \begin{figure}
 	\centering
@@ -106,7 +106,7 @@ The realization of motivating scenario is explained by integrating the concepts 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{PhasesofMotivatingScenario.pdf}
+	\includegraphics[width=\textwidth]{ResourceModel_UI.png}
 	\caption{Realization of Motivating Scenario}
 	\label{fig:realizationofmotivatingscenario}
 \end{figure}
