@@ -70,7 +70,7 @@ Also from the Figure \ref{fig:architectureofthecasestudy}, it is clear that we f
 \subsection{Application Flow}
 \label{subsec:applicationflow}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- Together with the previous sub-sections, we provide an overview about how page navigation from current location to the desired location happens in URL of the browser. The external libraries used for route navigation, parses URL into data structures and generates URL from data structure defined as required routes. We call a function to dispatch route, with the matched route. Then we also have another function that parses the URL, to turn URL into data structure representing it. From the Figure \ref{fig:UIArchitecture}, it is clear that route navigation for each entity items happens based on their entity type and its own unique reference identifier.
+ In this subsection, we provide an overview about how page navigation from current location to the desired location happens in URL of the browser. The external libraries used for route navigation, parses URL into data structures and generates URL from data structure defined as required routes. We call a function to dispatch route, with the matched route. Then we also have another function that parses the URL, to turn URL into data structure representing it. From the Figure \ref{fig:UIArchitecture}, it is clear that route navigation for each entity items happens based on their entity type and its own unique reference identifier.
 
 \begin{figure}
 	\centering
@@ -82,12 +82,10 @@ Also from the Figure \ref{fig:architectureofthecasestudy}, it is clear that we f
 Each entity item has basic properties such as \textit{name} and \textit{target namespace}. The entities are identified using their unique id which is generated using the unique combination of name and target namespace. The entities that are associated with a particular entity are resolved through unique identifier. For example, in our motivating scenario consider the intention \textit{improve the customer help desk portal} when creating model for this intention, business expert provide name and namespace for this intention and add it to the database. A unique identifier is generated for the intention model using the combination of name and namespace by the system. For example, the strategy in the motivating scenario \textit{through application  development} that is associated with an intention, contains only the unique identifier of intention as reference. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Design Methodology}
+\section{User Interface Design of the Modeling Tool}
 \label{sec:designmethodology}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This section discusses in detail the method of designing the web-based modeling tool, that realizes the approach proposed in the Section \ref{sec:topdownapproach}. When designing the user interface components and functionalities required to develop the tool, most of the similar functionalities are designed as common functions for the purpose of reusing the functions. This reduced unnecessary functional redundancies and overhead. Some of the important methodologies followed with respect to user interface components design are (1) multiple items to be selected from multiple list items are displayed as \textit{list group} and (2) selecting single item from multiple items are displayed as \textit{drop down}. For example, to select multiple strategies from a list of strategies, available strategies are displayed as a list from which the user can select desired number of strategies. Another important methodology followed during user interface design is, for every entity the properties should be displayed only under the respective properties tab. For example, in the Figure \ref{fig:samplescreen}, the basic properties such as name, target namespace and process type of an informal process model should be displayed only under the respective basic properties tab and similarly for all other tabs. This methodology is followed uniformly throughout the design of all the entity types such as intention definitions, strategy definitions, capability definitions, context definitions, instance definitions and informal process definitions. 
-
-All data are stored only under the data artifact. This applies to the labels and text fields of all user interface elements and this data can be updated only through the handler function. Through the \textit{settings} option, user can add new namespace type and intention relation type. From the Figure \ref{fig:samplescreen}, it is clear that a consistent design methodology has been followed to display the list of available entity types such as intentions, strategies, capabilities etc., and to display their respective properties such as basic, entity specific, instance data, etc., properties. Though the top-down modeling approach \ref{sec:topdownapproach}, shows that definition of each entity type is contained within another entity type, as per the user interface design, separate entities references each other using the unique reference identifier but does not contain all properties of referenced entity. For instance, a strategy containing an intention should contain only the intention's unique reference identifier but not the actual intention itself. Later in the view of strategy, actual intention properties are fetched and displayed based on the unique reference identifier. 
+This section discusses in detail the methods followed for designing the web-based modeling tool. The developed tool realizes the approach proposed in the Section \ref{sec:topdownapproach}. When designing the user interface components and functionalities, most of the similar functionalities are designed as common functions for the purpose of reusing the functions. This reduced unnecessary functional redundancies and overhead. It is also important to provide an introduction about the user interface design of the modeling tool, as it helps in understanding the following sections. Also to ensure consistency of the design, all the modeling elements' layout have similar user interface design as follows:
 
 \begin{figure}
 	\centering
@@ -96,53 +94,61 @@ All data are stored only under the data artifact. This applies to the labels and
 	\label{fig:samplescreen}
 \end{figure}
 
+\subsection{Basic Properties}
+From the Figure \ref{fig:samplescreen}, we could see that basic properties such as name and target namespace of an modeling element are displayed under the basic properties. 
+
+\subsection{Entity Specific Properties}
+The entity specific properties of a modeling element are displayed under this tab. The entity specific properties differ from each entity type, i.e., intention, strategy, etc. 
+
+\subsection{Participant List}
+Since intention-oriented organizational modeling satisfies the requirement of participative organizational modeling, we provide participant list tab. This tab holds details of organizational members and their respective privileges. The current design includes only adding and removing of the organizational members as participants. The design also includes assigning privileges to participants such as priviliege to edit, view, follow and own. But the current functioning system, could not check if the members do work based on their privileges. For example, consider a participant who has privilege to only view an intention model and suppose if the participant edits the model then the functioning system does not have functionalities to prevent him from doing so. 
+
+\subsection{Instance Data}
+When a model is initialized, it results in a model instance. As mentioned earlier, a model instance contains additional metadata.
+For example, a model instance of an informal process model contains additional metadata about executed process such as the information 
+about start time, a history of the resource mode, the time of changes made etc.  
+
+
+Some of the important methodologies followed with respect to user interface components design are (1) multiple items to be selected from multiple list items are displayed as \textit{list group} and (2) selecting single item from multiple items are displayed as \textit{drop down}. For example, to select multiple strategies from a list of strategies, available strategies are displayed as a list from which the user can select desired number of strategies. Another important methodology followed during user interface design is, for every entity the properties should be displayed only under the respective properties tab. For example, in the Figure \ref{fig:samplescreen}, the basic properties such as name, target namespace and process type of an informal process model should be displayed only under the respective basic properties tab and similarly for all other tabs. This methodology is followed uniformly throughout the design of all the entity types such as intention definitions, strategy definitions, capability definitions, context definitions, instance definitions and informal process definitions. 
+
+All data are stored only under the data artifact. This applies to the labels and text fields of all user interface elements and this data can be updated only through the handler function. Through the \textit{settings} option, user can add new namespace type and intention relation type. From the Figure \ref{fig:samplescreen}, it is clear that a consistent design methodology has been followed to display the list of available entity types such as intentions, strategies, capabilities etc., and to display their respective properties such as basic, entity specific, instance data, etc., properties. Though the top-down modeling approach \ref{sec:topdownapproach}, shows that definition of each entity type is contained within another entity type, as per the user interface design, separate entities references each other using the unique reference identifier but does not contain all properties of referenced entity. For instance, a strategy containing an intention should contain only the intention's unique reference identifier but not the actual intention itself. Later in the view of strategy, actual intention properties are fetched and displayed based on the unique reference identifier. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Realization of Motivating Scenario}
+\section{Realization of the Approach}
 \label{sec:realization}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The realization of motivating scenario is explained by integrating the concepts discussed in Chapter \ref{chap:motivatingScenario} and the informal process modeling approach discussed in the Chapter \ref{chap:approach}. In order to, realize the motivating scenario using the proposed approach it is important to model them step by step as mentioned in the informal process modeling approach. The developed modeling tool also supports dynamic changes in the models whenever there is a need to add new models. As each models are designed in individual modeling step, details of individual modeling steps are provided in the following sub sections. 
+In order to realize the proposed approach in the Section \ref{sec:topdownapproach} of Chapter \ref{chap:approach}, we create models using the developed web-based modeling tool for the motivating scenario discussed in the Chapter \ref{chap:motivatingScenario}. It is also important to model them step by step as mentioned in the Section \ref{chap:approach}. As we mentioned earlier, to realize the approach in organizations, we model the motivating scenario step by step as mentioned in the second phase of the InProXec method. The step of modeling are discussed in the Section \ref{sec:informalprocessmodeling} of previous Chapter \ref{chap:approach}. As each models are designed in an individual modeling step, details of individual modeling steps are provided in the following subsections. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Realization of Context Definitions}
+\subsection{Modeling of Contexts}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 In the informal process modeling approach, the first modeling step is to model the context definitions (M1). Each informal process starts from an initial context and aims to achieve an intention \cite{Sungur2014a}. After reaching an intention, there is resulting IPE Context. To realize the motivating scenario, user can add new contexts by providing basic properties such as name of the context and target namespace of the context as they serve as unique reference identifier for these contexts. After successfully adding the basic properties, user can provide entity specific properties such as contained contexts inside the main context, entity definition details about the contexts and participant list with respective privileges for each participant are also provided. The required context definitions are modeled first because these definition are required for modeling intention definitions and process definitions.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Realization of Intention Definitions}
+\subsection{Modeling of Intentions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 After modeling context definitions(M1), the second step of the modeling is to model the intentions (M2). For example, in our motivating scenario we have main intention as "increase revenue and number of unit sales" and other low level intentions that emerged out of main intention and strategies of the main intention. The user can provide descriptive information about particular intention as intention definition. Similar to context modeling, the user has to provide basic properties such as name and target namespace required for unique identification of the entity. After providing basic properties, the user has to provide entity specific details of the intention such as due date and time for intention completion, priority of the intention, cost of the intention, other related intentions that are contained under this particular intention. The strategies to achieve this intention and contexts of the intention are also provided as entity specific properties. The participant list with respective privileges for each participant are also provided when an entity is of type interactive acquirable entity. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Realization of Strategy Definitions}
+\subsection{Modeling of Strategies}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 After modeling context definitions (M1) and intention definitions (M2) user can proceed to model the strategies (M3) which is third step of the modeling process. For example, in our motivating scenario user can model the strategies such as \textit{through expansion}, \textit{through advertisements} and other required strategies as third step of the modeling process. Similar to earlier modeling steps, during modeling of strategy user required to provide basic properties such as name and target namespace. After providing the basic properties, entity specific properties such as target intentions of the strategy, capabilities and process definitions associated with strategy are also provided. Since, strategy is also an interactive acquirable entity similar to intention, participant list details are also provided during modeling of strategies
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Realization of Capability Definitions}
+\subsection{Modeling of Capabilities}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Modeling of capability (M4) is the fourth step in intention-oriented organizational modeling. There are two types of capabilities. Functional capabilities and cross-functional capabilities. Functional capabilities are the capabilites that associated with other entity types. Cross-functional capabilities contains multiple functional capabilities. Similar to earlier entity types' basic properties such as name and target namespace are added to get the unique reference identifier and entity specific properties for capabilities are added. Since cross functional capability contains functional capabilities, it holds the identifiers of the functional capabilities contained in it. Functional capability definitions also has participant list details similar to intention definitions and strategy definitions. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Realization of Process Definitions}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-By modeling the business processes based on resources that work towards certain intentions, informal processes are modeled without predefining their business logic \cite{Sungur2014a}. Also as mentioned earlier each informal process starts from an initial context and aims to achieve an intention that results in a final context. Thus, we require context definitions and intention definitions before modeling process definitions. Similar to earlier modeling of entity types, process modeling also requires basic properties such as name, namespace  and entity specific properties such as associated intentions, contexts and resources. Process definition also has participant list similar to other entity types. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Realization of Resource Definitions}
+\subsection{Modeling of Resources}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Each resource that provides certain capability can be related to another resource which are defined using predefined or custom \textit{relationships} \cite{Sungur2014a}. These resources are managed through \textit{resource organizers}, this is because resource organizers are used to bring together the relevant interrelated resources that work towards to achieve an intention. TOSCA \cite{Binz2014} can be used to model all nodes and relationship among them. In this work, authors consider resources as nodes to make use of the TOSCA's service. In the developed modeling tool, the resource models are managed by embedding the open source modeling tool Winery web page \cite{Kopp2013} in the modeling tool's web page. This is because it creates a new service template that contains an application topology by using the topology modeler. Winery also offers all available node types in a palette. From there, user can drag the desired node type and drop it into the editing area. There the node type becomes a node template i.e., a node in the topology graph. Node templates can be annotated with requirements and capabilities, property values, and policies. The screen shot of modeling sample resource has been provided in the Figure \ref{fig:realizationofresourcemodel}. 
 
-In order to achieve this, we use TOSCA repository URL referring to winery and topology modeler of the winery. Using these values we create corresponding URL required for our modeling based on the name and namespace properties of an entity. The functionality to generate resource model page, using TOSCA repository URL and topology modeler URL is provided below.
+In order to achieve this, we use TOSCA repository URL referring to winery and topology modeler of the winery. Using these values we create corresponding URL required for our modeling based on the name and namespace properties of an entity. 
 
-\fbox{
-	\begin{minipage}{\textwidth}
-		\{topology-modeler-url\}?repositoryURL=\{encoded-tosca-repository-url\}\&ns=\{encoded-target-namepsace\}\&id=\{encoded-identifier\}\#
-	\end{minipage}
-	}
-			
-			
+
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth,angle=0]{ResourceModel_UI.png}
@@ -151,7 +157,16 @@ In order to achieve this, we use TOSCA repository URL referring to winery and to
 \end{figure}
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Realization of Instance creation}
+\subsection{Additional Features of the Tool}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Realization of Process Definitions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+By modeling the business processes based on resources that work towards certain intentions, informal processes are modeled without predefining their business logic \cite{Sungur2014a}. Also as mentioned earlier each informal process starts from an initial context and aims to achieve an intention that results in a final context. Thus, we require context definitions and intention definitions before modeling process definitions. Similar to earlier modeling of entity types, process modeling also requires basic properties such as name, namespace  and entity specific properties such as associated intentions, contexts and resources. Process definition also has participant list similar to other entity types. 
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Realization of Instance creation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Initializing resource-centric processes require acquiring and engaging interrelated resources \cite{Sungur2015}. As mentioned earlier, the phases of compiling and initializing of informal process models are not within scope of this work. Only the functionalities such as creating instances, extracting instances and editing instances are part of the functioning tool. This is because initializing informal process models starts after the initial context defined in an IPE model \cite{Sungur2015}. Thus, it is important to discuss realization of instance creation which are required for phase P3 of Executing Informal Processes (InProXec) method. Acquirable entity types' models can be converted into instances. For example, process definition is converted into \textit{process instance} when the model is compiled and engaged with resources. A model instance contains additional meta-data about the executed processes such as the information about the start date and time, end date and time, instance status, cost, source model etc. From the screen-shot image \ref{fig:realizationofinstances2} it is clear that these properties of an instance can be edited through the developed tool. Only when a acquirable model is successfully initialized it can be engaged to adapt the process execution of emerging requirements \cite{Sungur2015}. 
 
