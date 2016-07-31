@@ -90,43 +90,51 @@ This section discusses in detail the methods followed for designing the web-base
 
 
 \subsection{Basic Properties}
-From the Figure \ref{fig:samplescreen}, we could see that basic properties such as name and target namespace of an modeling element are displayed under the basic properties. 
+From the Figure \ref{fig:samplescreen}, we could see that basic properties such as name and target namespace of a modeling element are displayed under the basic properties tab. 
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth,angle=0]{Design_UI.png}
-	\caption{User Interface Design of the Modeling Tool}
+	\caption{User Interface Design of the Basic Properties Tab}
 	\label{fig:samplescreen}
 \end{figure}
 
 \subsection{Entity Specific Properties}
-The entity specific properties of a modeling element are displayed under this tab. The entity specific properties differ from each entity type, i.e., intention, strategy, etc. 
+The entity specific properties of a modeling element are displayed under this tab. The entity specific properties differ from each entity type, i.e., intention, strategy, etc. For example, intention models contain achieving strategies, related intentions, etc., under entity specific properties tab but strategy models contain details like target intentions, required organizational capabilities, etc. From the Figure \ref{fig:samplescreen_esp}, we could see that entity specific properties of a process model includes details of associated contexts, intentions and estimated cost of the process model.
 
-\begin{figure}
+\begin{figure} [H]
 	\centering
-	\includegraphics[width=\textwidth,angle=0]{Design_UI.png}
-	\caption{User Interface Design of the Modeling Tool}
+	\includegraphics[width=\textwidth,angle=0]{Design_UI_ESP.png}
+	\caption{User Interface Design of the Entity Specific Properties Tab}
 	\label{fig:samplescreen_esp}
 \end{figure}
-\subsection{Participant List}
-Since intention-oriented organizational modeling satisfies the requirement of participative organizational modeling, we provide participant list tab. This tab holds details of organizational members and their respective privileges. The current design includes only adding and removing of the organizational members as participants. The design also includes assigning privileges to participants such as priviliege to edit, view, follow and own. But the current functioning system, could not check if the members do work based on their privileges. For example, consider a participant who has privilege to only view an intention model and suppose if the participant edits the model then the functioning system does not have functionalities to prevent him from doing so. 
 
-\begin{figure}
+\subsection{Participant List}
+Since intention-oriented organizational modeling satisfies the requirement of participative organizational modeling, we provide participant list tab. This tab holds details of organizational members and their respective privileges. The current design includes only adding and removing of the organizational members as participants. The design also includes assigning privileges to participants such as priviliege to edit, view, follow and own. But the current functioning system, could not check if the members do work based on their privileges. For example, consider a participant who has privilege to only view an intention model and suppose if the participant edits the model then the functioning system does not have functionalities to prevent him from doing so. From the Figure \ref{fig:samplescreen_pl}, we could see that participant list tab of a modeling element contains the details of participants those who can edit, view, follow or own a particular model. 
+From thr Figure \ref{fig:samplescreen_pl_editor}, we could see how privileges for a particular participant can be provided and revoked.  
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=\textwidth,angle=0]{Design_UI_Participant_2.png}
+	\caption{User Interface Design of the Participant List Tab}
+	\label{fig:samplescreen_pl}
+\end{figure}
+
+\begin{figure} [H]
 	\centering
 	\includegraphics[width=\textwidth,angle=0]{Design_UI_Participant.png}
-	\caption{User Interface Design of the Modeling Tool}
-	\label{fig:samplescreen_pl}
+	\caption{User Interface Design of the Participant as an Editor of the Model}
+	\label{fig:samplescreen_pl_editor}
 \end{figure}
 
 \subsection{Instance Data}
 When a model is initialized, it results in a model instance. As mentioned earlier, a model instance contains additional metadata.
-For example, a model instance of an informal process model contains additional metadata about executed process such as the information 
-about start time, a history of the resource mode, the time of changes made etc.  
+The instances contained under a model are shown inside the instance data tab. For example, the Figure \ref{fig:samplescreen_instance} shows the instance contained under an informal process model. 
+  
 
-\begin{figure}
+\begin{figure} [H]
 	\centering
-	\includegraphics[width=\textwidth,angle=0]{Design_UI_Instance.png}
-	\caption{User Interface Design of the Modeling Tool}
+	\includegraphics[width=\textwidth,angle=0]{Design_UI_InstanceData.png}
+	\caption{User Interface Design of the Instance Data Tab}
 	\label{fig:samplescreen_instance}
 \end{figure}
 
@@ -191,8 +199,6 @@ By modeling the business processes based on resources that work towards certain 
 \subsubsection{Realization of Instance creation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Initializing resource-centric processes require acquiring and engaging interrelated resources \cite{Sungur2015}. As mentioned earlier, the phases of compiling and initializing of informal process models are not within scope of this work. Only the functionalities such as creating instances, extracting instances and editing instances are part of the functioning tool. This is because initializing informal process models starts after the initial context defined in an IPE model \cite{Sungur2015}. Thus, it is important to discuss realization of instance creation which are required for phase P3 of Executing Informal Processes (InProXec) method. Acquirable entity types' models can be converted into instances. For example, process definition is converted into \textit{process instance} when the model is compiled and engaged with resources. A model instance contains additional meta-data about the executed processes such as the information about the start date and time, end date and time, instance status, cost, source model etc. From the screen-shot image \ref{fig:realizationofinstances2} it is clear that these properties of an instance can be edited through the developed tool. Only when a acquirable model is successfully initialized it can be engaged to adapt the process execution of emerging requirements \cite{Sungur2015}. 
-
-
 
 The developed tool supports creation and updation of descriptive information about instances. Each instance belong to any one of the acquirable entity type such strategies, intentions and informal processes. Any entity that has instances are also listed inside the \textit{Instance data} tab of each entity. From the user interface screen Figure \ref{fig:realizationofinstances}, it is clear that the editor has ability to add, remove and extract instance descriptors for any entity type. An instance descriptor of a functional capability refers to a resource definition meaning that a capability is provided by a resource.
  
