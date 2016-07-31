@@ -174,38 +174,21 @@ Modeling of capability (M4) is the fourth step in intention-oriented organizatio
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modeling of Resources}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Each resource that provides certain capability can be related to another resource which are defined using predefined or custom \textit{relationships} \cite{Sungur2014a}. These resources are managed through \textit{resource organizers}, this is because resource organizers are used to bring together the relevant interrelated resources that work towards to achieve an intention. TOSCA \cite{Binz2014} can be used to model all nodes and relationship among them. In this work, authors consider resources as nodes to make use of the TOSCA's service. In the developed modeling tool, the resource models are managed by embedding the open source modeling tool Winery web page \cite{Kopp2013} in the modeling tool's web page. This is because it creates a new service template that contains an application topology by using the topology modeler. Winery also offers all available node types in a palette. From there, user can drag the desired node type and drop it into the editing area. There the node type becomes a node template i.e., a node in the topology graph. Node templates can be annotated with requirements and capabilities, property values, and policies. The screen shot of modeling sample resource has been provided in the Figure \ref{fig:realizationofresourcemodel}. 
+Each resource that provides certain capability can be related to another resource which are defined using predefined or custom \textit{relationships} \cite{Sungur2014a}. These resources are managed through \textit{resource organizers}, this is because resource organizers are used to bring together the relevant interrelated resources that work towards to achieve an intention. TOSCA \cite{Binz2014} can be used to model all nodes and relationship among them. In this work, authors consider resources as nodes to make use of the TOSCA's service. In the developed modeling tool, the resource models are managed by embedding the open source modeling tool Winery web page \cite{Kopp2013} in the modeling tool's web page. This is because it creates a new service template that contains an application topology by using the topology modeler. Winery also offers all available node types in a palette. From there, user can drag the desired node type and drop it into the editing area. There the node type becomes a node template i.e., a node in the topology graph. Node templates can be annotated with requirements and capabilities, property values, and policies.
 
 In order to achieve this, we use TOSCA repository URL referring to winery and topology modeler of the winery. Using these values we create corresponding URL required for our modeling based on the name and namespace properties of an entity. 
 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth,angle=0]{ResourceModel_UI.png}
-	\caption{User Interface Screen of Resource Model}
-	\label{fig:realizationofresourcemodel}
-\end{figure}
-		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Additional Features of the Tool}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
-		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Realization of Process Definitions}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-By modeling the business processes based on resources that work towards certain intentions, informal processes are modeled without predefining their business logic \cite{Sungur2014a}. Also as mentioned earlier each informal process starts from an initial context and aims to achieve an intention that results in a final context. Thus, we require context definitions and intention definitions before modeling process definitions. Similar to earlier modeling of entity types, process modeling also requires basic properties such as name, namespace  and entity specific properties such as associated intentions, contexts and resources. Process definition also has participant list similar to other entity types. 
-		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Realization of Instance creation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Initializing resource-centric processes require acquiring and engaging interrelated resources \cite{Sungur2015}. As mentioned earlier, the phases of compiling and initializing of informal process models are not within scope of this work. Only the functionalities such as creating instances, extracting instances and editing instances are part of the functioning tool. This is because initializing informal process models starts after the initial context defined in an IPE model \cite{Sungur2015}. Thus, it is important to discuss realization of instance creation which are required for phase P3 of Executing Informal Processes (InProXec) method. Acquirable entity types' models can be converted into instances. For example, process definition is converted into \textit{process instance} when the model is compiled and engaged with resources. A model instance contains additional meta-data about the executed processes such as the information about the start date and time, end date and time, instance status, cost, source model etc. From the screen-shot image \ref{fig:realizationofinstances2} it is clear that these properties of an instance can be edited through the developed tool. Only when a acquirable model is successfully initialized it can be engaged to adapt the process execution of emerging requirements \cite{Sungur2015}. 
 
 The developed tool supports creation and updation of descriptive information about instances. Each instance belong to any one of the acquirable entity type such strategies, intentions and informal processes. Any entity that has instances are also listed inside the \textit{Instance data} tab of each entity. From the user interface screen Figure \ref{fig:realizationofinstances}, it is clear that the editor has ability to add, remove and extract instance descriptors for any entity type. An instance descriptor of a functional capability refers to a resource definition meaning that a capability is provided by a resource.
  
-\begin{figure}
+\begin{figure} [H]
 	\centering
-	\includegraphics[width=\textwidth,angle=0]{AcquirableEntities_UI.png}
-	\caption{User Interface Screen of Acquirable Entities}
+	\includegraphics[width=\textwidth,angle=0]{Design_UI_Instance.png}
+	\caption{User Interface Screen of an Instance Model}
 	\label{fig:realizationofinstances}
 \end{figure}
 
@@ -214,11 +197,11 @@ The developed tool supports creation and updation of descriptive information abo
 \section{Realization of the Requirements}
 \label{sec:validation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-This section provides details of realizing the requirements of intention-oriented organizational modeling that are satisfied by the approach. 
+This section provides details of realizing the requirements of intention-oriented organizational modeling that are satisfied by the proposed approach. 
 
 \textit{Organizational Intention Transparency} (R1):  Using the modeling tool intentions at different levels can be modeled which satisfies first pre-requisite of R1. With the current functioning system any user can view intention at different levels which satisfies second pre-requisite of R2. Thus, requirement R1 is satisfied by the functioning system as both of its pre-requisites are satisfied .
 
-\textit{Organizational Strategy-based Cost Estimation} (R2): The modeling tool itself calculates and displays the strategy cost calculation based on strategy implementation and resource cost. This cost information helps the business experts to make certain decision based on cost calculation during modeling. The functioning tool satisfies requirement R2 as both of its pre-requisites are met by the tool. 
+\textit{Organizational Strategy-based Cost Estimation} (R2): The modeling tool itself calculates and displays the estimated strategy cost calculation based on strategy implementation and resource cost. This cost information helps the business experts to make certain decision based on cost calculation during modeling. The functioning tool satisfies requirement R2 as both of its pre-requisites are met by the tool. 
 
 \textit{Organizational Strategy Achievability Estimation} (R3): Similar to cost calculation, strategy achievability estimation based on its association with valid capability is also determined and displayed during modeling phase itself. The functioning tool satisfies requirement R3 as both of its pre-requisites are met by the tool.
 
