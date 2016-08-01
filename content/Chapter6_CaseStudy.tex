@@ -1,13 +1,13 @@
 \chapter{Case Study on a Manufacturing Company}
 \label{chap:casestudy}
 
-In this chapter, the first section provides the implementation details along with the reason for making certain decisions regarding the implementation of web-based modeling tool. The second section provides architecture of the functioning system. The third section provides details of the user interface design of the modeling tool. The fourth section explains the realization of modeling of the motivating scenario taken from a manufacturing company using the approach discussed in the Section \ref{sec:topdownapproach}. Successful modeling of the motivating scenario using the developed tool serves as a proof for the validity and usability of the approach. 
+In this chapter, the first section provides the implementation details along with the reason for making certain decisions regarding the implementation of the web-based modeling tool. The second section provides architecture of the functioning system. The third section provides details of the user interface design of the modeling tool. The fourth section explains the realization of modeling of the motivating scenario taken from a manufacturing company using the approach discussed in the Section \ref{sec:topdownapproach}. Successful modeling of the motivating scenario using the developed tool serves as a proof for the validity and usability of the approach. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Technologies and Frameworks}
 \label{subsec:specifications}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In order to, realize the approach presented in the Section \ref{sec:topdownapproach}, a formal inquiry was done to choose suitable technologies and frameworks required. The below specifications were finalized and \textit{single page web application} (SPA) using \textit{client-side scripting} was chosen. The single page web application is a web application that fits on a single web browser page with user experience similar to the desktop application. In a SPA, the necessary code is retrieved within a single page load and they are easily updated and distributed, usually without requiring any action from the user \cite{Mikowski2013}. The client side scripting refers to the script code that is executed on the user's web browser instead on the web server \cite{Sierra2012}. The reason for selecting client side scripting is because of their advantages such as, (1) no refreshing of the page while using the application, (2) suitable for applications that uses Javascript framework for evaluating SPA, etc. The technologies are frameworks that were finalized are as follows:
+In order to, realize the approach presented in the Section \ref{sec:topdownapproach}, a formal inquiry was done to choose suitable technologies and frameworks required. The below specifications were finalized and \textit{single page web application} (SPA) using \textit{client-side scripting} was chosen. The single page web application is a web application that fits on a single web browser page with user experience similar to the desktop application. In a SPA, the necessary code is retrieved within a single page load and they are easily updated and distributed, usually without requiring any action from the user \cite{Mikowski2013}. The client side scripting refers to the script code that is executed on the user's web browser instead on the web server \cite{Sierra2012}. The reason for selecting client side scripting is because of their advantages such as, (1) no refreshing of the page while using the application, (2) suitable for applications that uses Javascript framework for evaluating SPA, etc. The technologies and frameworks that were finalized are as follows:
 
 \begin{enumerate}   
 	\item \textit{ClojureScript}\footnote{http://clojure.org/about/clojurescript} as the programming language
@@ -15,15 +15,15 @@ In order to, realize the approach presented in the Section \ref{sec:topdownappro
 	\item \textit{Re-frame}\footnote{https://github.com/Day8/re-frame} as the pattern for writing SPA in ClojureScript, using Reagent\footnote{http://reagent-project.github.io/}	
 \end{enumerate}
 
-Other than the above listed frameworks and technologies, frameworks like \textit{react-bootstrap}\footnote{https://react-bootstrap.github.io/}, jquery\footnote{https://jquery.com/} were also used, to provide more optimal view of the tool. Along with this, we have also used libraries like bidi\footnote{https://github.com/juxt/bidi} and pushy\footnote{https://github.com/kibu-australia/pushy}, to handle page navigation from current location to the desired location in the URL (Uniform Resource Locator) of the browser. 
+Other than the above listed frameworks and technologies, frameworks like \textit{react-bootstrap}\footnote{https://react-bootstrap.github.io/}, jquery\footnote{https://jquery.com/} were also used, to provide more optimal view of the tool. Along with this, we have also used libraries like bidi\footnote{https://github.com/juxt/bidi} and pushy\footnote{https://github.com/kibu-australia/pushy}, to handle the page navigation from current location to the desired location in the URL (Uniform Resource Locator) of the browser. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{MVC Architecture}
 \label{subsec:mvcarch}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The architecture of the developed user interface is based on the MVC design pattern. The MVC paradigm allows to separate business logic from the code that controls presentation of the user interface and event handling \cite{Oracle2016}. Each entity view in the web page is made as a combination of at least one model, view and one or more controls. 
+The architecture of the developed user interface, is based on the MVC design pattern. The MVC paradigm allows to separate business logic from the code that controls presentation of the user interface and event handling \cite{Oracle2016}. Each entity view in the web page is made as a combination of at least one model, view and one or more controls. 
 
-\textit{Model} stores the required data structure for web-based modeling tool. In the developed model, the data structure of modeling elements with their values are stored. 
+\textit{Model} stores the required data structure for web-based modeling tool. In the developed model, the data structure of the modeling elements with their values are stored. 
 
 \textit{View} contains HTML (HyperText Markup Language) elements and HTML constructs that describe the way of displaying the data from model to the user. Most of the common functionalities that render user interface components were reused to reduce redundancy. 
 
@@ -34,7 +34,7 @@ Apart from the above MVC design components, there is another important component
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Example: Component using the MVC Pattern }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The Figure \ref{fig:mvc_pattern} below shows how components interact with each other using the MVC pattern with a simple example of adding a new modeling element. This functionality is same for all the types such as contexts, intentions, strategies, capabilities and informal processes.  
+The Figure \ref{fig:mvc_pattern} shows how components interact with each other using the MVC pattern with a simple example of adding a new modeling element. This functionality is same for all the types such as contexts, intentions, strategies, capabilities and informal processes.  
 
 \begin{figure}
 	\centering
@@ -146,42 +146,70 @@ All data are stored only under the model component. This applies to the labels a
 \section{Realization of the Approach}
 \label{sec:realization}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In order to validate the proposed approach in the Section \ref{sec:topdownapproach}, we create models using the developed web-based modeling tool for the motivating scenario discussed in the Chapter \ref{chap:motivatingScenario}. It is also important to model them step by step as mentioned in the Section \ref{sec:informalprocessmodeling}. This is because to realize the approach in organizations, we model the motivating scenario step by step as mentioned in the second phase of the InProXec method. As each models are designed in an individual modeling step, details of individual modeling steps are provided in the following subsections. This section helps to understand the usability of the approach in the organizations. The user interface screen design of the below modeling elements are consistent and similar to the screen design explained in the previous Section \ref{sec:designmethodology}.
+In order to validate the proposed approach in the Section \ref{sec:topdownapproach}, we create models using the developed web-based modeling tool for the motivating scenario discussed in the Chapter \ref{chap:motivatingScenario}. It is also important to model them step by step as mentioned in the Section \ref{sec:informalprocessmodeling}. This is because to realize the approach in organizations, we model the motivating scenario step by step as mentioned in the second phase of the InProXec method. As each models are designed in an individual modeling step, details of individual modeling steps are provided in the following subsections. This section helps to understand the usability of the approach in the organizations. The user interface screen design of the below modeling elements are consistent and similar to the screen designs explained in the previous Section \ref{sec:designmethodology}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modeling of the Contexts}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In the informal process modeling approach, the first modeling step is to model the context definitions (M1). Each informal process starts from an initial context and aims to achieve an intention \cite{Sungur2014a}. After reaching an intention, there is resulting IPE Context. To model the contexts, we added new contexts by providing basic properties such as name of the context and target namespace of the context. After successfully adding the basic properties, we provided the entity specific properties such as the contained contexts inside the main context, entity definition details about the contexts are also provided. The required context definitions are modeled first because these definition are required for modeling intention definitions and process definitions. The participant list details were also provided during modeling of the contexts. Thus, in this step we modeled the contexts of our motivating scenario using the modeling tool. 
+In the informal process modeling approach, the first modeling step is to model the context definitions (M1). Each informal process starts from an initial context and aims to achieve an intention \cite{Sungur2014a}. After reaching an intention, there is resulting IPE Context. To model the contexts, we added new contexts by providing basic properties such as name of the context and target namespace of the context. After successfully adding the basic properties, we provided the entity specific properties such as the contained contexts inside the main context, entity definition details about the contexts are also provided. The required context definitions are modeled first because these definition are required for modeling intention definitions and process definitions. The participant list details were also provided during modeling of the contexts. From the Figure \ref{fig:modeling_contexts}, we could see that in this step we modeled the contexts of our motivating scenario using the modeling tool. 
+
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=\textwidth,angle=0]{Modeling_contexts.png}
+	\caption{Modeling of the Contexts}
+	\label{fig:modeling_contexts}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modeling of the Intentions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-After modeling context definitions(M1), the second step of the modeling is to model the intentions (M2). For example, in our motivating scenario we have main intention as \textit{increase revenue and number of unit sales} and other low level intentions that emerged out of main intention and strategies of the main intention. Thus, we provided descriptive information of the intentions of our motivating scenario as intention definitions using the modeling tool. Similar to context modeling, in this step we provided basic properties such as name and target namespace required for unique identification of the entity. After providing basic properties, we provide entity specific details of the intention such as due date and time for intention completion, priority of the intention, cost of the intention, other related intentions that are contained under this particular intention. The strategies to achieve this intention and contexts of the intention were also provided as entity specific properties using the modeling tool. The participant list details were also provided during modeling of the intentions. Thus, in this step we modeled the intentions of our motivating scenario using the modeling tool. 
+After modeling context definitions(M1), the second step of the modeling is to model the intentions (M2). For example, in our motivating scenario we have main intention as \textit{increase revenue and number of unit sales} and other low level intentions that emerged out of main intention and strategies of the main intention. Thus, we provided descriptive information of the intentions of our motivating scenario as intention definitions using the modeling tool. Similar to the context modeling, in this step we provided basic properties such as name and target namespace required for unique identification of the entity. After providing basic properties, we provided entity specific details of the intention such as due date and time for intention completion, priority of the intention, cost of the intention, other related intentions that are contained under this particular intention. The strategies to achieve this intention and contexts of the intention were also provided as entity specific properties using the modeling tool. The participant list details were also provided during modeling of the intentions. From the Figure \ref{fig:modeling_intentions}, we could see that in this step we modeled the intentions of our motivating scenario using the modeling tool. 
+
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=\textwidth,angle=0]{Modeling_intentions.png}
+	\caption{Modeling of the Intentions}
+	\label{fig:modeling_intentions}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modeling of the Strategies}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-After modeling context definitions (M1) and intention definitions (M2), the next step is to model the strategies (M3). In this step, we modeled the strategies such as \textit{through expansion}, \textit{through advertisements} and other required strategies as third step of the modeling process. Similar to earlier modeling steps, during modeling of strategy we provided basic properties such as name and target namespace. After providing the basic properties, entity specific properties such as target intentions of the strategy, capabilities and process definitions associated with strategy are also provided. The participant list details were also provided during modeling of the strategies. Thus, in this step we modeled the strategies of our motivating scenario using the modeling tool. 
+After modeling the context definitions (M1) and intention definitions (M2), the next step is to model the strategies (M3). In this step, we modeled the strategies such as \textit{through expansion}, \textit{through advertisements} and other required strategies as third step of the modeling process. Similar to earlier modeling steps, during modeling of the strategy we provided basic properties such as name and target namespace. After providing the basic properties, entity specific properties such as target intentions of the strategy, capabilities and process definitions associated with strategy were also provided. The participant list details were also provided during modeling of the strategies. From the Figure \ref{fig:modeling_strategies}, we could see that in this step we modeled the strategies of our motivating scenario using the modeling tool. 
+
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=\textwidth,angle=0]{Modeling_strategies.png}
+	\caption{Modeling of the Strategies}
+	\label{fig:modeling_strategies}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modeling of the Capabilities}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Modeling of capability (M4) is the fourth step in intention-oriented organizational modeling. There are two types of capabilities. Functional capabilities and cross-functional capabilities. Functional capabilities are the capabilites that associated with other entity types. Cross-functional capabilities contains multiple functional capabilities. Similar to earlier entity types' basic properties such as name and target namespace are added to get the unique reference identifier and entity specific properties for capabilities are added. Since cross functional capability contains functional capabilities, it holds the identifiers of the functional capabilities contained in it. Functional capability definitions also has participant list details similar to intention definitions and strategy definitions. In this step, we created required models for capabilities of our motivating scenario. Thus, in this step we modeled the capabilities of our motivating scenario using the modeling tool. 
+In modeling of the capabilities, there are two types of capabilities. Functional capabilities and cross-functional capabilities. Functional capabilities are the capabilites that associated with other entity types. Cross-functional capabilities contains multiple functional capabilities. Similar to earlier entity types' basic properties such as name and target namespace are added to get the unique reference identifier and entity specific properties for capabilities are added. Since cross functional capability contains functional capabilities, it holds the identifiers of the functional capabilities contained in it. Functional capability definitions also has participant list details similar to the intention definitions and strategy definitions. In this step, we created required models for capabilities of our motivating scenario. From the Figure \ref{fig:modeling_fc}, we could see that in this step we modeled the capabilities of our motivating scenario using the modeling tool. 
+
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=\textwidth,angle=0]{Modeling_FC.png}
+	\caption{Modeling of the Capabilities}
+	\label{fig:modeling_fc}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modeling of the Resources}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Each resource that provides certain capability can be related to another resource which are defined using predefined or custom \textit{relationships} \cite{Sungur2014a}. In the developed modeling tool, the resource models are managed by embedding the open source modeling tool Winery \cite{Kopp2013} in the modeling tool's resource model tab. This is because Winery offers resources which we can model using their tool that is embedded under the resource model tab. Thus, using the modeling tool we created resource models. 
+Each resource that provides certain capability can be related to another resource which are defined using predefined or custom \textit{relationships} \cite{Sungur2014a}. In the developed modeling tool, the resource models are managed by embedding the open source modeling tool Winery \cite{Kopp2013} in the modeling tool's resource model tab. This is because Winery offers resources which we can model using their tool that is embedded under the resource model tab. Thus, using the modeling tool we created the resource models. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modeling of the Instances}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
- A model instance contains additional meta-data about the executed processes such as the information about the start date and time, end date and time, instance status, cost, source model etc. From the required partial screenshot image \ref{fig:realizationofinstances} of the modeling tool, it is clear that these properties of an instance can be edited through the developed tool. The developed tool supports creation and updation of descriptive information about instances. Each instance belong to any one of the acquirable entity type such strategies, intentions and informal processes. Any modeling element that has instances are also listed inside the \textit{Instance data} tab of each modeling element.  
+ A model instance contains additional meta-data about the executed processes such as the information about the start date and time, end date and time, instance status, cost, source model etc. From the partial screenshot image \ref{fig:realizationofinstances} of the modeling tool, it is clear that these properties of an instance can be edited through the developed tool. The developed tool supports creation and updation of descriptive information about instances. Each instance is of any entity type such strategies, intentions and informal processes. Any modeling element that has instances are also listed inside the \textit{Instance data} tab of each modeling element.  
  
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=\textwidth,angle=0]{Design_UI_Instance.png}
-	\caption{User Interface Screen of an Instance Model}
+	\caption{Modeling of the Instances}
 	\label{fig:realizationofinstances}
 \end{figure}
 
@@ -191,11 +219,11 @@ Each resource that provides certain capability can be related to another resourc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 This section provides details of realizing the requirements of intention-oriented organizational modeling that are satisfied by the proposed approach. Though we validated the approach using the requirements in the Section \ref{sec:topdownapproach}, it is important to mention the realization of the requirements by the tool.
 
-\textit{Organizational Intention Transparency} (R1):  Using the modeling tool intentions at different levels can be modeled which satisfies first prerequisite of R1. With the current functioning system any user can view intention at different levels which satisfies second prerequisite of R2. Thus, the functioning tool realizes the requirement R1.
+\textit{Organizational Intention Transparency} (R1):  Using the modeling tool intentions at different levels can be modeled which satisfies the first prerequisite of R1. With the current functioning system any user can view the intention at different levels which satisfies the second prerequisite of R2. Thus, the functioning tool realizes the requirement R1.
 
 \textit{Organizational Strategy-based Cost Estimation} (R2): The cost of the organizational resources are stored in the model component. The modeling tool itself calculates and displays the estimated strategy cost calculation based on strategy implementation and resource cost. This cost information helps the business experts to make certain decision based on cost calculation during modeling. Thus, the functioning tool realizes the requirement R2.  
 
-\textit{Organizational Strategy Achievability Estimation} (R3): Similar to cost calculation, strategy achievability estimation based on its association with valid capability is also determined and displayed during modeling phase itself. Thus, the functioning tool realizes the requirement R3.
+\textit{Organizational Strategy Achievability Estimation} (R3): Similar to the cost calculation, strategy achievability estimation based on its association with valid capability is also determined and displayed during the modeling phase itself. Thus, the functioning tool realizes the requirement R3.
 
 \textit{Intention Oriented Working Style} (R4): The tool realizes the requirement R1 and as per the current design, any user can create intention models, strategy models, informal process models, etc., through the tool provided the user has understanding about main intention and its recursive structure. Thus, the functioning tool realizes the requirement R4.
 
